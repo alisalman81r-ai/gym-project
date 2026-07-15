@@ -1,69 +1,67 @@
 # Image Asset Manifest
 
-Every image currently on the site is a **hand-drawn SVG placeholder** — abstract gold/black gradients standing in for real photography. None of this is stock photography; nothing here needs a license. This file is the exact shopping list for replacing them with real gym photography.
+Every image on the site is a **real photograph sourced from Unsplash**, downloaded under the free [Unsplash License](https://unsplash.com/license) (free for commercial use, no attribution legally required). Photographer credit is kept below anyway as good practice and so the original source can be found again if needed.
 
-**To swap a placeholder for a real photo:** drop the real file in at the same path with the same name (e.g. replace `hero/hero-main.svg` with `hero/hero-main.jpg`), update the one `src` reference listed below, and remove the `unoptimized` prop on that `<Image>` (only needed because local SVGs skip Next's optimizer). No other code changes required — every component already reads `width`/`height`/`alt`/`sizes` correctly.
+**To replace any image with different photography:** drop the new file in at the same path with the same name, keep the same aspect ratio, done — no code changes needed.
 
 ## hero/
 
-| File | Used in | Recommended size | Shot description |
-|---|---|---|---|
-| `hero-main.svg` | `HeroSection.tsx` | 1920×1080 (16:9) | Full-bleed, moody/low-key lighting. Luxury gym interior or an athlete mid-lift. Needs to stay dark enough for white headline text to sit on top (a dark gradient overlay is already layered on top in code, so a mid-tone photo still works). |
-| `about-strength-floor.svg` | `AboutPreviewSection.tsx` | 800×1000 (4:5) | A coach spotting a member on a barbell lift, or a clean shot of the strength floor itself. |
+| File | Used in | Credit |
+|---|---|---|
+| `hero-main.jpg` | `HeroSection.tsx` | Photo by [George Pagan III](https://unsplash.com/@gpthree) on Unsplash |
+| `about-strength-floor.jpg` | `AboutPreviewSection.tsx` | Photo by [Vitaly Gariev](https://unsplash.com/@vitalygariev) on Unsplash |
 
 ## trainers/
 
-One portrait per coach, all shot with **consistent lighting/backdrop** — mismatched trainer photography is the fastest way to look amateur on a page showing them side-by-side.
-
-| File | Trainer | Recommended size |
+| File | Trainer | Credit |
 |---|---|---|
-| `marcus-reed.svg` | Marcus Reed — Head Strength Coach | 640×800 (4:5) |
-| `alina-cruz.svg` | Alina Cruz — HIIT & Conditioning | 640×800 (4:5) |
-| `daniel-osei.svg` | Daniel Osei — Functional Movement | 640×800 (4:5) |
-| `priya-nair.svg` | Priya Nair — Nutrition & Wellness | 640×800 (4:5) |
+| `marcus-reed.jpg` | Marcus Reed — Head Strength Coach | Photo by [Anastase Maragos](https://unsplash.com/@visualsbyroyalz) on Unsplash |
+| `alina-cruz.jpg` | Alina Cruz — HIIT & Conditioning | Photo by [Brian Lawson](https://unsplash.com/@brianlawsonimages) on Unsplash |
+| `daniel-osei.jpg` | Daniel Osei — Functional Movement | Photo by [Patrick Daley](https://unsplash.com/@patrickdaley) on Unsplash |
+| `priya-nair.jpg` | Priya Nair — Nutrition & Wellness | Photo by [Spencer Davis](https://unsplash.com/@spencerdavis) on Unsplash |
 
 ## classes/
 
-| File | Class | Recommended size | Shot description |
-|---|---|---|---|
-| `strength-training.svg` | Strength Training | 800×600 (4:3) | Barbell squat, bench, or deadlift in progress. |
-| `cross-training.svg` | Cross Training | 800×600 (4:3) | Kettlebells, battle ropes, or a functional circuit. |
-| `yoga.svg` | Yoga | 800×600 (4:3) | A guided flow or stretch, calmer lighting than the strength shots. |
-| `personal-training.svg` | Personal Training | 800×600 (4:3) | A coach and one client, one-on-one. |
-
-## gallery/
-
-Six images feeding the masonry grid — mix of tall (4:5) and square (1:1) shots is what creates the staggered layout, so keep that alternation if you add/replace images. Three carry a "transformation story" caption (member name + a brief result) that reveals on hover, defined in `constants/gallery.ts` — not stored as separate files, just text data attached to the image entry.
-
-| File | Aspect | Shot description | Caption? |
-|---|---|---|---|
-| `gallery-01.svg` | 4:5 | Strength floor | — |
-| `gallery-02.svg` | 1:1 | Boxing/class in session | — |
-| `gallery-03.svg` | 4:5 | Member training moment | Yes |
-| `gallery-04.svg` | 1:1 | Recovery lounge | — |
-| `gallery-05.svg` | 4:5 | Personal training session | Yes |
-| `gallery-06.svg` | 1:1 | Group class / community moment | Yes |
-
-## testimonials/
-
-Small avatar next to each quote — real member photos need consent; stock headshots work as a fallback if real photos aren't available.
-
-| File | Member | Recommended size |
+| File | Class | Credit |
 |---|---|---|
-| `sarah-whitfield.svg` | Sarah Whitfield | 200×200 (1:1) |
-| `james-keller.svg` | James Keller | 200×200 (1:1) |
-| `maria-gomez.svg` | Maria Gomez | 200×200 (1:1) |
+| `strength-training.jpg` | Strength Training | Photo by [Ali Choubin](https://unsplash.com/@alichoubin) on Unsplash |
+| `cross-training.jpg` | Cross Training | Photo by [Jan Gunnar Nygård](https://unsplash.com/@jannygaard) on Unsplash |
+| `yoga.jpg` | Yoga | Photo by [Christian Harb](https://unsplash.com/@c7arb) on Unsplash |
+| `personal-training.jpg` | Personal Training | Photo by [Annie Spratt](https://unsplash.com/@anniespratt) on Unsplash |
 
 ## equipment/
 
 Used by `EquipmentSection.tsx` on the Home page.
 
-| File | Feature | Recommended size | Shot description |
+| File | Feature | Credit |
+|---|---|---|
+| `free-weight-zone.jpg` | Elite Free-Weight Zone | Photo by [Jelmer Assink](https://unsplash.com/@jelmerassink) on Unsplash |
+| `recovery-suite.jpg` | Recovery & Cryotherapy Suite | Photo by [Simon HUMLER](https://unsplash.com/@simonhumlr) on Unsplash |
+| `cardio-deck.jpg` | Precision Cardio Deck | Photo by [Alex Tyson](https://unsplash.com/@alextyson195) on Unsplash |
+| `functional-turf-zone.jpg` | Functional Turf Zone | Photo by [Long Chung](https://unsplash.com/@chungj07) on Unsplash |
+
+## gallery/
+
+Six images feeding the masonry grid — mix of tall (4:5) and square (1:1) shots creates the staggered layout, so keep that alternation if you swap any of these. Three carry a "transformation story" caption (member name + a brief result) that reveals on hover, defined in `constants/gallery.ts` as text data, not baked into the image.
+
+| File | Aspect | Credit | Caption? |
 |---|---|---|---|
-| `free-weight-zone.svg` | Elite Free-Weight Zone | 800×600 (4:3) | Racked plates/barbells, the free-weight floor. |
-| `recovery-suite.svg` | Recovery & Cryotherapy Suite | 800×600 (4:3) | The recovery lounge or cryotherapy equipment. |
-| `cardio-deck.svg` | Precision Cardio Deck | 800×600 (4:3) | Row of connected cardio machines. |
-| `functional-turf-zone.svg` | Functional Turf Zone | 800×600 (4:3) | The turf lane used for sled work/sprints. |
+| `gallery-01.jpg` | 4:5 | Photo by Ali Choubin on Unsplash (reused from `classes/strength-training.jpg`) | — |
+| `gallery-02.jpg` | 1:1 | Photo by [Anastase Maragos](https://unsplash.com/@visualsbyroyalz) on Unsplash | — |
+| `gallery-03.jpg` | 4:5 | Photo by Jan Gunnar Nygård on Unsplash (reused from `classes/cross-training.jpg`) | Yes |
+| `gallery-04.jpg` | 1:1 | Photo by Simon HUMLER on Unsplash (reused from `equipment/recovery-suite.jpg`) | — |
+| `gallery-05.jpg` | 4:5 | Photo by Vitaly Gariev on Unsplash (reused from `hero/about-strength-floor.jpg`) | Yes |
+| `gallery-06.jpg` | 1:1 | Photo by [Diego Corona](https://unsplash.com/@cldiego) on Unsplash | Yes |
+
+## testimonials/
+
+Small avatar next to each quote — these are generic Unsplash portraits standing in for real members; swap for actual member photos (with their consent) when available.
+
+| File | Member | Credit |
+|---|---|---|
+| `sarah-whitfield.jpg` | Sarah Whitfield | Photo by [Scott Webb](https://unsplash.com/@scottwebb) on Unsplash |
+| `james-keller.jpg` | James Keller | Photo by [Farkas Mario](https://unsplash.com/@photosbyfrk) on Unsplash |
+| `maria-gomez.jpg` | Maria Gomez | Photo by [Meagan Stone](https://unsplash.com/@meagan_stone) on Unsplash |
 
 ## branding/ *(reserved, not yet wired to a component)*
 

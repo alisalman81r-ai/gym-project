@@ -38,7 +38,6 @@ export function GallerySection() {
 								src={image.src}
 								alt={image.alt}
 								fill
-								unoptimized
 								sizes="(min-width: 640px) 33vw, 50vw"
 								className="object-cover group-hover:scale-105"
 							/>

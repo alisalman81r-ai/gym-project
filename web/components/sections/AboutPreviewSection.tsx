@@ -18,9 +18,7 @@ const contentStagger = staggerContainer(0.08);
 
 /**
  * Gym introduction + mission/vision + highlights, two-column.
- * `about-strength-floor.svg` is a placeholder -- swap the file at
- * public/images/hero/about-strength-floor.svg for a real photo of
- * the strength floor and nothing here needs to change.
+ * Photo: Vitaly Gariev on Unsplash (see public/images/README.md).
  */
 export function AboutPreviewSection() {
 	return (
@@ -35,10 +33,9 @@ export function AboutPreviewSection() {
 						className="relative aspect-[4/5] overflow-hidden rounded-2xl shadow-elevated lg:order-1"
 					>
 						<RevealImage
-							src="/images/hero/about-strength-floor.svg"
+							src="/images/hero/about-strength-floor.jpg"
 							alt="Coach guiding a member through a barbell lift on the Iron Elite strength floor"
 							fill
-							unoptimized
 							sizes="(min-width: 1024px) 50vw, 100vw"
 							className="object-cover"
 						/>

@@ -40,10 +40,8 @@ const heroEntrance = staggerContainer(0.12, 0.1);
  * Full-viewport brand intro. `priority` + `fill` since this image
  * is the page's LCP element. A slow, continuous Ken Burns zoom
  * (18s loop) keeps the background from feeling static without
- * distracting from the headline. Currently pointed at a hand-drawn
- * SVG placeholder (public/images/hero/hero-main.svg) -- drop a
- * real photo at that path (or update the `src` below) and remove
- * `unoptimized` once it's a raster format.
+ * distracting from the headline. Photo: George Pagan III on
+ * Unsplash (see public/images/README.md for the full credit list).
  */
 export function HeroSection() {
 	return (
@@ -55,11 +53,10 @@ export function HeroSection() {
 				transition={{ duration: 18, repeat: Infinity, repeatType: "reverse", ease: "easeInOut" }}
 			>
 				<RevealImage
-					src="/images/hero/hero-main.svg"
+					src="/images/hero/hero-main.jpg"
 					alt="Members training on the strength floor at Iron Elite Fitness Club"
 					fill
 					priority
-					unoptimized
 					sizes="100vw"
 					className="object-cover"
 				/>

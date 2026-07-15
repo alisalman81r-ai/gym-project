@@ -1,21 +1,16 @@
-# IronPulse Fitness
+# Iron Elite Fitness Club
 
-A responsive gym website with a hero section, about, programs, trainers, pricing, testimonials, and a contact form.
+*Train Beyond Limits.*
+
+A production-quality luxury gym website built with plain HTML, global CSS, and vanilla JavaScript — no frameworks, no build tools.
+
+Planning and architecture are documented in [docs/phase-1-planning.md](docs/phase-1-planning.md).
+
+The original MVP (IronPulse Fitness) that preceded this rebrand is kept for reference in [archive/ironpulse-mvp/](archive/ironpulse-mvp/) and is not part of the live site.
 
 ## Project Structure
 
-```
-gym website/
-├── index.html
-├── css/
-│   └── style.css
-├── js/
-│   └── script.js
-├── assets/
-│   ├── images/
-│   └── icons/
-└── package.json
-```
+See the full folder structure in [docs/phase-1-planning.md](docs/phase-1-planning.md#1-project-folder-structure).
 
 ## Local Development
 

@@ -1,0 +1,738 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<!-- ============================================================
+	     DOCUMENT META
+	============================================================ -->
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Iron Elite Fitness Club | Train Beyond Limits — Luxury Strength &amp; Performance Training</title>
+	<meta name="description" content="Iron Elite Fitness Club is a private luxury training club offering elite strength coaching, personalized programs, and premium recovery facilities. Book your tour today.">
+	<meta name="keywords" content="luxury gym, private fitness club, personal training, elite fitness, strength training, boxing, yoga, HIIT">
+	<meta name="author" content="Iron Elite Fitness Club">
+	<meta name="theme-color" content="#0A0A0A">
+	<meta name="robots" content="index, follow">
+
+	<!-- Open Graph / social sharing -->
+	<meta property="og:type" content="website">
+	<meta property="og:site_name" content="Iron Elite Fitness Club">
+	<meta property="og:title" content="Iron Elite Fitness Club | Train Beyond Limits">
+	<meta property="og:description" content="A private luxury training club offering elite strength coaching, personalized programs, and premium recovery facilities.">
+	<meta property="og:image" content="assets/images/og/home-og.jpg">
+	<!-- TODO: replace with production domain at deployment -->
+	<meta property="og:url" content="https://www.ironelitefitnessclub.com/">
+	<meta name="twitter:card" content="summary_large_image">
+	<meta name="twitter:title" content="Iron Elite Fitness Club | Train Beyond Limits">
+	<meta name="twitter:description" content="A private luxury training club offering elite strength coaching, personalized programs, and premium recovery facilities.">
+	<meta name="twitter:image" content="assets/images/og/home-og.jpg">
+
+	<!-- Favicon (placeholder — final icon set added in a later phase) -->
+	<link rel="icon" type="image/svg+xml" href="assets/icons/favicon/favicon.svg">
+	<link rel="alternate icon" href="assets/icons/favicon/favicon.ico">
+
+	<!-- ============================================================
+	     STYLESHEETS
+	     Linked individually (not @import) to avoid serialized,
+	     render-blocking downloads. Load order: base -> components
+	     -> animations -> page-specific overrides.
+	     NOTE: files below do not exist yet — created in Phase 4.
+	============================================================ -->
+	<link rel="stylesheet" href="assets/css/base/reset.css">
+	<link rel="stylesheet" href="assets/css/base/variables.css">
+	<link rel="stylesheet" href="assets/css/base/typography.css">
+	<link rel="stylesheet" href="assets/css/base/utilities.css">
+
+	<link rel="stylesheet" href="assets/css/components/navbar.css">
+	<link rel="stylesheet" href="assets/css/components/mobile-menu.css">
+	<link rel="stylesheet" href="assets/css/components/buttons.css">
+	<link rel="stylesheet" href="assets/css/components/hero.css">
+	<link rel="stylesheet" href="assets/css/components/section-heading.css">
+	<link rel="stylesheet" href="assets/css/components/cards.css">
+	<link rel="stylesheet" href="assets/css/components/stats-counter.css">
+	<link rel="stylesheet" href="assets/css/components/pricing-table.css">
+	<link rel="stylesheet" href="assets/css/components/testimonials.css">
+	<link rel="stylesheet" href="assets/css/components/forms.css">
+	<link rel="stylesheet" href="assets/css/components/accordion.css">
+	<link rel="stylesheet" href="assets/css/components/cta-banner.css">
+	<link rel="stylesheet" href="assets/css/components/back-to-top.css">
+	<link rel="stylesheet" href="assets/css/components/footer.css">
+
+	<link rel="stylesheet" href="assets/css/animations.css">
+	<link rel="stylesheet" href="assets/css/pages/home.css">
+</head>
+<body>
+
+	<!-- Skip link for keyboard/screen-reader users -->
+	<a class="skip-link" href="#main-content">Skip to main content</a>
+
+	<!-- ============================================================
+	     A. NAVIGATION BAR
+	============================================================ -->
+	<header class="site-header" id="site-header">
+		<nav class="navbar" aria-label="Primary navigation">
+			<div class="navbar__container">
+
+				<!-- Logo -->
+				<a class="navbar__logo" href="index.html" aria-label="Iron Elite Fitness Club — Home">
+					<img class="navbar__logo-img" src="assets/images/logo/logo-gold.svg" alt="Iron Elite Fitness Club" width="160" height="40">
+				</a>
+
+				<!-- Primary links (desktop) -->
+				<ul class="navbar__menu">
+					<li class="navbar__item">
+						<a class="navbar__link navbar__link--active" href="index.html" aria-current="page">Home</a>
+					</li>
+					<li class="navbar__item">
+						<a class="navbar__link" href="about.html">About</a>
+					</li>
+					<li class="navbar__item">
+						<a class="navbar__link" href="programs.html">Programs</a>
+					</li>
+					<li class="navbar__item">
+						<a class="navbar__link" href="trainers.html">Trainers</a>
+					</li>
+					<li class="navbar__item">
+						<a class="navbar__link" href="membership.html">Membership</a>
+					</li>
+					<li class="navbar__item">
+						<a class="navbar__link" href="facilities.html">Facilities</a>
+					</li>
+					<li class="navbar__item">
+						<a class="navbar__link" href="blog.html">Journal</a>
+					</li>
+				</ul>
+
+				<!-- Right-side actions -->
+				<div class="navbar__actions">
+					<a class="navbar__contact-link" href="contact.html">Contact</a>
+					<a class="btn btn--primary navbar__cta" href="contact.html">Book a Tour</a>
+
+					<!-- Mobile menu toggle -->
+					<button
+						class="navbar__toggle"
+						id="navToggle"
+						type="button"
+						aria-controls="mobileNav"
+						aria-expanded="false"
+						aria-label="Open menu"
+					>
+						<span class="navbar__toggle-bar" aria-hidden="true"></span>
+						<span class="navbar__toggle-bar" aria-hidden="true"></span>
+						<span class="navbar__toggle-bar" aria-hidden="true"></span>
+					</button>
+				</div>
+			</div>
+		</nav>
+
+		<!-- Mobile navigation drawer (structure only — open/close behavior added in Phase 5 JS) -->
+		<nav class="mobile-nav" id="mobileNav" aria-label="Mobile navigation" hidden>
+			<button class="mobile-nav__close" id="mobileNavClose" type="button" aria-label="Close menu">
+				<span aria-hidden="true">&times;</span>
+			</button>
+			<ul class="mobile-nav__list">
+				<li class="mobile-nav__item"><a class="mobile-nav__link" href="index.html" aria-current="page">Home</a></li>
+				<li class="mobile-nav__item"><a class="mobile-nav__link" href="about.html">About</a></li>
+				<li class="mobile-nav__item"><a class="mobile-nav__link" href="programs.html">Programs</a></li>
+				<li class="mobile-nav__item"><a class="mobile-nav__link" href="trainers.html">Trainers</a></li>
+				<li class="mobile-nav__item"><a class="mobile-nav__link" href="membership.html">Membership</a></li>
+				<li class="mobile-nav__item"><a class="mobile-nav__link" href="facilities.html">Facilities</a></li>
+				<li class="mobile-nav__item"><a class="mobile-nav__link" href="blog.html">Journal</a></li>
+				<li class="mobile-nav__item"><a class="mobile-nav__link" href="contact.html">Contact</a></li>
+			</ul>
+			<div class="mobile-nav__footer">
+				<a class="btn btn--primary mobile-nav__cta" href="contact.html">Book a Tour</a>
+				<ul class="mobile-nav__social">
+					<li><a href="#" aria-label="Iron Elite Fitness Club on Instagram">
+						<svg class="icon" width="20" height="20" aria-hidden="true"><use href="assets/icons/sprite.svg#instagram"></use></svg>
+					</a></li>
+					<li><a href="#" aria-label="Iron Elite Fitness Club on Facebook">
+						<svg class="icon" width="20" height="20" aria-hidden="true"><use href="assets/icons/sprite.svg#facebook"></use></svg>
+					</a></li>
+					<li><a href="#" aria-label="Iron Elite Fitness Club on TikTok">
+						<svg class="icon" width="20" height="20" aria-hidden="true"><use href="assets/icons/sprite.svg#tiktok"></use></svg>
+					</a></li>
+				</ul>
+			</div>
+		</nav>
+	</header>
+
+	<main id="main-content">
+
+		<!-- ============================================================
+		     B. HERO SECTION
+		============================================================ -->
+		<section class="hero" aria-labelledby="hero-heading">
+			<div class="hero__media" aria-hidden="true">
+				<picture>
+					<source srcset="assets/images/hero/hero-home.webp" type="image/webp">
+					<img class="hero__bg-image" src="assets/images/hero/hero-home.jpg" alt="" loading="eager">
+				</picture>
+				<div class="hero__overlay"></div>
+			</div>
+
+			<div class="hero__content">
+				<p class="eyebrow hero__eyebrow">Welcome to Iron Elite Fitness Club</p>
+				<h1 class="hero__heading" id="hero-heading">Train Beyond Limits.</h1>
+				<p class="hero__subtext">
+					A private training club built for those who demand more from their fitness —
+					elite coaching, world-class facilities, and a standard of excellence found nowhere else.
+				</p>
+
+				<div class="hero__actions">
+					<a class="btn btn--primary btn--large" href="contact.html">Book a Tour</a>
+					<a class="btn btn--outline btn--large" href="programs.html">Explore Programs</a>
+				</div>
+
+				<!-- Fitness statistics preview -->
+				<ul class="hero__stats" aria-label="Club highlights">
+					<li class="hero__stat">
+						<span class="hero__stat-number">12+</span>
+						<span class="hero__stat-label">Years Legacy</span>
+					</li>
+					<li class="hero__stat">
+						<span class="hero__stat-number">3,200+</span>
+						<span class="hero__stat-label">Elite Members</span>
+					</li>
+					<li class="hero__stat">
+						<span class="hero__stat-number">40+</span>
+						<span class="hero__stat-label">Weekly Classes</span>
+					</li>
+					<li class="hero__stat">
+						<span class="hero__stat-number">18</span>
+						<span class="hero__stat-label">Master Coaches</span>
+					</li>
+				</ul>
+			</div>
+		</section>
+
+		<!-- ============================================================
+		     C. ABOUT SECTION
+		============================================================ -->
+		<section class="about" id="about" aria-labelledby="about-heading">
+			<div class="container about__grid">
+				<div class="about__media">
+					<img class="about__image" src="assets/images/about/about-strength-floor.jpg" alt="Coach guiding a member through a barbell lift on the Iron Elite strength floor" loading="lazy" width="640" height="720">
+				</div>
+
+				<div class="about__content">
+					<p class="eyebrow">Who We Are</p>
+					<h2 class="section-heading" id="about-heading">Beyond a Gym. A Discipline.</h2>
+					<p class="about__intro">
+						Iron Elite Fitness Club was founded on a simple belief: exceptional results come from
+						exceptional standards. We are not a volume gym — we are a private training environment
+						where every member receives a coached, considered path toward their goals.
+					</p>
+					<p class="about__mission">
+						<strong>Our mission</strong> is to give every member the coaching, environment, and
+						accountability of a professional athlete — regardless of where they're starting from.
+					</p>
+
+					<ul class="feature-list about__features">
+						<li class="feature-list__item">Free personalized fitness assessment for new members</li>
+						<li class="feature-list__item">Small-group and one-on-one coaching available</li>
+						<li class="feature-list__item">Nutrition guidance included with every membership</li>
+						<li class="feature-list__item">Private recovery lounge and spa access</li>
+					</ul>
+
+					<a class="btn btn--ghost" href="about.html">Discover Our Story <span aria-hidden="true">&rarr;</span></a>
+				</div>
+			</div>
+		</section>
+
+		<!-- ============================================================
+		     D. WHY CHOOSE US SECTION
+		============================================================ -->
+		<section class="why-us" id="why-choose-us" aria-labelledby="why-choose-us-heading">
+			<div class="container">
+				<div class="section-head">
+					<p class="eyebrow">The Iron Elite Standard</p>
+					<h2 class="section-heading" id="why-choose-us-heading">Why Members Choose Iron Elite</h2>
+				</div>
+
+				<div class="card-grid why-us__grid">
+					<article class="card why-us__card">
+						<div class="card__icon" aria-hidden="true">
+							<svg width="28" height="28"><use href="assets/icons/sprite.svg#award"></use></svg>
+						</div>
+						<h3 class="card__title">Professional Trainers</h3>
+						<p class="card__text">Certified, experienced coaches dedicated to building your strength, safely and deliberately.</p>
+					</article>
+
+					<article class="card why-us__card">
+						<div class="card__icon" aria-hidden="true">
+							<svg width="28" height="28"><use href="assets/icons/sprite.svg#dumbbell"></use></svg>
+						</div>
+						<h3 class="card__title">Modern Equipment</h3>
+						<p class="card__text">State-of-the-art strength and conditioning equipment, meticulously maintained.</p>
+					</article>
+
+					<article class="card why-us__card">
+						<div class="card__icon" aria-hidden="true">
+							<svg width="28" height="28"><use href="assets/icons/sprite.svg#target"></use></svg>
+						</div>
+						<h3 class="card__title">Personalized Programs</h3>
+						<p class="card__text">Every member trains on a plan built around their body, goals, and schedule.</p>
+					</article>
+
+					<article class="card why-us__card">
+						<div class="card__icon" aria-hidden="true">
+							<svg width="28" height="28"><use href="assets/icons/sprite.svg#leaf"></use></svg>
+						</div>
+						<h3 class="card__title">Nutrition Guidance</h3>
+						<p class="card__text">Custom nutrition coaching that supports your training so results show consistently.</p>
+					</article>
+				</div>
+			</div>
+		</section>
+
+		<!-- ============================================================
+		     E. STATISTICS SECTION
+		============================================================ -->
+		<section class="stats" id="stats" aria-labelledby="stats-heading">
+			<div class="container">
+				<h2 class="visually-hidden" id="stats-heading">Iron Elite Fitness Club in Numbers</h2>
+
+				<ul class="stats__grid">
+					<li class="stats__item">
+						<svg class="stats__icon" width="32" height="32" aria-hidden="true"><use href="assets/icons/sprite.svg#users"></use></svg>
+						<span class="stats__number" data-count-to="3200">0</span>
+						<span class="stats__label">Members</span>
+					</li>
+					<li class="stats__item">
+						<svg class="stats__icon" width="32" height="32" aria-hidden="true"><use href="assets/icons/sprite.svg#whistle"></use></svg>
+						<span class="stats__number" data-count-to="18">0</span>
+						<span class="stats__label">Trainers</span>
+					</li>
+					<li class="stats__item">
+						<svg class="stats__icon" width="32" height="32" aria-hidden="true"><use href="assets/icons/sprite.svg#calendar"></use></svg>
+						<span class="stats__number" data-count-to="12">0</span>
+						<span class="stats__label">Years Experience</span>
+					</li>
+					<li class="stats__item">
+						<svg class="stats__icon" width="32" height="32" aria-hidden="true"><use href="assets/icons/sprite.svg#trophy"></use></svg>
+						<span class="stats__number" data-count-to="9">0</span>
+						<span class="stats__label">Awards</span>
+					</li>
+				</ul>
+			</div>
+		</section>
+
+		<!-- ============================================================
+		     F. MEMBERSHIP PREVIEW SECTION
+		============================================================ -->
+		<section class="membership-preview" id="membership" aria-labelledby="membership-heading">
+			<div class="container">
+				<div class="section-head">
+					<p class="eyebrow">Membership</p>
+					<h2 class="section-heading" id="membership-heading">Choose Your Level of Elite</h2>
+				</div>
+
+				<div class="pricing-grid">
+					<article class="pricing-card">
+						<h3 class="pricing-card__name">Basic</h3>
+						<p class="pricing-card__price"><span>$149</span>/mo</p>
+						<ul class="pricing-card__features">
+							<li>Full gym floor access</li>
+							<li>Locker room &amp; showers</li>
+							<li>2 group classes / week</li>
+							<li>Mobile app tracking</li>
+						</ul>
+						<a class="btn btn--outline pricing-card__cta" href="membership.html">Choose Basic</a>
+					</article>
+
+					<article class="pricing-card pricing-card--featured">
+						<p class="pricing-card__badge">Most Popular</p>
+						<h3 class="pricing-card__name">Premium</h3>
+						<p class="pricing-card__price"><span>$249</span>/mo</p>
+						<ul class="pricing-card__features">
+							<li>Everything in Basic</li>
+							<li>Unlimited group classes</li>
+							<li>1 personal training session / month</li>
+							<li>Nutrition plan included</li>
+						</ul>
+						<a class="btn btn--primary pricing-card__cta" href="membership.html">Choose Premium</a>
+					</article>
+
+					<article class="pricing-card">
+						<h3 class="pricing-card__name">Elite</h3>
+						<p class="pricing-card__price"><span>$499</span>/mo</p>
+						<ul class="pricing-card__features">
+							<li>Everything in Premium</li>
+							<li>4 personal training sessions / month</li>
+							<li>Priority class booking</li>
+							<li>Private recovery lounge access</li>
+						</ul>
+						<a class="btn btn--outline pricing-card__cta" href="membership.html">Choose Elite</a>
+					</article>
+				</div>
+
+				<p class="membership-preview__more">
+					<a class="btn btn--ghost" href="membership.html">View Full Membership Details <span aria-hidden="true">&rarr;</span></a>
+				</p>
+			</div>
+		</section>
+
+		<!-- ============================================================
+		     G. FEATURED CLASSES SECTION
+		============================================================ -->
+		<section class="classes" id="classes" aria-labelledby="classes-heading">
+			<div class="container">
+				<div class="section-head">
+					<p class="eyebrow">Training Disciplines</p>
+					<h2 class="section-heading" id="classes-heading">Featured Classes</h2>
+				</div>
+
+				<div class="card-grid classes__grid">
+					<article class="card class-card">
+						<img class="class-card__image" src="assets/images/programs/program-strength.jpg" alt="Member performing a barbell squat during a strength training session" loading="lazy" width="400" height="300">
+						<h3 class="card__title">Strength Training</h3>
+						<p class="card__text">Progressive barbell programming built around proven strength cycles.</p>
+						<a class="btn btn--ghost card__link" href="programs.html">Learn More <span aria-hidden="true">&rarr;</span></a>
+					</article>
+
+					<article class="card class-card">
+						<img class="class-card__image" src="assets/images/programs/program-cross-training.jpg" alt="Group cross training class using kettlebells and battle ropes" loading="lazy" width="400" height="300">
+						<h3 class="card__title">Cross Training</h3>
+						<p class="card__text">High-intensity functional conditioning that builds real-world strength.</p>
+						<a class="btn btn--ghost card__link" href="programs.html">Learn More <span aria-hidden="true">&rarr;</span></a>
+					</article>
+
+					<article class="card class-card">
+						<img class="class-card__image" src="assets/images/programs/program-yoga.jpg" alt="Instructor leading a yoga class focused on mobility and recovery" loading="lazy" width="400" height="300">
+						<h3 class="card__title">Yoga</h3>
+						<p class="card__text">Guided mobility and recovery sessions that balance out heavy training.</p>
+						<a class="btn btn--ghost card__link" href="programs.html">Learn More <span aria-hidden="true">&rarr;</span></a>
+					</article>
+
+					<article class="card class-card">
+						<img class="class-card__image" src="assets/images/programs/program-personal-training.jpg" alt="Personal trainer coaching a client one-on-one" loading="lazy" width="400" height="300">
+						<h3 class="card__title">Personal Training</h3>
+						<p class="card__text">One-on-one coaching with a dedicated trainer who adjusts your plan weekly.</p>
+						<a class="btn btn--ghost card__link" href="programs.html">Learn More <span aria-hidden="true">&rarr;</span></a>
+					</article>
+				</div>
+			</div>
+		</section>
+
+		<!-- ============================================================
+		     H. TRAINERS PREVIEW SECTION
+		============================================================ -->
+		<section class="trainers-preview" id="trainers" aria-labelledby="trainers-heading">
+			<div class="container">
+				<div class="section-head">
+					<p class="eyebrow">Our Coaches</p>
+					<h2 class="section-heading" id="trainers-heading">Trained By The Best</h2>
+				</div>
+
+				<div class="card-grid trainers-preview__grid">
+					<article class="trainer-card">
+						<img class="trainer-card__photo" src="assets/images/trainers/trainer-marcus-reed.jpg" alt="Portrait of Marcus Reed, Head Strength Coach" loading="lazy" width="320" height="400">
+						<h3 class="trainer-card__name">Marcus Reed</h3>
+						<p class="trainer-card__role">Head Strength Coach</p>
+						<button class="btn btn--outline trainer-card__cta" type="button" data-modal-target="trainer-marcus-reed">View Profile</button>
+					</article>
+
+					<article class="trainer-card">
+						<img class="trainer-card__photo" src="assets/images/trainers/trainer-alina-cruz.jpg" alt="Portrait of Alina Cruz, HIIT &amp; Conditioning Coach" loading="lazy" width="320" height="400">
+						<h3 class="trainer-card__name">Alina Cruz</h3>
+						<p class="trainer-card__role">HIIT &amp; Conditioning</p>
+						<button class="btn btn--outline trainer-card__cta" type="button" data-modal-target="trainer-alina-cruz">View Profile</button>
+					</article>
+
+					<article class="trainer-card">
+						<img class="trainer-card__photo" src="assets/images/trainers/trainer-daniel-osei.jpg" alt="Portrait of Daniel Osei, Functional Movement Coach" loading="lazy" width="320" height="400">
+						<h3 class="trainer-card__name">Daniel Osei</h3>
+						<p class="trainer-card__role">Functional Movement</p>
+						<button class="btn btn--outline trainer-card__cta" type="button" data-modal-target="trainer-daniel-osei">View Profile</button>
+					</article>
+
+					<article class="trainer-card">
+						<img class="trainer-card__photo" src="assets/images/trainers/trainer-priya-nair.jpg" alt="Portrait of Priya Nair, Nutrition &amp; Wellness Coach" loading="lazy" width="320" height="400">
+						<h3 class="trainer-card__name">Priya Nair</h3>
+						<p class="trainer-card__role">Nutrition &amp; Wellness</p>
+						<button class="btn btn--outline trainer-card__cta" type="button" data-modal-target="trainer-priya-nair">View Profile</button>
+					</article>
+				</div>
+
+				<p class="trainers-preview__more">
+					<a class="btn btn--ghost" href="trainers.html">Meet The Full Team <span aria-hidden="true">&rarr;</span></a>
+				</p>
+			</div>
+		</section>
+
+		<!-- ============================================================
+		     I. TRANSFORMATION GALLERY PREVIEW
+		============================================================ -->
+		<section class="gallery-preview" id="gallery" aria-labelledby="gallery-heading">
+			<div class="container">
+				<div class="section-head">
+					<p class="eyebrow">Inside The Club</p>
+					<h2 class="section-heading" id="gallery-heading">Transformation Gallery</h2>
+				</div>
+
+				<div class="gallery-preview__grid">
+					<img class="gallery-preview__image" src="assets/images/gallery/gallery-01.jpg" alt="Member training on the Iron Elite strength floor" loading="lazy" width="400" height="400">
+					<img class="gallery-preview__image" src="assets/images/gallery/gallery-02.jpg" alt="Boxing class in session at Iron Elite Fitness Club" loading="lazy" width="400" height="400">
+					<img class="gallery-preview__image" src="assets/images/gallery/gallery-03.jpg" alt="Member transformation progress photo" loading="lazy" width="400" height="400">
+					<img class="gallery-preview__image" src="assets/images/gallery/gallery-04.jpg" alt="Recovery lounge at Iron Elite Fitness Club" loading="lazy" width="400" height="400">
+					<img class="gallery-preview__image" src="assets/images/gallery/gallery-05.jpg" alt="Personal training session in progress" loading="lazy" width="400" height="400">
+					<img class="gallery-preview__image" src="assets/images/gallery/gallery-06.jpg" alt="Group class celebrating a completed session" loading="lazy" width="400" height="400">
+				</div>
+
+				<p class="gallery-preview__more">
+					<a class="btn btn--ghost" href="gallery.html">View Full Gallery <span aria-hidden="true">&rarr;</span></a>
+				</p>
+			</div>
+		</section>
+
+		<!-- ============================================================
+		     J. TESTIMONIALS SECTION
+		============================================================ -->
+		<section class="testimonials" id="testimonials" aria-labelledby="testimonials-heading">
+			<div class="container">
+				<p class="eyebrow testimonials__eyebrow">Member Stories</p>
+				<h2 class="visually-hidden" id="testimonials-heading">What Our Members Say</h2>
+
+				<div class="testimonials__track">
+					<blockquote class="testimonial testimonials__slide">
+						<svg class="testimonial__mark" width="40" height="32" aria-hidden="true"><use href="assets/icons/sprite.svg#quote"></use></svg>
+						<p class="testimonial__quote">
+							The coaching here changed how I think about training entirely. Six months in,
+							I'm stronger at 40 than I was at 25.
+						</p>
+						<footer class="testimonial__author">
+							<img class="testimonial__photo" src="assets/images/testimonials/testimonial-sarah-whitfield.jpg" alt="" loading="lazy" width="56" height="56">
+							<span>Sarah Whitfield <span class="testimonial__tenure">&middot; Elite Member since 2023</span></span>
+						</footer>
+					</blockquote>
+
+					<blockquote class="testimonial testimonials__slide">
+						<svg class="testimonial__mark" width="40" height="32" aria-hidden="true"><use href="assets/icons/sprite.svg#quote"></use></svg>
+						<p class="testimonial__quote">
+							Best coaching staff I've trained with. My deadlift went up 80lbs in six months
+							following their program.
+						</p>
+						<footer class="testimonial__author">
+							<img class="testimonial__photo" src="assets/images/testimonials/testimonial-james-keller.jpg" alt="" loading="lazy" width="56" height="56">
+							<span>James Keller <span class="testimonial__tenure">&middot; Premium Member since 2021</span></span>
+						</footer>
+					</blockquote>
+
+					<blockquote class="testimonial testimonials__slide">
+						<svg class="testimonial__mark" width="40" height="32" aria-hidden="true"><use href="assets/icons/sprite.svg#quote"></use></svg>
+						<p class="testimonial__quote">
+							The community here keeps me accountable. I actually look forward to leg day now,
+							which still surprises me.
+						</p>
+						<footer class="testimonial__author">
+							<img class="testimonial__photo" src="assets/images/testimonials/testimonial-maria-gomez.jpg" alt="" loading="lazy" width="56" height="56">
+							<span>Maria Gomez <span class="testimonial__tenure">&middot; Elite Member since 2024</span></span>
+						</footer>
+					</blockquote>
+				</div>
+
+				<div class="testimonials__nav" role="tablist" aria-label="Testimonial navigation">
+					<button class="testimonials__dot testimonials__dot--active" type="button" role="tab" aria-selected="true" aria-label="Show testimonial 1"></button>
+					<button class="testimonials__dot" type="button" role="tab" aria-selected="false" aria-label="Show testimonial 2"></button>
+					<button class="testimonials__dot" type="button" role="tab" aria-selected="false" aria-label="Show testimonial 3"></button>
+				</div>
+			</div>
+		</section>
+
+		<!-- ============================================================
+		     K. BMI CALCULATOR SECTION
+		============================================================ -->
+		<section class="bmi-calculator" id="bmi-calculator" aria-labelledby="bmi-calculator-heading">
+			<div class="container">
+				<div class="section-head">
+					<p class="eyebrow">Free Tool</p>
+					<h2 class="section-heading" id="bmi-calculator-heading">Check Your BMI</h2>
+					<p class="bmi-calculator__intro">
+						A quick starting point for your fitness journey — not a diagnosis. Our coaches will
+						build your full assessment during your free tour.
+					</p>
+				</div>
+
+				<form class="form bmi-calculator__form" id="bmiForm" novalidate>
+					<div class="form__row">
+						<label class="form__label" for="bmiHeight">Height (cm)</label>
+						<input class="form__input" type="number" id="bmiHeight" name="height" min="100" max="250" step="1" inputmode="numeric" required>
+					</div>
+
+					<div class="form__row">
+						<label class="form__label" for="bmiWeight">Weight (kg)</label>
+						<input class="form__input" type="number" id="bmiWeight" name="weight" min="30" max="300" step="0.1" inputmode="decimal" required>
+					</div>
+
+					<div class="form__row bmi-calculator__submit-row">
+						<button class="btn btn--primary" type="submit">Calculate BMI</button>
+					</div>
+
+					<div class="bmi-calculator__result" id="bmiResult" role="status" aria-live="polite" hidden>
+						<!-- Populated by JavaScript in a later phase -->
+					</div>
+				</form>
+			</div>
+		</section>
+
+		<!-- ============================================================
+		     L. FAQ SECTION
+		============================================================ -->
+		<section class="faq" id="faq" aria-labelledby="faq-heading">
+			<div class="container">
+				<div class="section-head">
+					<p class="eyebrow">Questions</p>
+					<h2 class="section-heading" id="faq-heading">Frequently Asked Questions</h2>
+				</div>
+
+				<div class="accordion">
+					<div class="accordion__item">
+						<h3 class="accordion__heading">
+							<button class="accordion__trigger" type="button" aria-expanded="false" aria-controls="faq-answer-1" id="faq-question-1">
+								How do I book a personal training session?
+								<span class="accordion__icon" aria-hidden="true">+</span>
+							</button>
+						</h3>
+						<div class="accordion__panel" id="faq-answer-1" role="region" aria-labelledby="faq-question-1" hidden>
+							<p>You can book directly through your member portal, or speak with any coach on the floor to schedule your next session.</p>
+						</div>
+					</div>
+
+					<div class="accordion__item">
+						<h3 class="accordion__heading">
+							<button class="accordion__trigger" type="button" aria-expanded="false" aria-controls="faq-answer-2" id="faq-question-2">
+								What's included in the Premium membership?
+								<span class="accordion__icon" aria-hidden="true">+</span>
+							</button>
+						</h3>
+						<div class="accordion__panel" id="faq-answer-2" role="region" aria-labelledby="faq-question-2" hidden>
+							<p>Premium includes unlimited group classes, one personal training session per month, and a custom nutrition plan. See the full <a href="membership.html">membership comparison</a> for details.</p>
+						</div>
+					</div>
+
+					<div class="accordion__item">
+						<h3 class="accordion__heading">
+							<button class="accordion__trigger" type="button" aria-expanded="false" aria-controls="faq-answer-3" id="faq-question-3">
+								Can I freeze or cancel my membership?
+								<span class="accordion__icon" aria-hidden="true">+</span>
+							</button>
+						</h3>
+						<div class="accordion__panel" id="faq-answer-3" role="region" aria-labelledby="faq-question-3" hidden>
+							<p>Yes — memberships can be paused for up to 60 days per year, and cancelled with 30 days' notice. Contact the front desk to arrange either.</p>
+						</div>
+					</div>
+
+					<div class="accordion__item">
+						<h3 class="accordion__heading">
+							<button class="accordion__trigger" type="button" aria-expanded="false" aria-controls="faq-answer-4" id="faq-question-4">
+								Do you offer a free trial or tour?
+								<span class="accordion__icon" aria-hidden="true">+</span>
+							</button>
+						</h3>
+						<div class="accordion__panel" id="faq-answer-4" role="region" aria-labelledby="faq-question-4" hidden>
+							<p>Every prospective member is welcome to a complimentary guided tour and fitness assessment before joining. <a href="contact.html">Book yours here</a>.</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- ============================================================
+		     M. CONTACT CTA SECTION
+		============================================================ -->
+		<section class="cta-banner" id="contact-cta" aria-labelledby="contact-cta-heading">
+			<div class="container cta-banner__content">
+				<h2 class="cta-banner__heading" id="contact-cta-heading">Your Transformation Starts Here.</h2>
+				<p class="cta-banner__text">Book a complimentary tour and see why members never leave.</p>
+				<a class="btn btn--primary btn--large" href="contact.html">Book Your Tour Today</a>
+			</div>
+		</section>
+
+	</main>
+
+	<!-- ============================================================
+	     N. PROFESSIONAL FOOTER
+	============================================================ -->
+	<footer class="site-footer">
+		<div class="container footer__grid">
+
+			<div class="footer__col footer__col--brand">
+				<a class="footer__logo" href="index.html" aria-label="Iron Elite Fitness Club — Home">
+					<img src="assets/images/logo/logo-white.svg" alt="Iron Elite Fitness Club" width="160" height="40">
+				</a>
+				<p class="footer__tagline">Train Beyond Limits.</p>
+				<ul class="footer__social">
+					<li><a href="#" aria-label="Iron Elite Fitness Club on Instagram">
+						<svg class="icon" width="20" height="20" aria-hidden="true"><use href="assets/icons/sprite.svg#instagram"></use></svg>
+					</a></li>
+					<li><a href="#" aria-label="Iron Elite Fitness Club on Facebook">
+						<svg class="icon" width="20" height="20" aria-hidden="true"><use href="assets/icons/sprite.svg#facebook"></use></svg>
+					</a></li>
+					<li><a href="#" aria-label="Iron Elite Fitness Club on TikTok">
+						<svg class="icon" width="20" height="20" aria-hidden="true"><use href="assets/icons/sprite.svg#tiktok"></use></svg>
+					</a></li>
+				</ul>
+			</div>
+
+			<nav class="footer__col" aria-labelledby="footer-explore-heading">
+				<h3 class="footer__heading" id="footer-explore-heading">Explore</h3>
+				<ul class="footer__links">
+					<li><a href="about.html">About</a></li>
+					<li><a href="programs.html">Programs</a></li>
+					<li><a href="trainers.html">Trainers</a></li>
+					<li><a href="facilities.html">Facilities</a></li>
+					<li><a href="gallery.html">Gallery</a></li>
+				</ul>
+			</nav>
+
+			<nav class="footer__col" aria-labelledby="footer-membership-heading">
+				<h3 class="footer__heading" id="footer-membership-heading">Membership</h3>
+				<ul class="footer__links">
+					<li><a href="membership.html">Plans &amp; Pricing</a></li>
+					<li><a href="contact.html">Book a Tour</a></li>
+					<li><a href="membership.html#faq">FAQ</a></li>
+					<li><a href="blog.html">Journal</a></li>
+				</ul>
+			</nav>
+
+			<div class="footer__col footer__col--contact">
+				<h3 class="footer__heading">Visit Us</h3>
+				<address class="footer__address">
+					128 Riverside Ave, Springfield<br>
+					<a href="tel:+15552104488">(555) 210-4488</a><br>
+					<a href="mailto:hello@ironelitefitnessclub.com">hello@ironelitefitnessclub.com</a>
+				</address>
+				<p class="footer__hours">Mon&ndash;Fri 5am&ndash;11pm &middot; Sat&ndash;Sun 7am&ndash;8pm</p>
+
+				<form class="footer__newsletter" aria-labelledby="footer-newsletter-heading">
+					<h3 class="footer__heading" id="footer-newsletter-heading">Newsletter</h3>
+					<label class="visually-hidden" for="footerNewsletterEmail">Email address</label>
+					<div class="footer__newsletter-row">
+						<input class="form__input" type="email" id="footerNewsletterEmail" name="email" placeholder="Your email address" required>
+						<button class="btn btn--primary" type="submit">Subscribe</button>
+					</div>
+				</form>
+			</div>
+		</div>
+
+		<div class="footer__bottom">
+			<div class="container footer__bottom-row">
+				<p class="footer__copyright">&copy; <span id="currentYear">2026</span> Iron Elite Fitness Club. All rights reserved.</p>
+				<ul class="footer__legal">
+					<li><a href="#">Privacy Policy</a></li>
+					<li><a href="#">Terms of Service</a></li>
+				</ul>
+				<button class="back-to-top" id="backToTop" type="button" aria-label="Back to top">
+					<svg width="18" height="18" aria-hidden="true"><use href="assets/icons/sprite.svg#arrow-up"></use></svg>
+				</button>
+			</div>
+		</div>
+	</footer>
+
+	<!-- ============================================================
+	     JAVASCRIPT
+	     NOTE: file does not exist yet — created in Phase 5.
+	============================================================ -->
+	<script type="module" src="assets/js/main.js"></script>
+</body>
+</html>

@@ -344,12 +344,12 @@ Deployment
 
 ---
 
-## Open Decisions
+## Open Decisions — Resolved
 
-A few choices are genuinely yours to make before the build phase starts — flagged here rather than assumed:
+1. **Repo structure:** the Next.js app will live in a new `web/` subfolder alongside the existing static site, which stays at the repo root untouched for reference.
+2. **Icon strategy:** `lucide-react` — replaces the hand-maintained SVG sprite with tree-shakeable React icon components.
+3. **Deployment target:** Vercel.
 
-1. **Where does the Next.js app live relative to the current repo?** Alongside the static site in a new subfolder (e.g. `web/`), replacing the static site at the root (moving current files to an `archive/static-site/` folder, same pattern used for the old IronPulse MVP), or a separate repository entirely?
-2. **Icon strategy:** keep the hand-maintained SVG sprite, or adopt `lucide-react` as recommended in Section 6?
-3. **Deployment target:** Vercel (simplest, native Next.js support) or a different host/platform?
+The folder tree in Section 1 is rooted at `web/` accordingly (i.e. `web/app/`, `web/components/`, `web/public/`, etc.), sitting next to `index.html`, `about.html`, `assets/`, and `docs/` at the repo root.
 
-Once these are settled, the next phase is scaffolding the actual `create-next-app` project per Section 1 — still no page/component code until that's explicitly requested.
+Next phase is scaffolding the actual `create-next-app` project per Section 1 — still no page/component code until that's explicitly requested.

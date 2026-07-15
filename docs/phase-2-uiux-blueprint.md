@@ -160,7 +160,7 @@ Full-width dark band, single large centered quote (Playfair italic), oversized g
 └──────────────────────────────────────────────┘
 ```
 
-Single-open accordion (opening one closes the previous — keeps the page tidy), gold `+`/`×` icon rotates 45° on open, answer slides+fades open (height auto-animation), hairline divider between rows, centered max-width ~760px on desktop. If a page has >8 FAQs, split into two visual columns rather than one long list.
+Multi-open accordion (each question toggles independently, so users can compare several answers at once), gold `+`/`×` icon rotates 45° on open, answer slides+fades open (height auto-animation), hairline divider between rows, centered max-width ~760px on desktop. If a page has >8 FAQs, split into two visual columns rather than one long list.
 
 ## A.11 Contact Page Layout
 
@@ -441,7 +441,7 @@ A single reference for how motion unfolds down any page:
 | 2 | Pricing cards | Core conversion decision | 3-col cards, center elevated | Staggered fade-up, center delayed+scaled |
 | 3 | Comparison table | Serve detail-oriented buyers | Expandable full-width table | Height-expand on toggle |
 | 4 | Perks strip | Reinforce value beyond price | 3-col icon row | Fade-up |
-| 5 | FAQ | Remove final objections | Accordion | Slide-open per item |
+| 5 | FAQ | Remove final objections | Accordion (multi-open) | Slide-open per item |
 | 6 | CTA band | Final conversion | Full-width, dual CTA | Scale-in |
 | 7 | Footer | — | 4-col | Fade-in |
 
@@ -702,14 +702,14 @@ A single reference for how motion unfolds down any page:
 
 ---
 
-# Approval Checkpoint
+# Approval Checkpoint — RESOLVED
 
 That's the complete Phase 2 UI/UX blueprint: global systems (nav, footer, buttons, cards, forms, gallery, pricing, trainer cards, testimonials, FAQ, contact layout, scroll timeline) plus full page-by-page wireframes for all 11 pages.
 
-**Please review and confirm before Phase 3 begins (actual HTML/CSS/JS coding).** Specifically worth flagging for your sign-off:
+Decisions confirmed:
 
-1. Trimmed the primary nav to 6 links + CTA (Gallery reached via Facilities/footer instead of a 7th/8th top-level item) — confirm that's acceptable, or you'd rather it be a top-level link.
-2. Single-open FAQ accordion (not multi-open) — confirm that's the preferred behavior.
-3. Trainer/Program detail views are modals, not separate pages — confirm, or you'd prefer dedicated detail pages (e.g. `/trainers/marcus-reed.html`).
+1. **Nav stays at 6 links + CTA** — Gallery is reached via Facilities/footer, not a top-level link.
+2. **FAQ accordion is multi-open** — each question toggles independently.
+3. **Trainer/Program detail views are modals**, not separate pages.
 
-Once approved, Phase 3 starts with the Design System Foundation (CSS variables, reset, typography, spacing scale, base buttons, icon sprite) per the Phase 1 roadmap.
+Phase 2 is approved. Phase 3 starts with the Design System Foundation (CSS variables, reset, typography, spacing scale, base buttons, icon sprite) per the Phase 1 roadmap.

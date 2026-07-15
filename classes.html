@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Classes &amp; Programs | Iron Elite Fitness Club — Train Beyond Limits</title>
+	<meta name="description" content="Explore Iron Elite's training disciplines — Strength, Boxing, Cross Training, Yoga, HIIT, and Recovery — plus the full weekly class schedule.">
+	<meta name="author" content="Iron Elite Fitness Club">
+	<meta name="theme-color" content="#0A0A0A">
+	<meta name="robots" content="index, follow">
+
+	<meta property="og:type" content="website">
+	<meta property="og:site_name" content="Iron Elite Fitness Club">
+	<meta property="og:title" content="Classes &amp; Programs | Iron Elite Fitness Club">
+	<meta property="og:description" content="Training disciplines built for every goal, plus the full weekly schedule.">
+	<meta property="og:image" content="assets/images/og/classes-og.jpg">
+	<meta property="og:url" content="https://www.ironelitefitnessclub.com/classes.html">
+	<meta name="twitter:card" content="summary_large_image">
+	<meta name="twitter:title" content="Classes &amp; Programs | Iron Elite Fitness Club">
+	<meta name="twitter:description" content="Training disciplines built for every goal, plus the full weekly schedule.">
+	<meta name="twitter:image" content="assets/images/og/classes-og.jpg">
+
+	<link rel="icon" type="image/svg+xml" href="assets/icons/favicon/favicon.svg">
+	<link rel="alternate icon" href="assets/icons/favicon/favicon.ico">
+
+	<link rel="stylesheet" href="assets/css/base/reset.css">
+	<link rel="stylesheet" href="assets/css/base/variables.css">
+	<link rel="stylesheet" href="assets/css/base/typography.css">
+	<link rel="stylesheet" href="assets/css/base/utilities.css">
+
+	<link rel="stylesheet" href="assets/css/components/navbar.css">
+	<link rel="stylesheet" href="assets/css/components/mobile-menu.css">
+	<link rel="stylesheet" href="assets/css/components/buttons.css">
+	<link rel="stylesheet" href="assets/css/components/page-header.css">
+	<link rel="stylesheet" href="assets/css/components/section-heading.css">
+	<link rel="stylesheet" href="assets/css/components/cards.css">
+	<link rel="stylesheet" href="assets/css/components/tabs.css">
+	<link rel="stylesheet" href="assets/css/components/modal.css">
+	<link rel="stylesheet" href="assets/css/components/cta-banner.css">
+	<link rel="stylesheet" href="assets/css/components/back-to-top.css">
+	<link rel="stylesheet" href="assets/css/components/footer.css">
+
+	<link rel="stylesheet" href="assets/css/animations.css">
+	<link rel="stylesheet" href="assets/css/pages/classes.css">
+</head>
+<body>
+
+	<a class="skip-link" href="#main-content">Skip to main content</a>
+
+	<!-- ============================================================
+	     NAVIGATION BAR (shared across every page)
+	============================================================ -->
+	<header class="site-header" id="site-header">
+		<nav class="navbar" aria-label="Primary navigation">
+			<div class="navbar__container">
+				<a class="navbar__logo" href="index.html" aria-label="Iron Elite Fitness Club — Home">
+					<img class="navbar__logo-img" src="assets/images/logo/logo-gold.svg" alt="Iron Elite Fitness Club" width="160" height="40">
+				</a>
+
+				<ul class="navbar__menu">
+					<li class="navbar__item"><a class="navbar__link" href="index.html">Home</a></li>
+					<li class="navbar__item"><a class="navbar__link" href="about.html">About</a></li>
+					<li class="navbar__item">
+						<a class="navbar__link navbar__link--active" href="classes.html" aria-current="page">Classes</a>
+					</li>
+					<li class="navbar__item"><a class="navbar__link" href="trainers.html">Trainers</a></li>
+					<li class="navbar__item"><a class="navbar__link" href="membership.html">Membership</a></li>
+					<li class="navbar__item"><a class="navbar__link" href="facilities.html">Facilities</a></li>
+					<li class="navbar__item"><a class="navbar__link" href="blog.html">Journal</a></li>
+				</ul>
+
+				<div class="navbar__actions">
+					<a class="navbar__contact-link" href="contact.html">Contact</a>
+					<a class="btn btn--primary navbar__cta" href="contact.html">Book a Tour</a>
+
+					<button class="navbar__toggle" id="navToggle" type="button" aria-controls="mobileNav" aria-expanded="false" aria-label="Open menu">
+						<span class="navbar__toggle-bar" aria-hidden="true"></span>
+						<span class="navbar__toggle-bar" aria-hidden="true"></span>
+						<span class="navbar__toggle-bar" aria-hidden="true"></span>
+					</button>
+				</div>
+			</div>
+		</nav>
+
+		<nav class="mobile-nav" id="mobileNav" aria-label="Mobile navigation" hidden>
+			<button class="mobile-nav__close" id="mobileNavClose" type="button" aria-label="Close menu">
+				<span aria-hidden="true">&times;</span>
+			</button>
+			<ul class="mobile-nav__list">
+				<li class="mobile-nav__item"><a class="mobile-nav__link" href="index.html">Home</a></li>
+				<li class="mobile-nav__item"><a class="mobile-nav__link" href="about.html">About</a></li>
+				<li class="mobile-nav__item"><a class="mobile-nav__link" href="classes.html" aria-current="page">Classes</a></li>
+				<li class="mobile-nav__item"><a class="mobile-nav__link" href="trainers.html">Trainers</a></li>
+				<li class="mobile-nav__item"><a class="mobile-nav__link" href="membership.html">Membership</a></li>
+				<li class="mobile-nav__item"><a class="mobile-nav__link" href="facilities.html">Facilities</a></li>
+				<li class="mobile-nav__item"><a class="mobile-nav__link" href="blog.html">Journal</a></li>
+				<li class="mobile-nav__item"><a class="mobile-nav__link" href="contact.html">Contact</a></li>
+			</ul>
+			<div class="mobile-nav__footer">
+				<a class="btn btn--primary mobile-nav__cta" href="contact.html">Book a Tour</a>
+				<ul class="mobile-nav__social">
+					<li><a href="#" aria-label="Iron Elite Fitness Club on Instagram">
+						<svg class="icon" width="20" height="20" aria-hidden="true"><use href="assets/icons/sprite.svg#instagram"></use></svg>
+					</a></li>
+					<li><a href="#" aria-label="Iron Elite Fitness Club on Facebook">
+						<svg class="icon" width="20" height="20" aria-hidden="true"><use href="assets/icons/sprite.svg#facebook"></use></svg>
+					</a></li>
+					<li><a href="#" aria-label="Iron Elite Fitness Club on TikTok">
+						<svg class="icon" width="20" height="20" aria-hidden="true"><use href="assets/icons/sprite.svg#tiktok"></use></svg>
+					</a></li>
+				</ul>
+			</div>
+		</nav>
+	</header>
+
+	<main id="main-content">
+
+		<!-- ============================================================
+		     PAGE HEADER
+		============================================================ -->
+		<section class="page-header" aria-labelledby="page-header-heading">
+			<div class="container">
+				<p class="eyebrow">Training Disciplines</p>
+				<h1 class="page-header__heading" id="page-header-heading">Classes Built For Every Goal</h1>
+			</div>
+		</section>
+
+		<!-- ============================================================
+		     CLASS FILTER + GRID
+		============================================================ -->
+		<section class="classes-catalog" id="catalog" aria-labelledby="catalog-heading">
+			<div class="container">
+				<h2 class="visually-hidden" id="catalog-heading">All Classes</h2>
+
+				<div class="tabs" role="tablist" aria-label="Filter classes by discipline">
+					<button class="tabs__tab tabs__tab--active" type="button" role="tab" aria-selected="true" data-filter="all">All</button>
+					<button class="tabs__tab" type="button" role="tab" aria-selected="false" data-filter="strength">Strength</button>
+					<button class="tabs__tab" type="button" role="tab" aria-selected="false" data-filter="boxing">Boxing</button>
+					<button class="tabs__tab" type="button" role="tab" aria-selected="false" data-filter="cross-training">Cross Training</button>
+					<button class="tabs__tab" type="button" role="tab" aria-selected="false" data-filter="yoga">Yoga</button>
+					<button class="tabs__tab" type="button" role="tab" aria-selected="false" data-filter="hiit">HIIT</button>
+					<button class="tabs__tab" type="button" role="tab" aria-selected="false" data-filter="recovery">Recovery</button>
+				</div>
+
+				<div class="card-grid classes-catalog__grid">
+					<article class="card class-card" data-category="strength">
+						<img class="class-card__image" src="assets/images/programs/program-strength.jpg" alt="Member performing a barbell squat during a strength training session" loading="lazy" width="400" height="300">
+						<h3 class="card__title">Strength Training</h3>
+						<p class="card__text">Progressive barbell programming built around proven strength cycles.</p>
+						<button class="btn btn--ghost card__link" type="button" data-modal-target="modal-strength">Learn More <span aria-hidden="true">&rarr;</span></button>
+					</article>
+
+					<article class="card class-card" data-category="boxing">
+						<img class="class-card__image" src="assets/images/programs/program-boxing.jpg" alt="Members training on heavy bags during a boxing class" loading="lazy" width="400" height="300">
+						<h3 class="card__title">Boxing</h3>
+						<p class="card__text">Technical striking work paired with conditioning for a full-body burn.</p>
+						<button class="btn btn--ghost card__link" type="button" data-modal-target="modal-boxing">Learn More <span aria-hidden="true">&rarr;</span></button>
+					</article>
+
+					<article class="card class-card" data-category="cross-training">
+						<img class="class-card__image" src="assets/images/programs/program-cross-training.jpg" alt="Group cross training class using kettlebells and battle ropes" loading="lazy" width="400" height="300">
+						<h3 class="card__title">Cross Training</h3>
+						<p class="card__text">High-intensity functional conditioning that builds real-world strength.</p>
+						<button class="btn btn--ghost card__link" type="button" data-modal-target="modal-cross-training">Learn More <span aria-hidden="true">&rarr;</span></button>
+					</article>
+
+					<article class="card class-card" data-category="yoga">
+						<img class="class-card__image" src="assets/images/programs/program-yoga.jpg" alt="Instructor leading a yoga class focused on mobility and recovery" loading="lazy" width="400" height="300">
+						<h3 class="card__title">Yoga</h3>
+						<p class="card__text">Guided mobility and recovery sessions that balance out heavy training.</p>
+						<button class="btn btn--ghost card__link" type="button" data-modal-target="modal-yoga">Learn More <span aria-hidden="true">&rarr;</span></button>
+					</article>
+
+					<article class="card class-card" data-category="hiit">
+						<img class="class-card__image" src="assets/images/programs/program-hiit.jpg" alt="Members performing high-intensity interval training circuits" loading="lazy" width="400" height="300">
+						<h3 class="card__title">HIIT</h3>
+						<p class="card__text">Short, intense interval circuits designed to torch calories fast.</p>
+						<button class="btn btn--ghost card__link" type="button" data-modal-target="modal-hiit">Learn More <span aria-hidden="true">&rarr;</span></button>
+					</article>
+
+					<article class="card class-card" data-category="recovery">
+						<img class="class-card__image" src="assets/images/programs/program-recovery.jpg" alt="Member using the recovery lounge's stretching and mobility area" loading="lazy" width="400" height="300">
+						<h3 class="card__title">Recovery</h3>
+						<p class="card__text">Guided stretching, breathwork, and mobility work between heavy training days.</p>
+						<button class="btn btn--ghost card__link" type="button" data-modal-target="modal-recovery">Learn More <span aria-hidden="true">&rarr;</span></button>
+					</article>
+				</div>
+			</div>
+		</section>
+
+		<!-- ============================================================
+		     WEEKLY SCHEDULE
+		============================================================ -->
+		<section class="schedule" id="schedule" aria-labelledby="schedule-heading">
+			<div class="container">
+				<div class="section-head">
+					<p class="eyebrow">Plan Your Week</p>
+					<h2 class="section-heading" id="schedule-heading">Weekly Class Schedule</h2>
+				</div>
+
+				<div class="schedule__table-wrap">
+					<table class="schedule__table">
+						<caption class="visually-hidden">Weekly class schedule by day and time</caption>
+						<thead>
+							<tr>
+								<th scope="col">Time</th>
+								<th scope="col">Mon</th>
+								<th scope="col">Tue</th>
+								<th scope="col">Wed</th>
+								<th scope="col">Thu</th>
+								<th scope="col">Fri</th>
+								<th scope="col">Sat</th>
+								<th scope="col">Sun</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<th scope="row">6:00 AM</th>
+								<td>Strength</td>
+								<td>Boxing</td>
+								<td>Strength</td>
+								<td>Boxing</td>
+								<td>Strength</td>
+								<td>Cross Training</td>
+								<td>Recovery</td>
+							</tr>
+							<tr>
+								<th scope="row">9:00 AM</th>
+								<td>Yoga</td>
+								<td>HIIT</td>
+								<td>Yoga</td>
+								<td>HIIT</td>
+								<td>Yoga</td>
+								<td>HIIT</td>
+								<td>Yoga</td>
+							</tr>
+							<tr>
+								<th scope="row">5:30 PM</th>
+								<td>Cross Training</td>
+								<td>Strength</td>
+								<td>Cross Training</td>
+								<td>Strength</td>
+								<td>Cross Training</td>
+								<td>&mdash;</td>
+								<td>&mdash;</td>
+							</tr>
+							<tr>
+								<th scope="row">7:00 PM</th>
+								<td>Boxing</td>
+								<td>Recovery</td>
+								<td>Boxing</td>
+								<td>Recovery</td>
+								<td>Boxing</td>
+								<td>&mdash;</td>
+								<td>&mdash;</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</section>
+
+		<!-- ============================================================
+		     CTA BAND
+		============================================================ -->
+		<section class="cta-banner" id="assessment-cta" aria-labelledby="assessment-cta-heading">
+			<div class="container cta-banner__content">
+				<h2 class="cta-banner__heading" id="assessment-cta-heading">Not Sure Where To Start?</h2>
+				<p class="cta-banner__text">Book a complimentary fitness assessment and we'll build your first plan together.</p>
+				<a class="btn btn--primary btn--large" href="contact.html">Book a Free Assessment</a>
+			</div>
+		</section>
+
+	</main>
+
+	<!-- ============================================================
+	     CLASS DETAIL MODALS
+	     Hidden by default; opened by each card's "Learn More"
+	     button. Wiring lands with the shared modal script in a
+	     later phase.
+	============================================================ -->
+	<div class="modal" id="modal-strength" role="dialog" aria-modal="true" aria-labelledby="modal-strength-title" hidden>
+		<div class="modal__panel">
+			<button class="modal__close" type="button" aria-label="Close">&times;</button>
+			<h3 class="modal__title" id="modal-strength-title">Strength Training</h3>
+			<p class="modal__meta">60 minutes &middot; High Intensity &middot; Coach: Marcus Reed</p>
+			<p>Progressive barbell programming built around proven strength cycles — squat, bench, deadlift, and
+			overhead press progressions tailored to your current numbers.</p>
+		</div>
+	</div>
+
+	<div class="modal" id="modal-boxing" role="dialog" aria-modal="true" aria-labelledby="modal-boxing-title" hidden>
+		<div class="modal__panel">
+			<button class="modal__close" type="button" aria-label="Close">&times;</button>
+			<h3 class="modal__title" id="modal-boxing-title">Boxing</h3>
+			<p class="modal__meta">45 minutes &middot; High Intensity &middot; Coach: Alina Cruz</p>
+			<p>Technical striking work on heavy bags and pads, paired with conditioning intervals for a full-body
+			burn — no sparring required.</p>
+		</div>
+	</div>
+
+	<div class="modal" id="modal-cross-training" role="dialog" aria-modal="true" aria-labelledby="modal-cross-training-title" hidden>
+		<div class="modal__panel">
+			<button class="modal__close" type="button" aria-label="Close">&times;</button>
+			<h3 class="modal__title" id="modal-cross-training-title">Cross Training</h3>
+			<p class="modal__meta">50 minutes &middot; High Intensity &middot; Coach: Daniel Osei</p>
+			<p>Kettlebells, battle ropes, and functional circuits designed to build strength and conditioning that
+			carries over into everyday movement.</p>
+		</div>
+	</div>
+
+	<div class="modal" id="modal-yoga" role="dialog" aria-modal="true" aria-labelledby="modal-yoga-title" hidden>
+		<div class="modal__panel">
+			<button class="modal__close" type="button" aria-label="Close">&times;</button>
+			<h3 class="modal__title" id="modal-yoga-title">Yoga</h3>
+			<p class="modal__meta">45 minutes &middot; Low Intensity &middot; Coach: Priya Nair</p>
+			<p>Guided mobility, breathwork, and recovery-focused flows that balance out heavier training days.</p>
+		</div>
+	</div>
+
+	<div class="modal" id="modal-hiit" role="dialog" aria-modal="true" aria-labelledby="modal-hiit-title" hidden>
+		<div class="modal__panel">
+			<button class="modal__close" type="button" aria-label="Close">&times;</button>
+			<h3 class="modal__title" id="modal-hiit-title">HIIT</h3>
+			<p class="modal__meta">30 minutes &middot; Very High Intensity &middot; Coach: Alina Cruz</p>
+			<p>Short, intense interval circuits designed to torch calories and build serious conditioning fast.</p>
+		</div>
+	</div>
+
+	<div class="modal" id="modal-recovery" role="dialog" aria-modal="true" aria-labelledby="modal-recovery-title" hidden>
+		<div class="modal__panel">
+			<button class="modal__close" type="button" aria-label="Close">&times;</button>
+			<h3 class="modal__title" id="modal-recovery-title">Recovery</h3>
+			<p class="modal__meta">40 minutes &middot; Low Intensity &middot; Coach: Daniel Osei</p>
+			<p>Guided stretching, breathwork, and mobility work — the session your body needs between heavy
+			training days.</p>
+		</div>
+	</div>
+
+	<!-- ============================================================
+	     FOOTER (shared across every page)
+	============================================================ -->
+	<footer class="site-footer">
+		<div class="container footer__grid">
+			<div class="footer__col footer__col--brand">
+				<a class="footer__logo" href="index.html" aria-label="Iron Elite Fitness Club — Home">
+					<img src="assets/images/logo/logo-white.svg" alt="Iron Elite Fitness Club" width="160" height="40">
+				</a>
+				<p class="footer__tagline">Train Beyond Limits.</p>
+				<ul class="footer__social">
+					<li><a href="#" aria-label="Iron Elite Fitness Club on Instagram">
+						<svg class="icon" width="20" height="20" aria-hidden="true"><use href="assets/icons/sprite.svg#instagram"></use></svg>
+					</a></li>
+					<li><a href="#" aria-label="Iron Elite Fitness Club on Facebook">
+						<svg class="icon" width="20" height="20" aria-hidden="true"><use href="assets/icons/sprite.svg#facebook"></use></svg>
+					</a></li>
+					<li><a href="#" aria-label="Iron Elite Fitness Club on TikTok">
+						<svg class="icon" width="20" height="20" aria-hidden="true"><use href="assets/icons/sprite.svg#tiktok"></use></svg>
+					</a></li>
+				</ul>
+			</div>
+
+			<nav class="footer__col" aria-labelledby="footer-explore-heading">
+				<h3 class="footer__heading" id="footer-explore-heading">Explore</h3>
+				<ul class="footer__links">
+					<li><a href="about.html">About</a></li>
+					<li><a href="classes.html">Classes</a></li>
+					<li><a href="trainers.html">Trainers</a></li>
+					<li><a href="facilities.html">Facilities</a></li>
+					<li><a href="gallery.html">Gallery</a></li>
+				</ul>
+			</nav>
+
+			<nav class="footer__col" aria-labelledby="footer-membership-heading">
+				<h3 class="footer__heading" id="footer-membership-heading">Membership</h3>
+				<ul class="footer__links">
+					<li><a href="membership.html">Plans &amp; Pricing</a></li>
+					<li><a href="contact.html">Book a Tour</a></li>
+					<li><a href="membership.html#faq">FAQ</a></li>
+					<li><a href="blog.html">Journal</a></li>
+				</ul>
+			</nav>
+
+			<div class="footer__col footer__col--contact">
+				<h3 class="footer__heading">Visit Us</h3>
+				<address class="footer__address">
+					128 Riverside Ave, Springfield<br>
+					<a href="tel:+15552104488">(555) 210-4488</a><br>
+					<a href="mailto:hello@ironelitefitnessclub.com">hello@ironelitefitnessclub.com</a>
+				</address>
+				<p class="footer__hours">Mon&ndash;Fri 5am&ndash;11pm &middot; Sat&ndash;Sun 7am&ndash;8pm</p>
+
+				<form class="footer__newsletter" aria-labelledby="footer-newsletter-heading">
+					<h3 class="footer__heading" id="footer-newsletter-heading">Newsletter</h3>
+					<label class="visually-hidden" for="footerNewsletterEmail">Email address</label>
+					<div class="footer__newsletter-row">
+						<input class="form__input" type="email" id="footerNewsletterEmail" name="email" placeholder="Your email address" required>
+						<button class="btn btn--primary" type="submit">Subscribe</button>
+					</div>
+				</form>
+			</div>
+		</div>
+
+		<div class="footer__bottom">
+			<div class="container footer__bottom-row">
+				<p class="footer__copyright">&copy; <span id="currentYear">2026</span> Iron Elite Fitness Club. All rights reserved.</p>
+				<ul class="footer__legal">
+					<li><a href="#">Privacy Policy</a></li>
+					<li><a href="#">Terms of Service</a></li>
+				</ul>
+				<button class="back-to-top" id="backToTop" type="button" aria-label="Back to top">
+					<svg width="18" height="18" aria-hidden="true"><use href="assets/icons/sprite.svg#arrow-up"></use></svg>
+				</button>
+			</div>
+		</div>
+	</footer>
+
+	<script type="module" src="assets/js/main.js"></script>
+</body>
+</html>

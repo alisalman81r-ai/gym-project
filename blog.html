@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>The Journal | Iron Elite Fitness Club — Train Beyond Limits</title>
+	<meta name="description" content="Insights on training, recovery, and discipline from the coaches at Iron Elite Fitness Club.">
+	<meta name="author" content="Iron Elite Fitness Club">
+	<meta name="theme-color" content="#0A0A0A">
+	<meta name="robots" content="index, follow">
+
+	<meta property="og:type" content="website">
+	<meta property="og:site_name" content="Iron Elite Fitness Club">
+	<meta property="og:title" content="The Journal | Iron Elite Fitness Club">
+	<meta property="og:description" content="Insights on training, recovery, and discipline.">
+	<meta property="og:image" content="assets/images/og/blog-og.jpg">
+	<meta property="og:url" content="https://www.ironelitefitnessclub.com/blog.html">
+	<meta name="twitter:card" content="summary_large_image">
+	<meta name="twitter:title" content="The Journal | Iron Elite Fitness Club">
+	<meta name="twitter:description" content="Insights on training, recovery, and discipline.">
+	<meta name="twitter:image" content="assets/images/og/blog-og.jpg">
+
+	<link rel="icon" type="image/svg+xml" href="assets/icons/favicon/favicon.svg">
+	<link rel="alternate icon" href="assets/icons/favicon/favicon.ico">
+
+	<link rel="stylesheet" href="assets/css/base/reset.css">
+	<link rel="stylesheet" href="assets/css/base/variables.css">
+	<link rel="stylesheet" href="assets/css/base/typography.css">
+	<link rel="stylesheet" href="assets/css/base/utilities.css">
+
+	<link rel="stylesheet" href="assets/css/components/navbar.css">
+	<link rel="stylesheet" href="assets/css/components/mobile-menu.css">
+	<link rel="stylesheet" href="assets/css/components/buttons.css">
+	<link rel="stylesheet" href="assets/css/components/page-header.css">
+	<link rel="stylesheet" href="assets/css/components/section-heading.css">
+	<link rel="stylesheet" href="assets/css/components/cards.css">
+	<link rel="stylesheet" href="assets/css/components/back-to-top.css">
+	<link rel="stylesheet" href="assets/css/components/footer.css">
+
+	<link rel="stylesheet" href="assets/css/animations.css">
+	<link rel="stylesheet" href="assets/css/pages/blog.css">
+</head>
+<body>
+
+	<a class="skip-link" href="#main-content">Skip to main content</a>
+
+	<!-- ============================================================
+	     NAVIGATION BAR (shared across every page)
+	============================================================ -->
+	<header class="site-header" id="site-header">
+		<nav class="navbar" aria-label="Primary navigation">
+			<div class="navbar__container">
+				<a class="navbar__logo" href="index.html" aria-label="Iron Elite Fitness Club — Home">
+					<img class="navbar__logo-img" src="assets/images/logo/logo-gold.svg" alt="Iron Elite Fitness Club" width="160" height="40">
+				</a>
+
+				<ul class="navbar__menu">
+					<li class="navbar__item"><a class="navbar__link" href="index.html">Home</a></li>
+					<li class="navbar__item"><a class="navbar__link" href="about.html">About</a></li>
+					<li class="navbar__item"><a class="navbar__link" href="classes.html">Classes</a></li>
+					<li class="navbar__item"><a class="navbar__link" href="trainers.html">Trainers</a></li>
+					<li class="navbar__item"><a class="navbar__link" href="membership.html">Membership</a></li>
+					<li class="navbar__item"><a class="navbar__link" href="facilities.html">Facilities</a></li>
+					<li class="navbar__item">
+						<a class="navbar__link navbar__link--active" href="blog.html" aria-current="page">Journal</a>
+					</li>
+				</ul>
+
+				<div class="navbar__actions">
+					<a class="navbar__contact-link" href="contact.html">Contact</a>
+					<a class="btn btn--primary navbar__cta" href="contact.html">Book a Tour</a>
+
+					<button class="navbar__toggle" id="navToggle" type="button" aria-controls="mobileNav" aria-expanded="false" aria-label="Open menu">
+						<span class="navbar__toggle-bar" aria-hidden="true"></span>
+						<span class="navbar__toggle-bar" aria-hidden="true"></span>
+						<span class="navbar__toggle-bar" aria-hidden="true"></span>
+					</button>
+				</div>
+			</div>
+		</nav>
+
+		<nav class="mobile-nav" id="mobileNav" aria-label="Mobile navigation" hidden>
+			<button class="mobile-nav__close" id="mobileNavClose" type="button" aria-label="Close menu">
+				<span aria-hidden="true">&times;</span>
+			</button>
+			<ul class="mobile-nav__list">
+				<li class="mobile-nav__item"><a class="mobile-nav__link" href="index.html">Home</a></li>
+				<li class="mobile-nav__item"><a class="mobile-nav__link" href="about.html">About</a></li>
+				<li class="mobile-nav__item"><a class="mobile-nav__link" href="classes.html">Classes</a></li>
+				<li class="mobile-nav__item"><a class="mobile-nav__link" href="trainers.html">Trainers</a></li>
+				<li class="mobile-nav__item"><a class="mobile-nav__link" href="membership.html">Membership</a></li>
+				<li class="mobile-nav__item"><a class="mobile-nav__link" href="facilities.html">Facilities</a></li>
+				<li class="mobile-nav__item"><a class="mobile-nav__link" href="blog.html" aria-current="page">Journal</a></li>
+				<li class="mobile-nav__item"><a class="mobile-nav__link" href="contact.html">Contact</a></li>
+			</ul>
+			<div class="mobile-nav__footer">
+				<a class="btn btn--primary mobile-nav__cta" href="contact.html">Book a Tour</a>
+				<ul class="mobile-nav__social">
+					<li><a href="#" aria-label="Iron Elite Fitness Club on Instagram">
+						<svg class="icon" width="20" height="20" aria-hidden="true"><use href="assets/icons/sprite.svg#instagram"></use></svg>
+					</a></li>
+					<li><a href="#" aria-label="Iron Elite Fitness Club on Facebook">
+						<svg class="icon" width="20" height="20" aria-hidden="true"><use href="assets/icons/sprite.svg#facebook"></use></svg>
+					</a></li>
+					<li><a href="#" aria-label="Iron Elite Fitness Club on TikTok">
+						<svg class="icon" width="20" height="20" aria-hidden="true"><use href="assets/icons/sprite.svg#tiktok"></use></svg>
+					</a></li>
+				</ul>
+			</div>
+		</nav>
+	</header>
+
+	<main id="main-content">
+
+		<!-- ============================================================
+		     PAGE HEADER
+		============================================================ -->
+		<section class="page-header" aria-labelledby="page-header-heading">
+			<div class="container">
+				<p class="eyebrow">The Journal</p>
+				<h1 class="page-header__heading" id="page-header-heading">Insights on Training, Recovery &amp; Discipline</h1>
+			</div>
+		</section>
+
+		<!-- ============================================================
+		     FEATURED POST
+		============================================================ -->
+		<section class="blog-featured" id="featured" aria-labelledby="featured-heading">
+			<div class="container">
+				<article class="blog-featured__card">
+					<img class="blog-featured__image" src="assets/images/blog/blog-progressive-overload.jpg" alt="Coach spotting a member during a heavy barbell set" loading="lazy" width="800" height="450">
+					<div class="blog-featured__content">
+						<p class="eyebrow">Training</p>
+						<h2 class="blog-featured__title" id="featured-heading">
+							<a href="blog-single.html">The Case for Progressive Overload — and Why Most People Do It Wrong</a>
+						</h2>
+						<p class="blog-featured__excerpt">Adding weight every week isn't the whole story. Here's how our coaches actually
+						program progression for long-term strength.</p>
+						<p class="blog-featured__meta">By Marcus Reed &middot; Jul 2, 2026 &middot; 6 min read</p>
+						<a class="btn btn--ghost" href="blog-single.html">Read Article <span aria-hidden="true">&rarr;</span></a>
+					</div>
+				</article>
+			</div>
+		</section>
+
+		<!-- ============================================================
+		     ARTICLE GRID + SIDEBAR
+		============================================================ -->
+		<section class="blog-archive" id="archive" aria-labelledby="archive-heading">
+			<div class="container blog-archive__layout">
+				<div class="blog-archive__main">
+					<h2 class="visually-hidden" id="archive-heading">Recent Articles</h2>
+
+					<div class="card-grid blog-archive__grid">
+						<article class="card blog-card">
+							<img class="blog-card__image" src="assets/images/blog/blog-recovery-days.jpg" alt="Member stretching during a recovery session" loading="lazy" width="400" height="225">
+							<p class="blog-card__category">Recovery</p>
+							<h3 class="card__title"><a href="blog-single.html">Why Your Recovery Days Matter More Than Your Training Days</a></h3>
+							<p class="card__text">The gains happen after the workout, not during it — here's what to prioritize.</p>
+							<p class="blog-card__meta">Jun 24, 2026 &middot; 4 min read</p>
+						</article>
+
+						<article class="card blog-card">
+							<img class="blog-card__image" src="assets/images/blog/blog-nutrition-basics.jpg" alt="Prepared meal with lean protein and vegetables" loading="lazy" width="400" height="225">
+							<p class="blog-card__category">Nutrition</p>
+							<h3 class="card__title"><a href="blog-single.html">Nutrition Basics: Fueling Performance Without Overcomplicating It</a></h3>
+							<p class="card__text">Priya Nair breaks down the fundamentals that actually move the needle.</p>
+							<p class="blog-card__meta">Jun 15, 2026 &middot; 5 min read</p>
+						</article>
+
+						<article class="card blog-card">
+							<img class="blog-card__image" src="assets/images/blog/blog-boxing-technique.jpg" alt="Coach demonstrating boxing footwork" loading="lazy" width="400" height="225">
+							<p class="blog-card__category">Boxing</p>
+							<h3 class="card__title"><a href="blog-single.html">Footwork First: The Boxing Fundamental Everyone Skips</a></h3>
+							<p class="card__text">Jordan Blake on why power means nothing without position.</p>
+							<p class="blog-card__meta">Jun 8, 2026 &middot; 4 min read</p>
+						</article>
+
+						<article class="card blog-card">
+							<img class="blog-card__image" src="assets/images/blog/blog-mobility-routine.jpg" alt="Member performing a hip mobility stretch" loading="lazy" width="400" height="225">
+							<p class="blog-card__category">Mobility</p>
+							<h3 class="card__title"><a href="blog-single.html">A 10-Minute Mobility Routine You Can Do Before Every Session</a></h3>
+							<p class="card__text">Elena Vasquez's warm-up sequence for safer, more effective training.</p>
+							<p class="blog-card__meta">May 30, 2026 &middot; 3 min read</p>
+						</article>
+
+						<article class="card blog-card">
+							<img class="blog-card__image" src="assets/images/blog/blog-member-story.jpg" alt="Member celebrating a strength milestone" loading="lazy" width="400" height="225">
+							<p class="blog-card__category">Member Stories</p>
+							<h3 class="card__title"><a href="blog-single.html">From First Session to First Pull-Up: One Member's Year at Iron Elite</a></h3>
+							<p class="card__text">A look at what consistent coaching actually looks like over twelve months.</p>
+							<p class="blog-card__meta">May 21, 2026 &middot; 5 min read</p>
+						</article>
+
+						<article class="card blog-card">
+							<img class="blog-card__image" src="assets/images/blog/blog-hiit-vs-steady-state.jpg" alt="Members mid-interval during a HIIT class" loading="lazy" width="400" height="225">
+							<p class="blog-card__category">Conditioning</p>
+							<h3 class="card__title"><a href="blog-single.html">HIIT vs. Steady State: Which One Actually Fits Your Goal?</a></h3>
+							<p class="card__text">Alina Cruz breaks down when to sprint and when to pace yourself.</p>
+							<p class="blog-card__meta">May 12, 2026 &middot; 4 min read</p>
+						</article>
+					</div>
+
+					<nav class="pagination" aria-label="Article pagination">
+						<a class="pagination__link pagination__link--active" href="blog.html" aria-current="page">1</a>
+						<a class="pagination__link" href="#">2</a>
+						<a class="pagination__link" href="#">3</a>
+						<a class="pagination__link pagination__link--next" href="#">Next <span aria-hidden="true">&rarr;</span></a>
+					</nav>
+				</div>
+
+				<aside class="blog-sidebar" aria-label="Blog sidebar">
+					<div class="blog-sidebar__block">
+						<h3 class="footer__heading">Recent Posts</h3>
+						<ul class="blog-sidebar__list">
+							<li><a href="blog-single.html">The Case for Progressive Overload</a></li>
+							<li><a href="blog-single.html">Why Your Recovery Days Matter More</a></li>
+							<li><a href="blog-single.html">Nutrition Basics: Fueling Performance</a></li>
+						</ul>
+					</div>
+
+					<div class="blog-sidebar__block">
+						<h3 class="footer__heading">Categories</h3>
+						<ul class="blog-sidebar__list">
+							<li><a href="#">Training</a></li>
+							<li><a href="#">Recovery</a></li>
+							<li><a href="#">Nutrition</a></li>
+							<li><a href="#">Boxing</a></li>
+							<li><a href="#">Mobility</a></li>
+							<li><a href="#">Member Stories</a></li>
+						</ul>
+					</div>
+				</aside>
+			</div>
+		</section>
+
+	</main>
+
+	<!-- ============================================================
+	     FOOTER (shared across every page)
+	============================================================ -->
+	<footer class="site-footer">
+		<div class="container footer__grid">
+			<div class="footer__col footer__col--brand">
+				<a class="footer__logo" href="index.html" aria-label="Iron Elite Fitness Club — Home">
+					<img src="assets/images/logo/logo-white.svg" alt="Iron Elite Fitness Club" width="160" height="40">
+				</a>
+				<p class="footer__tagline">Train Beyond Limits.</p>
+				<ul class="footer__social">
+					<li><a href="#" aria-label="Iron Elite Fitness Club on Instagram">
+						<svg class="icon" width="20" height="20" aria-hidden="true"><use href="assets/icons/sprite.svg#instagram"></use></svg>
+					</a></li>
+					<li><a href="#" aria-label="Iron Elite Fitness Club on Facebook">
+						<svg class="icon" width="20" height="20" aria-hidden="true"><use href="assets/icons/sprite.svg#facebook"></use></svg>
+					</a></li>
+					<li><a href="#" aria-label="Iron Elite Fitness Club on TikTok">
+						<svg class="icon" width="20" height="20" aria-hidden="true"><use href="assets/icons/sprite.svg#tiktok"></use></svg>
+					</a></li>
+				</ul>
+			</div>
+
+			<nav class="footer__col" aria-labelledby="footer-explore-heading">
+				<h3 class="footer__heading" id="footer-explore-heading">Explore</h3>
+				<ul class="footer__links">
+					<li><a href="about.html">About</a></li>
+					<li><a href="classes.html">Classes</a></li>
+					<li><a href="trainers.html">Trainers</a></li>
+					<li><a href="facilities.html">Facilities</a></li>
+					<li><a href="gallery.html">Gallery</a></li>
+				</ul>
+			</nav>
+
+			<nav class="footer__col" aria-labelledby="footer-membership-heading">
+				<h3 class="footer__heading" id="footer-membership-heading">Membership</h3>
+				<ul class="footer__links">
+					<li><a href="membership.html">Plans &amp; Pricing</a></li>
+					<li><a href="contact.html">Book a Tour</a></li>
+					<li><a href="membership.html#faq">FAQ</a></li>
+					<li><a href="blog.html">Journal</a></li>
+				</ul>
+			</nav>
+
+			<div class="footer__col footer__col--contact">
+				<h3 class="footer__heading">Visit Us</h3>
+				<address class="footer__address">
+					128 Riverside Ave, Springfield<br>
+					<a href="tel:+15552104488">(555) 210-4488</a><br>
+					<a href="mailto:hello@ironelitefitnessclub.com">hello@ironelitefitnessclub.com</a>
+				</address>
+				<p class="footer__hours">Mon&ndash;Fri 5am&ndash;11pm &middot; Sat&ndash;Sun 7am&ndash;8pm</p>
+
+				<form class="footer__newsletter" aria-labelledby="footer-newsletter-heading">
+					<h3 class="footer__heading" id="footer-newsletter-heading">Newsletter</h3>
+					<label class="visually-hidden" for="footerNewsletterEmail">Email address</label>
+					<div class="footer__newsletter-row">
+						<input class="form__input" type="email" id="footerNewsletterEmail" name="email" placeholder="Your email address" required>
+						<button class="btn btn--primary" type="submit">Subscribe</button>
+					</div>
+				</form>
+			</div>
+		</div>
+
+		<div class="footer__bottom">
+			<div class="container footer__bottom-row">
+				<p class="footer__copyright">&copy; <span id="currentYear">2026</span> Iron Elite Fitness Club. All rights reserved.</p>
+				<ul class="footer__legal">
+					<li><a href="#">Privacy Policy</a></li>
+					<li><a href="#">Terms of Service</a></li>
+				</ul>
+				<button class="back-to-top" id="backToTop" type="button" aria-label="Back to top">
+					<svg width="18" height="18" aria-hidden="true"><use href="assets/icons/sprite.svg#arrow-up"></use></svg>
+				</button>
+			</div>
+		</div>
+	</footer>
+
+	<script type="module" src="assets/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<!-- ============================================================
+	     DOCUMENT META
+	============================================================ -->
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>About Us | Iron Elite Fitness Club — Train Beyond Limits</title>
+	<meta name="description" content="Discover the story, values, and standards behind Iron Elite Fitness Club — a private luxury training club built on discipline, not trends.">
+	<meta name="author" content="Iron Elite Fitness Club">
+	<meta name="theme-color" content="#0A0A0A">
+	<meta name="robots" content="index, follow">
+
+	<meta property="og:type" content="website">
+	<meta property="og:site_name" content="Iron Elite Fitness Club">
+	<meta property="og:title" content="About Iron Elite Fitness Club">
+	<meta property="og:description" content="The story, values, and standards behind Iron Elite Fitness Club.">
+	<meta property="og:image" content="assets/images/og/about-og.jpg">
+	<meta property="og:url" content="https://www.ironelitefitnessclub.com/about.html">
+	<meta name="twitter:card" content="summary_large_image">
+	<meta name="twitter:title" content="About Iron Elite Fitness Club">
+	<meta name="twitter:description" content="The story, values, and standards behind Iron Elite Fitness Club.">
+	<meta name="twitter:image" content="assets/images/og/about-og.jpg">
+
+	<link rel="icon" type="image/svg+xml" href="assets/icons/favicon/favicon.svg">
+	<link rel="alternate icon" href="assets/icons/favicon/favicon.ico">
+
+	<!-- ============================================================
+	     STYLESHEETS — shared design system + page-specific overrides.
+	     NOTE: component/page files below are created in Phase 7.
+	============================================================ -->
+	<link rel="stylesheet" href="assets/css/base/reset.css">
+	<link rel="stylesheet" href="assets/css/base/variables.css">
+	<link rel="stylesheet" href="assets/css/base/typography.css">
+	<link rel="stylesheet" href="assets/css/base/utilities.css">
+
+	<link rel="stylesheet" href="assets/css/components/navbar.css">
+	<link rel="stylesheet" href="assets/css/components/mobile-menu.css">
+	<link rel="stylesheet" href="assets/css/components/buttons.css">
+	<link rel="stylesheet" href="assets/css/components/page-header.css">
+	<link rel="stylesheet" href="assets/css/components/section-heading.css">
+	<link rel="stylesheet" href="assets/css/components/cards.css">
+	<link rel="stylesheet" href="assets/css/components/cta-banner.css">
+	<link rel="stylesheet" href="assets/css/components/back-to-top.css">
+	<link rel="stylesheet" href="assets/css/components/footer.css">
+
+	<link rel="stylesheet" href="assets/css/animations.css">
+	<link rel="stylesheet" href="assets/css/pages/about.css">
+</head>
+<body>
+
+	<a class="skip-link" href="#main-content">Skip to main content</a>
+
+	<!-- ============================================================
+	     NAVIGATION BAR (shared across every page)
+	============================================================ -->
+	<header class="site-header" id="site-header">
+		<nav class="navbar" aria-label="Primary navigation">
+			<div class="navbar__container">
+				<a class="navbar__logo" href="index.html" aria-label="Iron Elite Fitness Club — Home">
+					<img class="navbar__logo-img" src="assets/images/logo/logo-gold.svg" alt="Iron Elite Fitness Club" width="160" height="40">
+				</a>
+
+				<ul class="navbar__menu">
+					<li class="navbar__item"><a class="navbar__link" href="index.html">Home</a></li>
+					<li class="navbar__item">
+						<a class="navbar__link navbar__link--active" href="about.html" aria-current="page">About</a>
+					</li>
+					<li class="navbar__item"><a class="navbar__link" href="classes.html">Classes</a></li>
+					<li class="navbar__item"><a class="navbar__link" href="trainers.html">Trainers</a></li>
+					<li class="navbar__item"><a class="navbar__link" href="membership.html">Membership</a></li>
+					<li class="navbar__item"><a class="navbar__link" href="facilities.html">Facilities</a></li>
+					<li class="navbar__item"><a class="navbar__link" href="blog.html">Journal</a></li>
+				</ul>
+
+				<div class="navbar__actions">
+					<a class="navbar__contact-link" href="contact.html">Contact</a>
+					<a class="btn btn--primary navbar__cta" href="contact.html">Book a Tour</a>
+
+					<button class="navbar__toggle" id="navToggle" type="button" aria-controls="mobileNav" aria-expanded="false" aria-label="Open menu">
+						<span class="navbar__toggle-bar" aria-hidden="true"></span>
+						<span class="navbar__toggle-bar" aria-hidden="true"></span>
+						<span class="navbar__toggle-bar" aria-hidden="true"></span>
+					</button>
+				</div>
+			</div>
+		</nav>
+
+		<nav class="mobile-nav" id="mobileNav" aria-label="Mobile navigation" hidden>
+			<button class="mobile-nav__close" id="mobileNavClose" type="button" aria-label="Close menu">
+				<span aria-hidden="true">&times;</span>
+			</button>
+			<ul class="mobile-nav__list">
+				<li class="mobile-nav__item"><a class="mobile-nav__link" href="index.html">Home</a></li>
+				<li class="mobile-nav__item"><a class="mobile-nav__link" href="about.html" aria-current="page">About</a></li>
+				<li class="mobile-nav__item"><a class="mobile-nav__link" href="classes.html">Classes</a></li>
+				<li class="mobile-nav__item"><a class="mobile-nav__link" href="trainers.html">Trainers</a></li>
+				<li class="mobile-nav__item"><a class="mobile-nav__link" href="membership.html">Membership</a></li>
+				<li class="mobile-nav__item"><a class="mobile-nav__link" href="facilities.html">Facilities</a></li>
+				<li class="mobile-nav__item"><a class="mobile-nav__link" href="blog.html">Journal</a></li>
+				<li class="mobile-nav__item"><a class="mobile-nav__link" href="contact.html">Contact</a></li>
+			</ul>
+			<div class="mobile-nav__footer">
+				<a class="btn btn--primary mobile-nav__cta" href="contact.html">Book a Tour</a>
+				<ul class="mobile-nav__social">
+					<li><a href="#" aria-label="Iron Elite Fitness Club on Instagram">
+						<svg class="icon" width="20" height="20" aria-hidden="true"><use href="assets/icons/sprite.svg#instagram"></use></svg>
+					</a></li>
+					<li><a href="#" aria-label="Iron Elite Fitness Club on Facebook">
+						<svg class="icon" width="20" height="20" aria-hidden="true"><use href="assets/icons/sprite.svg#facebook"></use></svg>
+					</a></li>
+					<li><a href="#" aria-label="Iron Elite Fitness Club on TikTok">
+						<svg class="icon" width="20" height="20" aria-hidden="true"><use href="assets/icons/sprite.svg#tiktok"></use></svg>
+					</a></li>
+				</ul>
+			</div>
+		</nav>
+	</header>
+
+	<main id="main-content">
+
+		<!-- ============================================================
+		     PAGE HEADER
+		============================================================ -->
+		<section class="page-header" aria-labelledby="page-header-heading">
+			<div class="container">
+				<p class="eyebrow">Our Story</p>
+				<h1 class="page-header__heading" id="page-header-heading">Built On Discipline, Not Trends.</h1>
+			</div>
+		</section>
+
+		<!-- ============================================================
+		     ORIGIN TIMELINE
+		============================================================ -->
+		<section class="timeline-section" id="origin" aria-labelledby="origin-heading">
+			<div class="container">
+				<div class="section-head">
+					<p class="eyebrow">Our Origin</p>
+					<h2 class="section-heading" id="origin-heading">Twelve Years of Raising the Standard</h2>
+				</div>
+
+				<ol class="timeline">
+					<li class="timeline__item">
+						<span class="timeline__year">2014</span>
+						<p class="timeline__text">Iron Elite opens in a single warehouse space with one coach and a handful of barbells.</p>
+					</li>
+					<li class="timeline__item">
+						<span class="timeline__year">2017</span>
+						<p class="timeline__text">The first Elite Coaching program launches, formalizing our one-on-one training methodology.</p>
+					</li>
+					<li class="timeline__item">
+						<span class="timeline__year">2021</span>
+						<p class="timeline__text">The Iron Elite Signature facility opens, complete with a private recovery lounge and studio.</p>
+					</li>
+					<li class="timeline__item">
+						<span class="timeline__year">2026</span>
+						<p class="timeline__text">3,200+ members and 18 coaches strong, still training on the same founding principles.</p>
+					</li>
+				</ol>
+			</div>
+		</section>
+
+		<!-- ============================================================
+		     OUR VALUES
+		============================================================ -->
+		<section class="values" id="values" aria-labelledby="values-heading">
+			<div class="container">
+				<div class="section-head">
+					<p class="eyebrow">What We Stand For</p>
+					<h2 class="section-heading" id="values-heading">Our Values</h2>
+				</div>
+
+				<div class="card-grid values__grid">
+					<article class="card">
+						<div class="card__icon" aria-hidden="true">
+							<svg width="28" height="28"><use href="assets/icons/sprite.svg#target"></use></svg>
+						</div>
+						<h3 class="card__title">Discipline</h3>
+						<p class="card__text">Consistency beats intensity. We build habits that outlast motivation.</p>
+					</article>
+					<article class="card">
+						<div class="card__icon" aria-hidden="true">
+							<svg width="28" height="28"><use href="assets/icons/sprite.svg#award"></use></svg>
+						</div>
+						<h3 class="card__title">Excellence</h3>
+						<p class="card__text">Every detail — coaching, equipment, facility — is held to a private-club standard.</p>
+					</article>
+					<article class="card">
+						<div class="card__icon" aria-hidden="true">
+							<svg width="28" height="28"><use href="assets/icons/sprite.svg#users"></use></svg>
+						</div>
+						<h3 class="card__title">Community</h3>
+						<p class="card__text">Members train alongside people who hold each other to the same standard.</p>
+					</article>
+					<article class="card">
+						<div class="card__icon" aria-hidden="true">
+							<svg width="28" height="28"><use href="assets/icons/sprite.svg#trophy"></use></svg>
+						</div>
+						<h3 class="card__title">Legacy</h3>
+						<p class="card__text">We coach for the results our members will still have ten years from now.</p>
+					</article>
+				</div>
+			</div>
+		</section>
+
+		<!-- ============================================================
+		     FOUNDER MESSAGE
+		============================================================ -->
+		<section class="founder" id="founder" aria-labelledby="founder-heading">
+			<div class="container founder__grid">
+				<div class="founder__media">
+					<img class="founder__portrait" src="assets/images/about/founder-james-calloway.jpg" alt="Portrait of James Calloway, Founder of Iron Elite Fitness Club" loading="lazy" width="480" height="560">
+				</div>
+				<div class="founder__content">
+					<p class="eyebrow" id="founder-heading">A Message From Our Founder</p>
+					<blockquote class="founder__quote">
+						<p>"We didn't set out to build the biggest gym in the city. We set out to build the one where
+						results were never left to chance — where every member trains with a real plan, and a coach
+						who's accountable to it."</p>
+					</blockquote>
+					<p class="founder__name">James Calloway <span class="founder__role">&mdash; Founder, Iron Elite Fitness Club</span></p>
+				</div>
+			</div>
+		</section>
+
+		<!-- ============================================================
+		     RECOGNIZED EXCELLENCE
+		============================================================ -->
+		<section class="awards" id="awards" aria-labelledby="awards-heading">
+			<div class="container">
+				<h2 class="visually-hidden" id="awards-heading">Awards &amp; Recognition</h2>
+				<ul class="awards__list">
+					<li><img class="awards__logo" src="assets/images/about/award-01.svg" alt="Best Private Fitness Club, Springfield Living Awards 2024" loading="lazy" width="140" height="60"></li>
+					<li><img class="awards__logo" src="assets/images/about/award-02.svg" alt="Top Rated Personal Training, City Fitness Guild 2023" loading="lazy" width="140" height="60"></li>
+					<li><img class="awards__logo" src="assets/images/about/award-03.svg" alt="Excellence in Coaching, National Strength Association" loading="lazy" width="140" height="60"></li>
+					<li><img class="awards__logo" src="assets/images/about/award-04.svg" alt="Readers' Choice, Springfield Health &amp; Wellness" loading="lazy" width="140" height="60"></li>
+				</ul>
+			</div>
+		</section>
+
+		<!-- ============================================================
+		     VIDEO CTA
+		============================================================ -->
+		<section class="cta-banner" id="visit-cta" aria-labelledby="visit-cta-heading">
+			<div class="container cta-banner__content">
+				<h2 class="cta-banner__heading" id="visit-cta-heading">See The Club For Yourself.</h2>
+				<p class="cta-banner__text">The best way to understand Iron Elite is to walk the floor. Book a complimentary tour.</p>
+				<a class="btn btn--primary btn--large" href="contact.html">Book a Tour</a>
+			</div>
+		</section>
+
+	</main>
+
+	<!-- ============================================================
+	     FOOTER (shared across every page)
+	============================================================ -->
+	<footer class="site-footer">
+		<div class="container footer__grid">
+			<div class="footer__col footer__col--brand">
+				<a class="footer__logo" href="index.html" aria-label="Iron Elite Fitness Club — Home">
+					<img src="assets/images/logo/logo-white.svg" alt="Iron Elite Fitness Club" width="160" height="40">
+				</a>
+				<p class="footer__tagline">Train Beyond Limits.</p>
+				<ul class="footer__social">
+					<li><a href="#" aria-label="Iron Elite Fitness Club on Instagram">
+						<svg class="icon" width="20" height="20" aria-hidden="true"><use href="assets/icons/sprite.svg#instagram"></use></svg>
+					</a></li>
+					<li><a href="#" aria-label="Iron Elite Fitness Club on Facebook">
+						<svg class="icon" width="20" height="20" aria-hidden="true"><use href="assets/icons/sprite.svg#facebook"></use></svg>
+					</a></li>
+					<li><a href="#" aria-label="Iron Elite Fitness Club on TikTok">
+						<svg class="icon" width="20" height="20" aria-hidden="true"><use href="assets/icons/sprite.svg#tiktok"></use></svg>
+					</a></li>
+				</ul>
+			</div>
+
+			<nav class="footer__col" aria-labelledby="footer-explore-heading">
+				<h3 class="footer__heading" id="footer-explore-heading">Explore</h3>
+				<ul class="footer__links">
+					<li><a href="about.html">About</a></li>
+					<li><a href="classes.html">Classes</a></li>
+					<li><a href="trainers.html">Trainers</a></li>
+					<li><a href="facilities.html">Facilities</a></li>
+					<li><a href="gallery.html">Gallery</a></li>
+				</ul>
+			</nav>
+
+			<nav class="footer__col" aria-labelledby="footer-membership-heading">
+				<h3 class="footer__heading" id="footer-membership-heading">Membership</h3>
+				<ul class="footer__links">
+					<li><a href="membership.html">Plans &amp; Pricing</a></li>
+					<li><a href="contact.html">Book a Tour</a></li>
+					<li><a href="membership.html#faq">FAQ</a></li>
+					<li><a href="blog.html">Journal</a></li>
+				</ul>
+			</nav>
+
+			<div class="footer__col footer__col--contact">
+				<h3 class="footer__heading">Visit Us</h3>
+				<address class="footer__address">
+					128 Riverside Ave, Springfield<br>
+					<a href="tel:+15552104488">(555) 210-4488</a><br>
+					<a href="mailto:hello@ironelitefitnessclub.com">hello@ironelitefitnessclub.com</a>
+				</address>
+				<p class="footer__hours">Mon&ndash;Fri 5am&ndash;11pm &middot; Sat&ndash;Sun 7am&ndash;8pm</p>
+
+				<form class="footer__newsletter" aria-labelledby="footer-newsletter-heading">
+					<h3 class="footer__heading" id="footer-newsletter-heading">Newsletter</h3>
+					<label class="visually-hidden" for="footerNewsletterEmail">Email address</label>
+					<div class="footer__newsletter-row">
+						<input class="form__input" type="email" id="footerNewsletterEmail" name="email" placeholder="Your email address" required>
+						<button class="btn btn--primary" type="submit">Subscribe</button>
+					</div>
+				</form>
+			</div>
+		</div>
+
+		<div class="footer__bottom">
+			<div class="container footer__bottom-row">
+				<p class="footer__copyright">&copy; <span id="currentYear">2026</span> Iron Elite Fitness Club. All rights reserved.</p>
+				<ul class="footer__legal">
+					<li><a href="#">Privacy Policy</a></li>
+					<li><a href="#">Terms of Service</a></li>
+				</ul>
+				<button class="back-to-top" id="backToTop" type="button" aria-label="Back to top">
+					<svg width="18" height="18" aria-hidden="true"><use href="assets/icons/sprite.svg#arrow-up"></use></svg>
+				</button>
+			</div>
+		</div>
+	</footer>
+
+	<script type="module" src="assets/js/main.js"></script>
+</body>
+</html>

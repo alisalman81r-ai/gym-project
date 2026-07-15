@@ -1,0 +1,57 @@
+/* ============================================================
+   STATS SECTION
+   Dedicated "Iron Elite in Numbers" band. Counter animation
+   (0 -> target) is wired up in the JS phase; numbers render
+   statically here in the meantime.
+============================================================ */
+
+.stats {
+	background: var(--secondary-color);
+	padding-block: var(--space-2xl);
+	border-block: 1px solid var(--color-border);
+}
+
+.stats__grid {
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	gap: var(--space-lg);
+	text-align: center;
+}
+
+.stats__item {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: var(--space-xs);
+}
+
+.stats__icon {
+	color: var(--primary-color);
+	margin-bottom: var(--space-xs);
+}
+
+.stats__number {
+	font-family: var(--font-display);
+	font-size: clamp(2rem, 4vw, 2.75rem);
+	font-weight: 700;
+	color: var(--text-color);
+}
+
+.stats__number::after {
+	content: '+';
+	color: var(--primary-color);
+}
+
+.stats__label {
+	font-size: 0.8rem;
+	text-transform: uppercase;
+	letter-spacing: 0.08em;
+	color: var(--color-grey);
+}
+
+@media (max-width: 768px) {
+	.stats__grid {
+		grid-template-columns: repeat(2, 1fr);
+		gap: var(--space-xl) var(--space-lg);
+	}
+}

@@ -1,0 +1,120 @@
+/* ============================================================
+   CARD SYSTEM
+   One base `.card` + variants for classes and trainers.
+   `.card-grid` is the shared responsive grid wrapper.
+============================================================ */
+
+.card-grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+	gap: var(--space-md);
+}
+
+/* ---- Base card (Why Choose Us) ---- */
+.card {
+	background: var(--secondary-color);
+	border: 1px solid var(--color-border);
+	border-radius: var(--radius-md);
+	padding: var(--space-lg) var(--space-md);
+	transition: transform var(--transition-medium), border-color var(--transition-medium), box-shadow var(--transition-medium);
+}
+
+.card:hover {
+	transform: translateY(-6px);
+	border-color: var(--primary-color);
+	box-shadow: var(--shadow-md);
+}
+
+.card__icon {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 56px;
+	height: 56px;
+	border-radius: var(--radius-md);
+	background: linear-gradient(135deg, rgba(201, 162, 39, 0.18), rgba(232, 205, 115, 0.1));
+	color: var(--primary-color);
+	margin-bottom: var(--space-md);
+}
+
+.card__title {
+	margin-bottom: var(--space-xs);
+}
+
+.card__text {
+	margin-bottom: 0;
+	font-size: var(--fs-small);
+}
+
+.card__link {
+	display: inline-block;
+	margin-top: var(--space-sm);
+}
+
+/* ---- Class card (Featured Classes) ---- */
+.class-card {
+	display: flex;
+	flex-direction: column;
+	padding: 0 0 var(--space-md);
+	overflow: hidden;
+}
+
+.class-card__image {
+	width: 100%;
+	aspect-ratio: 4 / 3;
+	object-fit: cover;
+	margin-bottom: var(--space-md);
+	transition: transform var(--transition-slow);
+}
+
+.class-card:hover .class-card__image {
+	transform: scale(1.05);
+}
+
+.class-card .card__title,
+.class-card .card__text,
+.class-card .card__link {
+	margin-inline: var(--space-md);
+}
+
+/* ---- Trainer card ---- */
+.trainer-card {
+	text-align: center;
+	background: var(--secondary-color);
+	border: 1px solid var(--color-border);
+	border-radius: var(--radius-md);
+	padding: var(--space-md);
+	transition: transform var(--transition-medium), border-color var(--transition-medium), box-shadow var(--transition-medium);
+}
+
+.trainer-card:hover {
+	transform: translateY(-6px);
+	border-color: var(--primary-color);
+	box-shadow: var(--shadow-md);
+}
+
+.trainer-card__photo {
+	width: 100%;
+	aspect-ratio: 4 / 5;
+	object-fit: cover;
+	border-radius: var(--radius-sm);
+	margin-bottom: var(--space-md);
+}
+
+.trainer-card__name {
+	font-size: 1.15rem;
+	margin-bottom: 0.2rem;
+}
+
+.trainer-card__role {
+	color: var(--primary-color);
+	text-transform: uppercase;
+	letter-spacing: 0.08em;
+	font-size: 0.72rem;
+	font-weight: 700;
+	margin-bottom: var(--space-md);
+}
+
+.trainer-card__cta {
+	width: 100%;
+}

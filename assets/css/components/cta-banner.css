@@ -1,0 +1,29 @@
+/* ============================================================
+   CTA BANNER
+   Full-width gold-bordered closing band used before the footer.
+============================================================ */
+
+.cta-banner {
+	position: relative;
+	padding-block: var(--space-2xl);
+	margin-inline: var(--container-gutter);
+	margin-block: var(--space-xl);
+	border: 1px solid var(--primary-color);
+	border-radius: var(--radius-lg);
+	background:
+		radial-gradient(circle at 50% 0%, rgba(201, 162, 39, 0.12), transparent 60%),
+		var(--secondary-color);
+	text-align: center;
+}
+
+.cta-banner__content {
+	max-width: 640px;
+}
+
+.cta-banner__heading {
+	margin-bottom: var(--space-sm);
+}
+
+.cta-banner__text {
+	margin-bottom: var(--space-lg);
+}

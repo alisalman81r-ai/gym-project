@@ -1,0 +1,127 @@
+/* ============================================================
+   MEMBERSHIP PRICING
+   Three-tier card layout with the center (Premium) plan
+   elevated as the recommended option.
+============================================================ */
+
+.membership-preview {
+	padding-block: var(--space-2xl);
+}
+
+.pricing-grid {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	gap: var(--space-md);
+	align-items: stretch;
+}
+
+.pricing-card {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	text-align: center;
+	background: var(--secondary-color);
+	border: 1px solid var(--color-border);
+	border-radius: var(--radius-md);
+	padding: var(--space-xl) var(--space-md) var(--space-lg);
+	transition: transform var(--transition-medium), box-shadow var(--transition-medium);
+}
+
+.pricing-card:hover {
+	transform: translateY(-6px);
+	box-shadow: var(--shadow-md);
+}
+
+.pricing-card--featured {
+	border-color: var(--primary-color);
+	background: linear-gradient(180deg, rgba(201, 162, 39, 0.08), var(--secondary-color) 45%);
+	transform: scale(1.04);
+	box-shadow: var(--shadow-gold);
+}
+
+.pricing-card--featured:hover {
+	transform: scale(1.04) translateY(-6px);
+}
+
+.pricing-card__badge {
+	position: absolute;
+	top: -14px;
+	left: 50%;
+	translate: -50% 0;
+	background: linear-gradient(135deg, var(--color-gold-light), var(--primary-color));
+	color: var(--background-color);
+	font-size: 0.7rem;
+	font-weight: 800;
+	text-transform: uppercase;
+	letter-spacing: 0.05em;
+	padding: 0.4rem 1.1rem;
+	border-radius: var(--radius-pill);
+}
+
+.pricing-card__name {
+	margin-bottom: var(--space-sm);
+}
+
+.pricing-card__price {
+	font-family: var(--font-display);
+	font-size: 2.25rem;
+	font-weight: 700;
+	color: var(--text-color);
+	margin-bottom: var(--space-lg);
+}
+
+.pricing-card__price span {
+	color: var(--primary-color);
+}
+
+.pricing-card__features {
+	flex-grow: 1;
+	text-align: left;
+	margin-bottom: var(--space-lg);
+}
+
+.pricing-card__features li {
+	position: relative;
+	padding: 0.65rem 0 0.65rem 1.75rem;
+	border-bottom: 1px solid var(--color-border);
+	color: var(--color-grey);
+	font-size: var(--fs-small);
+}
+
+.pricing-card__features li:last-child {
+	border-bottom: none;
+}
+
+.pricing-card__features li::before {
+	content: '\2713';
+	position: absolute;
+	left: 0;
+	color: var(--primary-color);
+	font-weight: 700;
+}
+
+.pricing-card__cta {
+	width: 100%;
+}
+
+.membership-preview__more {
+	text-align: center;
+	margin-top: var(--space-xl);
+}
+
+@media (max-width: 980px) {
+	.pricing-grid {
+		grid-template-columns: 1fr;
+		max-width: 420px;
+		margin-inline: auto;
+	}
+
+	.pricing-card--featured {
+		transform: none;
+		order: -1;
+	}
+
+	.pricing-card--featured:hover {
+		transform: translateY(-6px);
+	}
+}

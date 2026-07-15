@@ -1,0 +1,123 @@
+/* ============================================================
+   HOME PAGE
+   Page-specific layout and the alternating black/charcoal
+   section rhythm that gives the page visual pacing.
+============================================================ */
+
+/* ---- About ---- */
+.about {
+	padding-block: var(--space-2xl);
+	background: var(--secondary-color);
+}
+
+.about__grid {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: var(--space-xl);
+	align-items: center;
+}
+
+.about__image {
+	width: 100%;
+	aspect-ratio: 4 / 5;
+	object-fit: cover;
+	border-radius: var(--radius-lg);
+	box-shadow: var(--shadow-md);
+}
+
+.about__intro {
+	margin-bottom: var(--space-md);
+}
+
+.about__mission {
+	padding-left: var(--space-md);
+	border-left: 2px solid var(--primary-color);
+	margin-bottom: var(--space-md);
+}
+
+/* ---- Why Choose Us ---- */
+.why-us {
+	padding-block: var(--space-2xl);
+}
+
+.why-us__grid {
+	grid-template-columns: repeat(4, 1fr);
+}
+
+/* ---- Featured Classes ---- */
+.classes {
+	padding-block: var(--space-2xl);
+	background: var(--secondary-color);
+}
+
+.classes__grid {
+	grid-template-columns: repeat(4, 1fr);
+}
+
+/* ---- Trainers Preview ---- */
+.trainers-preview {
+	padding-block: var(--space-2xl);
+}
+
+.trainers-preview__grid {
+	grid-template-columns: repeat(4, 1fr);
+}
+
+.trainers-preview__more {
+	text-align: center;
+	margin-top: var(--space-xl);
+}
+
+/* ---- Transformation Gallery Preview ---- */
+.gallery-preview {
+	padding-block: var(--space-2xl);
+	background: var(--secondary-color);
+}
+
+.gallery-preview__grid {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	gap: 10px;
+}
+
+.gallery-preview__image {
+	width: 100%;
+	aspect-ratio: 1 / 1;
+	object-fit: cover;
+	border-radius: var(--radius-sm);
+	transition: transform var(--transition-medium);
+}
+
+.gallery-preview__image:hover {
+	transform: scale(1.03);
+}
+
+.gallery-preview__more {
+	text-align: center;
+	margin-top: var(--space-xl);
+}
+
+/* ---- Responsive ---- */
+@media (max-width: 980px) {
+	.about__grid {
+		grid-template-columns: 1fr;
+	}
+
+	.why-us__grid,
+	.classes__grid,
+	.trainers-preview__grid {
+		grid-template-columns: repeat(2, 1fr);
+	}
+
+	.gallery-preview__grid {
+		grid-template-columns: repeat(2, 1fr);
+	}
+}
+
+@media (max-width: 560px) {
+	.why-us__grid,
+	.classes__grid,
+	.trainers-preview__grid {
+		grid-template-columns: 1fr;
+	}
+}

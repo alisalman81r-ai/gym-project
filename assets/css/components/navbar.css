@@ -1,0 +1,149 @@
+/* ============================================================
+   NAVBAR
+   Sticky, glassmorphic header. Height/opacity are ready to be
+   deepened by a `.site-header--scrolled` class in the JS phase;
+   the static look below already reads premium without it.
+============================================================ */
+
+.site-header {
+	position: sticky;
+	top: 0;
+	z-index: var(--z-header);
+}
+
+.navbar {
+	background: rgba(10, 10, 10, 0.72);
+	backdrop-filter: blur(16px);
+	-webkit-backdrop-filter: blur(16px);
+	border-bottom: 1px solid var(--color-border);
+}
+
+.navbar__container {
+	max-width: var(--container-width);
+	margin-inline: auto;
+	padding: 1.35rem var(--container-gutter);
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 2rem;
+}
+
+.navbar__logo {
+	display: flex;
+	align-items: center;
+	flex-shrink: 0;
+}
+
+.navbar__logo-img {
+	height: 32px;
+	width: auto;
+}
+
+.navbar__menu {
+	display: flex;
+	align-items: center;
+	gap: clamp(1.25rem, 2vw, 2.25rem);
+}
+
+.navbar__link {
+	position: relative;
+	display: inline-block;
+	padding-block: 0.4rem;
+	font-size: 0.78rem;
+	font-weight: 600;
+	text-transform: uppercase;
+	letter-spacing: 0.09em;
+	color: var(--color-grey);
+}
+
+.navbar__link::after {
+	content: '';
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	width: 100%;
+	height: 2px;
+	background: var(--primary-color);
+	transform: scaleX(0);
+	transform-origin: left;
+	transition: transform var(--transition-fast);
+}
+
+.navbar__link:hover,
+.navbar__link--active {
+	color: var(--text-color);
+}
+
+.navbar__link:hover::after,
+.navbar__link--active::after {
+	transform: scaleX(1);
+}
+
+.navbar__actions {
+	display: flex;
+	align-items: center;
+	gap: 1.5rem;
+	flex-shrink: 0;
+}
+
+.navbar__contact-link {
+	font-size: 0.8rem;
+	font-weight: 600;
+	color: var(--color-grey);
+}
+
+.navbar__contact-link:hover {
+	color: var(--text-color);
+}
+
+.navbar__cta {
+	padding: 0.65rem 1.5rem;
+	font-size: 0.78rem;
+}
+
+/* Hamburger toggle — hidden on desktop, shown under 1024px */
+.navbar__toggle {
+	display: none;
+	flex-direction: column;
+	justify-content: center;
+	gap: 5px;
+	width: 26px;
+	height: 20px;
+}
+
+.navbar__toggle-bar {
+	display: block;
+	width: 100%;
+	height: 2px;
+	background: var(--text-color);
+	transition: transform var(--transition-fast), opacity var(--transition-fast);
+}
+
+.navbar__toggle[aria-expanded="true"] .navbar__toggle-bar:nth-child(1) {
+	transform: translateY(7px) rotate(45deg);
+}
+
+.navbar__toggle[aria-expanded="true"] .navbar__toggle-bar:nth-child(2) {
+	opacity: 0;
+}
+
+.navbar__toggle[aria-expanded="true"] .navbar__toggle-bar:nth-child(3) {
+	transform: translateY(-7px) rotate(-45deg);
+}
+
+@media (max-width: 1024px) {
+	.navbar__menu,
+	.navbar__contact-link {
+		display: none;
+	}
+
+	.navbar__toggle {
+		display: flex;
+	}
+}
+
+@media (max-width: 480px) {
+	.navbar__cta {
+		display: none;
+	}
+}

@@ -1,0 +1,95 @@
+/* ============================================================
+   BUTTONS
+   .btn is the base; modifiers control fill style and size.
+============================================================ */
+
+.btn {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	gap: 0.5rem;
+	padding: 0.9rem 2rem;
+	border: 2px solid transparent;
+	border-radius: var(--radius-pill);
+	font-family: var(--font-body);
+	font-size: 0.9rem;
+	font-weight: 700;
+	letter-spacing: 0.02em;
+	white-space: nowrap;
+	transition:
+		transform var(--transition-fast),
+		box-shadow var(--transition-fast),
+		background-color var(--transition-fast),
+		border-color var(--transition-fast),
+		color var(--transition-fast);
+}
+
+.btn:hover {
+	transform: translateY(-2px);
+}
+
+.btn:active {
+	transform: translateY(0) scale(0.98);
+}
+
+.btn:disabled {
+	opacity: 0.4;
+	pointer-events: none;
+	transform: none;
+}
+
+/* Primary — gold fill, main conversions */
+.btn--primary {
+	background: linear-gradient(135deg, var(--color-gold-light), var(--primary-color));
+	color: var(--background-color);
+	box-shadow: var(--shadow-gold);
+}
+
+.btn--primary:hover {
+	box-shadow: 0 14px 32px rgba(201, 162, 39, 0.35);
+}
+
+/* Outline — secondary CTAs */
+.btn--outline {
+	background: transparent;
+	border-color: var(--primary-color);
+	color: var(--text-color);
+}
+
+.btn--outline:hover {
+	background: var(--primary-color);
+	color: var(--background-color);
+}
+
+/* Ghost — low-emphasis text links with an underline sweep */
+.btn--ghost {
+	padding: 0.4rem 0;
+	border-radius: 0;
+	color: var(--primary-color);
+	position: relative;
+}
+
+.btn--ghost::after {
+	content: '';
+	position: absolute;
+	left: 0;
+	bottom: -2px;
+	width: 0;
+	height: 1px;
+	background: var(--primary-color);
+	transition: width var(--transition-medium);
+}
+
+.btn--ghost:hover {
+	transform: none;
+}
+
+.btn--ghost:hover::after {
+	width: 100%;
+}
+
+/* Size modifiers */
+.btn--large {
+	padding: 1.1rem 2.75rem;
+	font-size: 1rem;
+}

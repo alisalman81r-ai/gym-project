@@ -1,0 +1,72 @@
+/* ============================================================
+   ACCORDION (FAQ)
+   Multi-open: each item toggles independently. JS (later phase)
+   flips `aria-expanded` and the sibling panel's `hidden`
+   attribute — this file only defines how those states look.
+============================================================ */
+
+.faq {
+	padding-block: var(--space-2xl);
+}
+
+.accordion {
+	max-width: 760px;
+	margin-inline: auto;
+}
+
+.accordion__item {
+	border-bottom: 1px solid var(--color-border);
+}
+
+.accordion__heading {
+	margin: 0;
+}
+
+.accordion__trigger {
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: var(--space-md);
+	padding: var(--space-md) 0;
+	text-align: left;
+	font-family: var(--font-body);
+	font-size: 1rem;
+	font-weight: 600;
+	color: var(--text-color);
+}
+
+.accordion__trigger:hover {
+	color: var(--primary-color);
+}
+
+.accordion__icon {
+	flex-shrink: 0;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	width: 28px;
+	height: 28px;
+	border: 1px solid var(--color-border);
+	border-radius: 50%;
+	color: var(--primary-color);
+	font-size: 1.1rem;
+	transition: transform var(--transition-fast), border-color var(--transition-fast);
+}
+
+.accordion__trigger[aria-expanded="true"] .accordion__icon {
+	transform: rotate(45deg);
+	border-color: var(--primary-color);
+}
+
+.accordion__panel {
+	padding-bottom: var(--space-md);
+}
+
+.accordion__panel[hidden] {
+	display: none;
+}
+
+.accordion__panel p {
+	max-width: none;
+}

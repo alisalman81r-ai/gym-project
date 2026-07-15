@@ -1,0 +1,92 @@
+/* ============================================================
+   FORMS
+   Shared field styling (`.form__*`) used by both the BMI
+   calculator and the footer newsletter signup.
+============================================================ */
+
+.form__row {
+	display: flex;
+	flex-direction: column;
+	gap: 0.5rem;
+	margin-bottom: var(--space-md);
+}
+
+.form__label {
+	font-size: var(--fs-small);
+	font-weight: 700;
+	color: var(--color-grey);
+}
+
+.form__input {
+	background: var(--background-color);
+	border: 1px solid var(--color-border);
+	border-radius: var(--radius-sm);
+	padding: 0.85rem 1rem;
+	min-height: 48px;
+	color: var(--text-color);
+	font-family: var(--font-body);
+	font-size: 0.95rem;
+	transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.form__input::placeholder {
+	color: var(--color-grey-dark);
+}
+
+.form__input:focus {
+	outline: none;
+	border-color: var(--primary-color);
+	box-shadow: 0 0 0 3px rgba(201, 162, 39, 0.15);
+}
+
+/* ---- BMI Calculator ---- */
+.bmi-calculator {
+	padding-block: var(--space-2xl);
+	background: var(--secondary-color);
+}
+
+.bmi-calculator__form {
+	max-width: 480px;
+	margin-inline: auto;
+	/* Glassmorphism panel */
+	background: rgba(255, 255, 255, 0.03);
+	border: 1px solid var(--color-border);
+	backdrop-filter: blur(10px);
+	-webkit-backdrop-filter: blur(10px);
+	border-radius: var(--radius-lg);
+	padding: var(--space-xl);
+}
+
+.bmi-calculator__submit-row {
+	margin-bottom: 0;
+}
+
+.bmi-calculator__submit-row .btn {
+	width: 100%;
+}
+
+.bmi-calculator__result {
+	margin-top: var(--space-md);
+	padding: var(--space-md);
+	border: 1px solid var(--primary-color);
+	border-radius: var(--radius-sm);
+	text-align: center;
+	color: var(--text-color);
+}
+
+.bmi-calculator__result[hidden] {
+	display: none;
+}
+
+@media (min-width: 560px) {
+	.bmi-calculator__form {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: 0 var(--space-md);
+	}
+
+	.bmi-calculator__submit-row,
+	.bmi-calculator__result {
+		grid-column: 1 / -1;
+	}
+}

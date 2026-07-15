@@ -1,0 +1,14 @@
+/* ============================================================
+   SECTION HEADING
+   The eyebrow + title pattern repeated at the top of most
+   sections (`.section-head` wraps `.eyebrow` + `.section-heading`,
+   both otherwise defined in utilities.css / typography.css).
+============================================================ */
+
+.section-heading {
+	margin-bottom: var(--space-xs);
+}
+
+.section-head .section-heading {
+	margin-bottom: 0;
+}

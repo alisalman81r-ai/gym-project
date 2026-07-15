@@ -1,0 +1,65 @@
+/* ============================================================
+   ANIMATIONS
+   Keyframes + reveal utility classes per the Phase 2 scroll
+   timeline. `.reveal` states are inert without JS (an
+   IntersectionObserver will toggle `.is-visible` in Phase 5);
+   the Ken Burns hero zoom is pure CSS and active right now.
+============================================================ */
+
+@keyframes ken-burns {
+	from {
+		transform: scale(1);
+	}
+	to {
+		transform: scale(1.08);
+	}
+}
+
+.hero__bg-image {
+	animation: ken-burns 18s var(--ease-luxury) infinite alternate;
+}
+
+@keyframes fade-up {
+	from {
+		opacity: 0;
+		transform: translateY(24px);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+@keyframes fade-in {
+	from { opacity: 0; }
+	to { opacity: 1; }
+}
+
+@keyframes draw-in {
+	from { width: 0; }
+	to { width: 100%; }
+}
+
+/* Applied by JS via IntersectionObserver in Phase 5 */
+.reveal {
+	opacity: 0;
+	transform: translateY(24px);
+	transition: opacity var(--transition-slow), transform var(--transition-slow);
+}
+
+.reveal.is-visible {
+	opacity: 1;
+	transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.hero__bg-image {
+		animation: none;
+	}
+
+	.reveal {
+		opacity: 1;
+		transform: none;
+		transition: none;
+	}
+}

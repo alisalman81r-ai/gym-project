@@ -1,0 +1,101 @@
+/* ============================================================
+   HERO
+   Full-viewport intro. Background Ken Burns keyframe lives in
+   animations.css; this file owns layout and typography only.
+============================================================ */
+
+.hero {
+	position: relative;
+	min-height: 100vh;
+	display: flex;
+	align-items: center;
+	overflow: hidden;
+	padding-block: clamp(140px, 20vw, 200px) var(--space-2xl);
+}
+
+.hero__media {
+	position: absolute;
+	inset: 0;
+	z-index: -2;
+}
+
+.hero__bg-image {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	object-position: center;
+}
+
+.hero__overlay {
+	position: absolute;
+	inset: 0;
+	z-index: -1;
+	background: linear-gradient(
+		180deg,
+		rgba(10, 10, 10, 0.55) 0%,
+		rgba(10, 10, 10, 0.78) 55%,
+		rgba(10, 10, 10, 0.96) 100%
+	);
+}
+
+.hero__content {
+	max-width: 760px;
+	margin-inline: auto;
+	padding-inline: var(--container-gutter);
+	text-align: center;
+}
+
+.hero__heading {
+	margin-bottom: var(--space-md);
+}
+
+.hero__subtext {
+	font-size: var(--fs-lead);
+	max-width: 560px;
+	margin-inline: auto;
+	color: var(--color-grey);
+}
+
+.hero__actions {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-wrap: wrap;
+	gap: 1rem;
+	margin-block: var(--space-lg);
+}
+
+.hero__stats {
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	gap: var(--space-md);
+	border-top: 1px solid var(--color-border);
+	padding-top: var(--space-md);
+	margin-top: var(--space-lg);
+}
+
+.hero__stat {
+	display: flex;
+	flex-direction: column;
+	gap: 0.25rem;
+}
+
+.hero__stat-number {
+	font-family: var(--font-display);
+	font-size: 1.75rem;
+	font-weight: 700;
+	color: var(--primary-color);
+}
+
+.hero__stat-label {
+	font-size: 0.75rem;
+	color: var(--color-grey);
+	text-transform: uppercase;
+	letter-spacing: 0.06em;
+}
+
+@media (max-width: 768px) {
+	.hero__stats {
+		grid-template-columns: repeat(2, 1fr);
+	}
+}

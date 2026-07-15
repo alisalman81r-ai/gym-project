@@ -1,0 +1,101 @@
+/* ============================================================
+   TESTIMONIALS
+   Full-width dark band with a single frosted-glass quote panel.
+   All slides render in the flow for now; the JS phase will hide
+   all but the active one and wire the dot navigation.
+============================================================ */
+
+.testimonials {
+	position: relative;
+	padding-block: var(--space-2xl);
+	background:
+		radial-gradient(circle at 15% 20%, rgba(201, 162, 39, 0.08), transparent 45%),
+		var(--background-color);
+	text-align: center;
+}
+
+.testimonials__eyebrow {
+	display: block;
+}
+
+.testimonials__track {
+	max-width: 760px;
+	margin-inline: auto;
+	display: flex;
+	flex-direction: column;
+	gap: var(--space-md);
+}
+
+.testimonial {
+	/* Glassmorphism panel */
+	background: rgba(255, 255, 255, 0.03);
+	border: 1px solid rgba(201, 162, 39, 0.25);
+	backdrop-filter: blur(10px);
+	-webkit-backdrop-filter: blur(10px);
+	border-radius: var(--radius-lg);
+	padding: var(--space-xl) var(--space-lg);
+}
+
+/* Only the first slide shows without JS-driven carousel logic */
+.testimonial ~ .testimonial {
+	display: none;
+}
+
+.testimonial__mark {
+	color: var(--primary-color);
+	opacity: 0.6;
+	margin-inline: auto var(--space-sm);
+}
+
+.testimonial__quote {
+	font-size: clamp(1.1rem, 2vw, 1.4rem);
+	color: var(--text-color);
+	max-width: 56ch;
+	margin-inline: auto;
+}
+
+.testimonial__author {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: var(--space-sm);
+	margin-top: var(--space-lg);
+	font-weight: 600;
+	color: var(--text-color);
+}
+
+.testimonial__photo {
+	width: 56px;
+	height: 56px;
+	border-radius: 50%;
+	object-fit: cover;
+	border: 2px solid var(--primary-color);
+}
+
+.testimonial__tenure {
+	color: var(--color-grey);
+	font-weight: 400;
+}
+
+.testimonials__nav {
+	display: flex;
+	justify-content: center;
+	gap: 0.6rem;
+	margin-top: var(--space-lg);
+}
+
+.testimonials__dot {
+	width: 9px;
+	height: 9px;
+	border-radius: 50%;
+	background: var(--color-border);
+	transition: background-color var(--transition-fast), transform var(--transition-fast);
+}
+
+.testimonials__dot:hover {
+	transform: scale(1.2);
+}
+
+.testimonials__dot--active {
+	background: var(--primary-color);
+}

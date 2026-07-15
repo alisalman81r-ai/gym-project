@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { Container } from "@/components/layout";
 import { Button } from "@/components/ui";
@@ -46,17 +47,27 @@ function HeroStat({ label, value }: { label: string; value: number }) {
 }
 
 /**
- * Full-viewport brand intro. The background is a CSS gradient
- * placeholder until real hero photography is sourced — swap for
- * a Next `<Image fill priority>` at that point (see the migration
- * plan's image strategy).
+ * Full-viewport brand intro. `priority` + `fill` since this image
+ * is the page's LCP element. Currently pointed at a hand-drawn SVG
+ * placeholder (public/images/hero/hero-main.svg) -- drop a real
+ * photo at that path (or update the `src` below) and remove
+ * `unoptimized` once it's a raster format.
  */
 export function HeroSection() {
 	return (
 		<section className="relative flex min-h-screen items-center overflow-hidden pt-32 pb-20">
+			<Image
+				src="/images/hero/hero-main.svg"
+				alt="Members training on the strength floor at Iron Elite Fitness Club"
+				fill
+				priority
+				unoptimized
+				sizes="100vw"
+				className="-z-20 object-cover"
+			/>
 			<div
 				aria-hidden
-				className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_20%_20%,rgba(201,162,39,0.16),transparent_45%),radial-gradient(circle_at_85%_10%,rgba(232,205,115,0.12),transparent_40%)] bg-background"
+				className="absolute inset-0 -z-10 bg-gradient-to-b from-background/55 via-background/78 to-background"
 			/>
 
 			<Container>

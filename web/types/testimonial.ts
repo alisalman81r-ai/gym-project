@@ -3,4 +3,5 @@ export interface Testimonial {
 	quote: string;
 	name: string;
 	tenure: string;
+	avatar: { src: string; alt: string };
 }

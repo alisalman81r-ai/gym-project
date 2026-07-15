@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1000">
+	<defs>
+		<radialGradient id="g" cx="35%" cy="20%" r="85%">
+			<stop offset="0%" stop-color="#241f10"/>
+			<stop offset="45%" stop-color="#161616"/>
+			<stop offset="100%" stop-color="#0a0a0a"/>
+		</radialGradient>
+	</defs>
+	<rect width="800" height="1000" fill="url(#g)"/>
+	<g opacity="0.4" stroke="#e8cd73" stroke-width="3" fill="none">
+		<rect x="260" y="380" width="280" height="240" rx="12"/>
+		<line x1="300" y1="640" x2="300" y2="720"/>
+		<line x1="500" y1="640" x2="500" y2="720"/>
+	</g>
+</svg>

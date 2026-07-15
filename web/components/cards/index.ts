@@ -9,3 +9,6 @@ export type { FeatureCardProps } from "./FeatureCard";
 
 export { TestimonialCard } from "./TestimonialCard";
 export type { TestimonialCardProps } from "./TestimonialCard";
+
+export { ClassCard } from "./ClassCard";
+export type { ClassCardProps } from "./ClassCard";

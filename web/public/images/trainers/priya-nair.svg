@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 800">
+	<defs>
+		<radialGradient id="g" cx="55%" cy="20%" r="90%">
+			<stop offset="0%" stop-color="#241a1a"/>
+			<stop offset="50%" stop-color="#1c1c1c"/>
+			<stop offset="100%" stop-color="#0a0a0a"/>
+		</radialGradient>
+	</defs>
+	<rect width="640" height="800" fill="url(#g)"/>
+	<circle cx="320" cy="330" r="120" fill="none" stroke="#c9a227" stroke-width="3" opacity="0.5"/>
+	<text x="320" y="360" font-family="Georgia, serif" font-size="96" fill="#e8cd73" text-anchor="middle" opacity="0.8">PN</text>
+</svg>

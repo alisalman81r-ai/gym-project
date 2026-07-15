@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import { Container } from "@/components/layout";
 import { SectionTitle } from "@/components/ui";
-import { FeatureCard } from "@/components/cards";
+import { ClassCard } from "@/components/cards";
 import { CLASSES } from "@/constants/classes";
 
 const gridVariants = {
@@ -17,10 +17,10 @@ const cardVariants = {
 };
 
 /**
- * Featured training disciplines. Reuses `FeatureCard` directly --
- * `GymClass` shares the exact {id, title, description, icon}
- * shape as `Feature`, so a dedicated ClassCard would just be a
- * duplicate of an existing component.
+ * Featured training disciplines, each with its own photo (see
+ * ClassCard) -- as of Phase 11, `GymClass` carries an `image`
+ * field that `Feature` doesn't, so this is a dedicated card
+ * rather than a FeatureCard reuse.
  */
 export function ClassesSection() {
 	return (
@@ -37,7 +37,7 @@ export function ClassesSection() {
 				>
 					{CLASSES.map((gymClass) => (
 						<motion.div key={gymClass.id} variants={cardVariants}>
-							<FeatureCard feature={gymClass} />
+							<ClassCard gymClass={gymClass} />
 						</motion.div>
 					))}
 				</motion.div>

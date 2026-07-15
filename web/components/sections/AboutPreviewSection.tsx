@@ -1,9 +1,11 @@
 "use client";
 
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { Check } from "lucide-react";
 import { Container } from "@/components/layout";
 import { SectionTitle, Button } from "@/components/ui";
+import { siteConfig } from "@/constants/site";
 
 const HIGHLIGHTS = [
 	"Free personalized fitness assessment for new members",
@@ -13,10 +15,10 @@ const HIGHLIGHTS = [
 ];
 
 /**
- * Gym introduction + mission + highlights, two-column. The image
- * area is a gradient placeholder (see TrainerCard for the same
- * pattern) -- swap for a Next `<Image>` once real photography of
- * the strength floor is sourced.
+ * Gym introduction + mission/vision + highlights, two-column.
+ * `about-strength-floor.svg` is a placeholder -- swap the file at
+ * public/images/hero/about-strength-floor.svg for a real photo of
+ * the strength floor and nothing here needs to change.
  */
 export function AboutPreviewSection() {
 	return (
@@ -28,9 +30,17 @@ export function AboutPreviewSection() {
 						whileInView={{ opacity: 1, x: 0 }}
 						viewport={{ once: true, amount: 0.4 }}
 						transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-						aria-hidden
-						className="aspect-[4/5] rounded-2xl bg-gradient-to-br from-primary/15 via-background to-background shadow-elevated lg:order-1"
-					/>
+						className="relative aspect-[4/5] overflow-hidden rounded-2xl shadow-elevated lg:order-1"
+					>
+						<Image
+							src="/images/hero/about-strength-floor.svg"
+							alt="Coach guiding a member through a barbell lift on the Iron Elite strength floor"
+							fill
+							unoptimized
+							sizes="(min-width: 1024px) 50vw, 100vw"
+							className="object-cover"
+						/>
+					</motion.div>
 
 					<div>
 						<SectionTitle
@@ -46,9 +56,10 @@ export function AboutPreviewSection() {
 							where every member receives a coached, considered path toward their goals.
 						</p>
 						<p className="mt-4 border-l-2 border-primary pl-4 text-text-muted">
-							<strong className="text-text">Our mission</strong> is to give every member the coaching,
-							environment, and accountability of a professional athlete — regardless of where
-							they&rsquo;re starting from.
+							<strong className="text-text">Our mission</strong> is {siteConfig.mission}
+						</p>
+						<p className="mt-4 border-l-2 border-primary/40 pl-4 text-text-muted">
+							<strong className="text-text">Our vision</strong> is {siteConfig.vision}
 						</p>
 
 						<ul className="mt-6 space-y-3">

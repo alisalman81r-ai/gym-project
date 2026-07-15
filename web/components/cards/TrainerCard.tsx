@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { Card, Button } from "@/components/ui";
 import type { Trainer } from "@/types";
 
@@ -6,19 +7,27 @@ export interface TrainerCardProps {
 }
 
 /**
- * One coach — used by TrainersSection. The photo is a gradient
- * placeholder until real portraits are sourced; swap the `div`
- * below for a Next `<Image>` at that point.
+ * One coach — used by TrainersSection. `trainer.image` currently
+ * points at a hand-drawn SVG placeholder (public/images/trainers/);
+ * swap that file for a real portrait and nothing here needs to
+ * change.
  */
 export function TrainerCard({ trainer }: TrainerCardProps) {
 	return (
 		<Card className="text-center">
-			<div
-				aria-hidden
-				className="mb-5 aspect-[4/5] w-full rounded-lg bg-gradient-to-br from-secondary-light to-background"
-			/>
+			<div className="relative mb-5 aspect-[4/5] w-full overflow-hidden rounded-lg">
+				<Image
+					src={trainer.image.src}
+					alt={trainer.image.alt}
+					fill
+					unoptimized
+					sizes="(min-width: 1024px) 25vw, (min-width: 640px) 50vw, 100vw"
+					className="object-cover object-top"
+				/>
+			</div>
 			<h3 className="font-display text-lg font-semibold text-text">{trainer.name}</h3>
-			<p className="mb-3 text-xs font-bold uppercase tracking-wider text-primary">{trainer.role}</p>
+			<p className="text-xs font-bold uppercase tracking-wider text-primary">{trainer.role}</p>
+			<p className="mb-3 text-xs text-text-subtle">{trainer.experience}</p>
 			<p className="mb-5 text-sm text-text-muted">{trainer.bio}</p>
 			<Button variant="secondary" size="sm" className="w-full">
 				View Profile

@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080">
+	<defs>
+		<radialGradient id="g" cx="30%" cy="25%" r="90%">
+			<stop offset="0%" stop-color="#2a2412"/>
+			<stop offset="40%" stop-color="#161616"/>
+			<stop offset="100%" stop-color="#0a0a0a"/>
+		</radialGradient>
+		<linearGradient id="floor" x1="0" y1="0" x2="0" y2="1">
+			<stop offset="0%" stop-color="#0a0a0a" stop-opacity="0"/>
+			<stop offset="100%" stop-color="#000000" stop-opacity="0.6"/>
+		</linearGradient>
+	</defs>
+	<rect width="1920" height="1080" fill="url(#g)"/>
+	<rect width="1920" height="1080" fill="url(#floor)"/>
+	<!-- abstract barbell silhouette -->
+	<g opacity="0.35" stroke="#c9a227" stroke-width="4" fill="none">
+		<line x1="560" y1="760" x2="1360" y2="760"/>
+		<rect x="500" y="715" width="50" height="90" rx="6"/>
+		<rect x="1370" y="715" width="50" height="90" rx="6"/>
+		<rect x="460" y="730" width="30" height="60" rx="4"/>
+		<rect x="1430" y="730" width="30" height="60" rx="4"/>
+	</g>
+</svg>

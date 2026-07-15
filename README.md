@@ -8,6 +8,10 @@ Planning and architecture are documented in [docs/phase-1-planning.md](docs/phas
 
 The original MVP (IronPulse Fitness) that preceded this rebrand is kept for reference in [archive/ironpulse-mvp/](archive/ironpulse-mvp/) and is not part of the live site.
 
+## Next.js Migration
+
+The site is being migrated to a Next.js/TypeScript/Tailwind/Framer Motion stack, in progress under [web/](web/). See [docs/migration-phase-plan.md](docs/migration-phase-plan.md) for the architecture. The static site above stays in place, untouched, for reference until the migration is complete.
+
 ## Project Structure
 
 See the full folder structure in [docs/phase-1-planning.md](docs/phase-1-planning.md#1-project-folder-structure).

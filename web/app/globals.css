@@ -1,0 +1,49 @@
+@import "tailwindcss";
+
+/* ============================================================
+   DESIGN TOKENS — Iron Elite Fitness Club
+   Tailwind v4 CSS-first theme. Every namespace below generates
+   matching utility classes (--color-* -> bg-/text-/border-*,
+   --font-* -> font-*, --radius-* -> rounded-*, --shadow-* ->
+   shadow-*). This is the single source of truth for the design
+   system — no tailwind.config.ts in v4.
+============================================================ */
+@theme {
+	/* ---- Colors ---- */
+	--color-primary: #c9a227;
+	--color-primary-light: #e8cd73;
+	--color-primary-dark: #9c7a1e;
+
+	--color-secondary: #161616;
+	--color-secondary-light: #222222;
+
+	--color-background: #0a0a0a;
+	--color-background-ivory: #f7f3ea;
+
+	--color-text: #ffffff;
+	--color-text-muted: #a6a39c;
+	--color-text-subtle: #5e5b54;
+
+	--color-border: #2a2a28;
+
+	--color-success: #5c8a5c;
+	--color-error: #a64b4b;
+
+	/* ---- Typography ---- */
+	--font-display: var(--font-playfair), Georgia, "Times New Roman", serif;
+	--font-body: var(--font-inter), -apple-system, "Segoe UI", sans-serif;
+
+	/* ---- Border radius ---- */
+	--radius-sm: 6px;
+	--radius-md: 14px;
+	--radius-lg: 24px;
+
+	/* ---- Shadows ---- */
+	--shadow-elevated: 0 16px 40px rgba(0, 0, 0, 0.35);
+	--shadow-gold: 0 10px 28px rgba(201, 162, 39, 0.28);
+}
+
+body {
+	background-color: var(--color-background);
+	color: var(--color-text);
+}

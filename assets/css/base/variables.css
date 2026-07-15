@@ -71,3 +71,11 @@
 	--z-modal: 300;
 	--z-toast: 400;
 }
+
+/* Large-screen refinement: give content a little more room on
+   very wide displays instead of leaving it a fixed 1320px island. */
+@media (min-width: 1536px) {
+	:root {
+		--container-width: 1400px;
+	}
+}

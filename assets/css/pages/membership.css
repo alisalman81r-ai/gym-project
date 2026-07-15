@@ -1,0 +1,69 @@
+/* ============================================================
+   MEMBERSHIP PAGE
+============================================================ */
+
+.membership-plans {
+	padding-block: var(--space-2xl);
+}
+
+/* ---- Full feature comparison ---- */
+.comparison {
+	padding-block: var(--space-2xl);
+	background: var(--secondary-color);
+}
+
+.comparison__table-wrap {
+	overflow-x: auto;
+	-webkit-overflow-scrolling: touch;
+	border: 1px solid var(--color-border);
+	border-radius: var(--radius-md);
+}
+
+.comparison__table {
+	min-width: 560px;
+	width: 100%;
+	border-collapse: collapse;
+}
+
+.comparison__table th,
+.comparison__table td {
+	padding: 0.9rem 1.25rem;
+	text-align: center;
+	border-bottom: 1px solid var(--color-border);
+	font-size: 0.9rem;
+}
+
+.comparison__table thead th {
+	background: var(--background-color);
+	color: var(--primary-color);
+	text-transform: uppercase;
+	letter-spacing: 0.05em;
+	font-size: 0.75rem;
+}
+
+.comparison__table tbody th {
+	text-align: left;
+	color: var(--text-color);
+	font-weight: 700;
+}
+
+.comparison__table tbody tr:last-child td,
+.comparison__table tbody tr:last-child th {
+	border-bottom: none;
+}
+
+/* ---- Why members stay ---- */
+.perks {
+	padding-block: var(--space-2xl);
+}
+
+.perks__grid {
+	grid-template-columns: repeat(3, 1fr);
+}
+
+/* ---- Responsive ---- */
+@media (max-width: 768px) {
+	.perks__grid {
+		grid-template-columns: 1fr;
+	}
+}

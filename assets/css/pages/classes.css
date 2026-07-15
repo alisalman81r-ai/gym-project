@@ -1,0 +1,71 @@
+/* ============================================================
+   CLASSES PAGE
+============================================================ */
+
+.classes-catalog {
+	padding-block: var(--space-2xl);
+}
+
+.classes-catalog__grid {
+	grid-template-columns: repeat(3, 1fr);
+}
+
+/* ---- Weekly schedule ---- */
+.schedule {
+	padding-block: var(--space-2xl);
+	background: var(--secondary-color);
+}
+
+.schedule__table-wrap {
+	overflow-x: auto;
+	-webkit-overflow-scrolling: touch;
+	border: 1px solid var(--color-border);
+	border-radius: var(--radius-md);
+}
+
+.schedule__table {
+	min-width: 640px;
+	width: 100%;
+	border-collapse: collapse;
+}
+
+.schedule__table th,
+.schedule__table td {
+	padding: 0.85rem 1rem;
+	text-align: center;
+	border-bottom: 1px solid var(--color-border);
+	font-size: 0.88rem;
+	white-space: nowrap;
+}
+
+.schedule__table thead th {
+	background: var(--background-color);
+	color: var(--primary-color);
+	text-transform: uppercase;
+	letter-spacing: 0.05em;
+	font-size: 0.75rem;
+}
+
+.schedule__table tbody th {
+	text-align: left;
+	color: var(--text-color);
+	font-weight: 700;
+}
+
+.schedule__table tbody tr:last-child td,
+.schedule__table tbody tr:last-child th {
+	border-bottom: none;
+}
+
+/* ---- Responsive ---- */
+@media (max-width: 980px) {
+	.classes-catalog__grid {
+		grid-template-columns: repeat(2, 1fr);
+	}
+}
+
+@media (max-width: 560px) {
+	.classes-catalog__grid {
+		grid-template-columns: 1fr;
+	}
+}

@@ -33,16 +33,16 @@ One portrait per coach, all shot with **consistent lighting/backdrop** — misma
 
 ## gallery/
 
-Six images feeding the masonry grid — mix of tall (4:5) and square (1:1) shots is what creates the staggered layout, so keep that alternation if you add/replace images.
+Six images feeding the masonry grid — mix of tall (4:5) and square (1:1) shots is what creates the staggered layout, so keep that alternation if you add/replace images. Three carry a "transformation story" caption (member name + a brief result) that reveals on hover, defined in `constants/gallery.ts` — not stored as separate files, just text data attached to the image entry.
 
-| File | Aspect | Shot description |
-|---|---|---|
-| `gallery-01.svg` | 4:5 | Strength floor |
-| `gallery-02.svg` | 1:1 | Boxing/class in session |
-| `gallery-03.svg` | 4:5 | Member training moment |
-| `gallery-04.svg` | 1:1 | Recovery lounge |
-| `gallery-05.svg` | 4:5 | Personal training session |
-| `gallery-06.svg` | 1:1 | Group class / community moment |
+| File | Aspect | Shot description | Caption? |
+|---|---|---|---|
+| `gallery-01.svg` | 4:5 | Strength floor | — |
+| `gallery-02.svg` | 1:1 | Boxing/class in session | — |
+| `gallery-03.svg` | 4:5 | Member training moment | Yes |
+| `gallery-04.svg` | 1:1 | Recovery lounge | — |
+| `gallery-05.svg` | 4:5 | Personal training session | Yes |
+| `gallery-06.svg` | 1:1 | Group class / community moment | Yes |
 
 ## testimonials/
 
@@ -54,9 +54,16 @@ Small avatar next to each quote — real member photos need consent; stock heads
 | `james-keller.svg` | James Keller | 200×200 (1:1) |
 | `maria-gomez.svg` | Maria Gomez | 200×200 (1:1) |
 
-## equipment/ *(reserved, not yet wired to a component)*
+## equipment/
 
-No section currently renders from this folder — it's prepared for a future Facilities/Equipment showcase. Drop in shots of the strength floor, cardio equipment, and recovery tools when that page is built.
+Used by `EquipmentSection.tsx` on the Home page.
+
+| File | Feature | Recommended size | Shot description |
+|---|---|---|---|
+| `free-weight-zone.svg` | Elite Free-Weight Zone | 800×600 (4:3) | Racked plates/barbells, the free-weight floor. |
+| `recovery-suite.svg` | Recovery & Cryotherapy Suite | 800×600 (4:3) | The recovery lounge or cryotherapy equipment. |
+| `cardio-deck.svg` | Precision Cardio Deck | 800×600 (4:3) | Row of connected cardio machines. |
+| `functional-turf-zone.svg` | Functional Turf Zone | 800×600 (4:3) | The turf lane used for sled work/sprints. |
 
 ## branding/ *(reserved, not yet wired to a component)*
 

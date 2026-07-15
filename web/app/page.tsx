@@ -6,6 +6,7 @@ import {
 	StatsSection,
 	PricingSection,
 	ClassesSection,
+	EquipmentSection,
 	TrainersSection,
 	GallerySection,
 	TestimonialsSection,
@@ -25,6 +26,7 @@ export default function Home() {
 				<StatsSection />
 				<PricingSection />
 				<ClassesSection />
+				<EquipmentSection />
 				<TrainersSection />
 				<GallerySection />
 				<TestimonialsSection />

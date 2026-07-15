@@ -42,6 +42,11 @@ export function GallerySection() {
 								sizes="(min-width: 640px) 33vw, 50vw"
 								className="object-cover group-hover:scale-105"
 							/>
+							{image.caption && (
+								<div className="absolute inset-x-0 bottom-0 translate-y-full bg-gradient-to-t from-background/95 to-transparent p-4 pt-10 transition-transform duration-300 group-hover:translate-y-0">
+									<p className="text-sm text-text">{image.caption}</p>
+								</div>
+							)}
 						</motion.div>
 					))}
 				</motion.div>

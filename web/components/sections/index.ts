@@ -4,6 +4,7 @@ export { FeaturesSection } from "./FeaturesSection";
 export { StatsSection } from "./StatsSection";
 export { PricingSection } from "./PricingSection";
 export { ClassesSection } from "./ClassesSection";
+export { EquipmentSection } from "./EquipmentSection";
 export { TrainersSection } from "./TrainersSection";
 export { GallerySection } from "./GallerySection";
 export { TestimonialsSection } from "./TestimonialsSection";

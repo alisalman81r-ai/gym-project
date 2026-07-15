@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600">
+	<defs>
+		<radialGradient id="g" cx="35%" cy="75%" r="90%">
+			<stop offset="0%" stop-color="#241f10"/>
+			<stop offset="100%" stop-color="#0a0a0a"/>
+		</radialGradient>
+	</defs>
+	<rect width="800" height="600" fill="url(#g)"/>
+	<polyline points="260,340 320,300 370,360 430,260 490,320 540,280" opacity="0.55" stroke="#c9a227" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

@@ -1,20 +1,12 @@
 "use client";
 
-import Image from "next/image";
 import { motion } from "framer-motion";
 import { Container } from "@/components/layout";
-import { SectionTitle, Button } from "@/components/ui";
+import { SectionTitle, Button, RevealImage } from "@/components/ui";
+import { staggerContainer, scaleIn } from "@/lib/animations";
 import { GALLERY_IMAGES } from "@/constants/gallery";
 
-const gridVariants = {
-	hidden: {},
-	visible: { transition: { staggerChildren: 0.08 } },
-};
-
-const itemVariants = {
-	hidden: { opacity: 0, scale: 0.96 },
-	visible: { opacity: 1, scale: 1, transition: { duration: 0.5, ease: [0.16, 1, 0.3, 1] as const } },
-};
+const gridVariants = staggerContainer(0.08);
 
 /**
  * Image-ready masonry grid. Currently rendering the hand-drawn
@@ -37,18 +29,18 @@ export function GallerySection() {
 					{GALLERY_IMAGES.map((image, index) => (
 						<motion.div
 							key={image.id}
-							variants={itemVariants}
+							variants={scaleIn}
 							className={`group relative overflow-hidden rounded-lg ${
 								index % 2 === 0 ? "aspect-[4/5]" : "aspect-square"
 							}`}
 						>
-							<Image
+							<RevealImage
 								src={image.src}
 								alt={image.alt}
 								fill
 								unoptimized
 								sizes="(min-width: 640px) 33vw, 50vw"
-								className="object-cover transition-transform duration-500 group-hover:scale-105"
+								className="object-cover group-hover:scale-105"
 							/>
 						</motion.div>
 					))}

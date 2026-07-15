@@ -1,5 +1,4 @@
-import Image from "next/image";
-import { Card } from "@/components/ui";
+import { Card, RevealImage } from "@/components/ui";
 import type { GymClass } from "@/types";
 
 export interface ClassCardProps {
@@ -15,15 +14,15 @@ export function ClassCard({ gymClass }: ClassCardProps) {
 	const { icon: Icon, title, description, image } = gymClass;
 
 	return (
-		<Card className="overflow-hidden p-0" hoverEffect>
-			<div className="relative aspect-[4/3] w-full">
-				<Image
+		<Card className="group overflow-hidden p-0" hoverEffect>
+			<div className="relative aspect-[4/3] w-full overflow-hidden">
+				<RevealImage
 					src={image.src}
 					alt={image.alt}
 					fill
 					unoptimized
 					sizes="(min-width: 1024px) 25vw, (min-width: 640px) 50vw, 100vw"
-					className="object-cover"
+					className="object-cover group-hover:scale-105"
 				/>
 				<div className="absolute left-4 top-4 flex h-11 w-11 items-center justify-center rounded-lg bg-background/80 text-primary backdrop-blur-sm">
 					<Icon size={22} />

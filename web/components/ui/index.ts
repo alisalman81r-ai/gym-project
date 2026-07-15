@@ -17,3 +17,6 @@ export type { AccordionProps } from "./Accordion";
 
 export { CtaBanner } from "./CtaBanner";
 export type { CtaBannerProps } from "./CtaBanner";
+
+export { RevealImage } from "./RevealImage";
+export type { RevealImageProps } from "./RevealImage";

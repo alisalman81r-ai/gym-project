@@ -1,5 +1,5 @@
-import Image from "next/image";
 import { Quote } from "lucide-react";
+import { RevealImage } from "@/components/ui";
 import type { Testimonial } from "@/types";
 
 export interface TestimonialCardProps {
@@ -18,7 +18,7 @@ export function TestimonialCard({ testimonial }: TestimonialCardProps) {
 			<p className="text-lg text-text sm:text-xl">&ldquo;{testimonial.quote}&rdquo;</p>
 			<div className="mt-6 flex items-center justify-center gap-3">
 				<div className="relative h-10 w-10 overflow-hidden rounded-full border border-primary/40">
-					<Image src={testimonial.avatar.src} alt={testimonial.avatar.alt} fill unoptimized sizes="40px" className="object-cover" />
+					<RevealImage src={testimonial.avatar.src} alt={testimonial.avatar.alt} fill unoptimized sizes="40px" className="object-cover" />
 				</div>
 				<p className="font-semibold text-text">
 					{testimonial.name} <span className="font-normal text-text-muted">&middot; {testimonial.tenure}</span>

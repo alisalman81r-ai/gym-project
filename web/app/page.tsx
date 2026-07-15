@@ -1,4 +1,4 @@
-import { Navbar, Footer } from "@/components/layout";
+import { Navbar, Footer, BackToTop } from "@/components/layout";
 import {
 	HeroSection,
 	AboutPreviewSection,
@@ -33,6 +33,7 @@ export default function Home() {
 				<ContactCtaSection />
 			</main>
 			<Footer />
+			<BackToTop />
 		</>
 	);
 }

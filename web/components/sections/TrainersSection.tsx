@@ -4,17 +4,10 @@ import { motion } from "framer-motion";
 import { Container } from "@/components/layout";
 import { SectionTitle } from "@/components/ui";
 import { TrainerCard } from "@/components/cards";
+import { staggerContainer, slideUp, VIEWPORT_ONCE } from "@/lib/animations";
 import { TRAINERS } from "@/constants/trainers";
 
-const gridVariants = {
-	hidden: {},
-	visible: { transition: { staggerChildren: 0.1 } },
-};
-
-const cardVariants = {
-	hidden: { opacity: 0, y: 24 },
-	visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.16, 1, 0.3, 1] as const } },
-};
+const gridVariants = staggerContainer(0.1);
 
 /** Coaching roster grid — "View Profile" opens a bio modal in a later phase. */
 export function TrainersSection() {
@@ -27,11 +20,11 @@ export function TrainersSection() {
 					variants={gridVariants}
 					initial="hidden"
 					whileInView="visible"
-					viewport={{ once: true, amount: 0.2 }}
+					viewport={VIEWPORT_ONCE}
 					className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4"
 				>
 					{TRAINERS.map((trainer) => (
-						<motion.div key={trainer.id} variants={cardVariants}>
+						<motion.div key={trainer.id} variants={slideUp}>
 							<TrainerCard trainer={trainer} />
 						</motion.div>
 					))}

@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
+import { slideUp, VIEWPORT_ONCE } from "@/lib/animations";
 
 export interface SectionTitleProps {
 	eyebrow?: string;
@@ -19,10 +20,10 @@ export interface SectionTitleProps {
 export function SectionTitle({ eyebrow, title, description, align = "center", className }: SectionTitleProps) {
 	return (
 		<motion.div
-			initial={{ opacity: 0, y: 24 }}
-			whileInView={{ opacity: 1, y: 0 }}
-			viewport={{ once: true, amount: 0.4 }}
-			transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+			variants={slideUp}
+			initial="hidden"
+			whileInView="visible"
+			viewport={VIEWPORT_ONCE}
 			className={cn(
 				"mx-auto mb-14 max-w-2xl",
 				align === "center" ? "text-center" : "text-left mx-0",

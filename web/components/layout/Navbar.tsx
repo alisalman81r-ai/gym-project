@@ -9,23 +9,35 @@ import { Container } from "./Container";
 import { Button } from "@/components/ui";
 import { NAV_LINKS, CONTACT_LINK } from "@/constants/navigation";
 import { siteConfig } from "@/constants/site";
+import { useScrolledPast } from "@/hooks/useScrollPosition";
 import { cn } from "@/lib/utils";
 
 /**
  * Sticky primary navigation. The mobile drawer is fully wired
  * here (state + Framer Motion slide-in) rather than left as a
  * stub, since it's simple enough to own end-to-end at this stage.
+ * Deepens its glass background and shrinks slightly once the page
+ * scrolls past the hero.
  */
 export function Navbar() {
 	const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 	const pathname = usePathname();
+	const isScrolled = useScrolledPast(80);
 
 	const closeMobileMenu = () => setIsMobileMenuOpen(false);
 
 	return (
-		<header className="sticky top-0 z-50 border-b border-border bg-background/70 backdrop-blur-md">
+		<header
+			className={cn(
+				"sticky top-0 z-50 border-b border-border backdrop-blur-md transition-colors duration-300",
+				isScrolled ? "bg-background/95 shadow-elevated" : "bg-background/70"
+			)}
+		>
 			<Container>
-				<nav aria-label="Primary" className="flex items-center justify-between py-5">
+				<nav
+					aria-label="Primary"
+					className={cn("flex items-center justify-between transition-[padding] duration-300", isScrolled ? "py-3" : "py-5")}
+				>
 					<Link href="/" className="font-display text-lg font-semibold tracking-wide text-text">
 						{siteConfig.name.split(" ")[0].toUpperCase()}{" "}
 						<span className="text-primary">{siteConfig.name.split(" ")[1]?.toUpperCase()}</span>

@@ -1,5 +1,4 @@
-import Image from "next/image";
-import { Card, Button } from "@/components/ui";
+import { Card, Button, RevealImage } from "@/components/ui";
 import type { Trainer } from "@/types";
 
 export interface TrainerCardProps {
@@ -14,15 +13,15 @@ export interface TrainerCardProps {
  */
 export function TrainerCard({ trainer }: TrainerCardProps) {
 	return (
-		<Card className="text-center">
+		<Card className="group text-center">
 			<div className="relative mb-5 aspect-[4/5] w-full overflow-hidden rounded-lg">
-				<Image
+				<RevealImage
 					src={trainer.image.src}
 					alt={trainer.image.alt}
 					fill
 					unoptimized
 					sizes="(min-width: 1024px) 25vw, (min-width: 640px) 50vw, 100vw"
-					className="object-cover object-top"
+					className="object-cover object-top group-hover:scale-105"
 				/>
 			</div>
 			<h3 className="font-display text-lg font-semibold text-text">{trainer.name}</h3>

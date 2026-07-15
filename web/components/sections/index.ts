@@ -1,6 +1,12 @@
 export { HeroSection } from "./HeroSection";
-export { StatsSection } from "./StatsSection";
+export { AboutPreviewSection } from "./AboutPreviewSection";
 export { FeaturesSection } from "./FeaturesSection";
+export { StatsSection } from "./StatsSection";
 export { PricingSection } from "./PricingSection";
+export { ClassesSection } from "./ClassesSection";
 export { TrainersSection } from "./TrainersSection";
+export { GallerySection } from "./GallerySection";
 export { TestimonialsSection } from "./TestimonialsSection";
+export { BmiCalculatorSection } from "./BmiCalculatorSection";
+export { FaqSection } from "./FaqSection";
+export { ContactCtaSection } from "./ContactCtaSection";

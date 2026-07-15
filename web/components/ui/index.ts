@@ -11,3 +11,9 @@ export { Card } from "./Card";
 export type { CardProps } from "./Card";
 
 export { InstagramIcon, FacebookIcon } from "./SocialIcons";
+
+export { Accordion } from "./Accordion";
+export type { AccordionProps } from "./Accordion";
+
+export { CtaBanner } from "./CtaBanner";
+export type { CtaBannerProps } from "./CtaBanner";

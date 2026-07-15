@@ -4,3 +4,6 @@ export type { Feature } from "./feature";
 export type { Trainer } from "./trainer";
 export type { Testimonial } from "./testimonial";
 export type { PricingPlan } from "./pricing";
+export type { GymClass } from "./gymClass";
+export type { FaqItem } from "./faqItem";
+export type { GalleryImage } from "./galleryImage";

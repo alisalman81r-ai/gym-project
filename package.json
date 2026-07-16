@@ -4,8 +4,9 @@
   "description": "IronPulse Fitness gym website",
   "private": true,
   "scripts": {
-    "start": "live-server --port=5500",
-    "dev": "live-server --port=5500"
+    "dev": "npm --prefix web run dev",
+    "start": "npm --prefix web run dev",
+    "dev:legacy-static": "live-server --port=5500"
   },
   "devDependencies": {
     "live-server": "^1.2.2"

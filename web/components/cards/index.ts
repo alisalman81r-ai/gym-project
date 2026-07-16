@@ -12,3 +12,6 @@ export type { TestimonialCardProps } from "./TestimonialCard";
 
 export { ClassCard } from "./ClassCard";
 export type { ClassCardProps } from "./ClassCard";
+
+export { BlogCard } from "./BlogCard";
+export type { BlogCardProps } from "./BlogCard";

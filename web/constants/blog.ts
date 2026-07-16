@@ -1,0 +1,70 @@
+import type { BlogPost } from "@/types";
+
+export const BLOG_POSTS: BlogPost[] = [
+	{
+		id: "progressive-overload",
+		slug: "progressive-overload",
+		title: "The Case for Progressive Overload — and Why Most People Do It Wrong",
+		category: "Training",
+		excerpt:
+			"Adding weight every week isn't the whole story. Here's how our coaches actually program progression for long-term strength.",
+		body: [
+			"Progressive overload is the single most repeated phrase in strength training, and also one of the most misunderstood. Most people hear it and assume it means one thing: add weight to the bar every session. That works for a few weeks. Then it stops working, plateaus arrive, and frustration sets in.",
+			"At Iron Elite, we program progression across four different levers, not one: load, volume, density, and technical mastery. A session that keeps the same weight but adds a rep, or the same reps with tighter rest periods, is still progressive overload — even though the number on the bar hasn't moved.",
+			"The coaches who get this right think in training blocks, not single sessions. A four-week block might spend two weeks building volume at a moderate load, then two weeks intensifying with heavier singles and doubles. Zoom out and the trend line goes up. Zoom in on any one Tuesday and it might look like a step back.",
+			"If you're chasing a number every single session, you're not training — you're testing. Save the testing for the days that matter, and let the coaching do its job in between.",
+		],
+		author: "Marcus Reed",
+		date: "2026-07-02",
+		readTime: "6 min read",
+		image: { src: "/images/classes/strength-training.jpg", alt: "Coach spotting a member during a heavy barbell set" },
+	},
+	{
+		id: "recovery-days",
+		slug: "recovery-days",
+		title: "Why Your Recovery Days Matter More Than Your Training Days",
+		category: "Recovery",
+		excerpt: "The gains happen after the workout, not during it — here's what to prioritize.",
+		body: [
+			"Every set you complete in the gym is actually a request: a signal to your body that it needs to adapt. The adaptation itself — the part that makes you stronger, leaner, more resilient — happens afterward, while you sleep, eat, and rest.",
+			"Members who skip recovery work almost always plateau sooner than members who take it seriously. That doesn't mean doing nothing. It means structured recovery: 7-plus hours of sleep, adequate protein, and at least one full rest day between high-intensity sessions targeting the same muscle groups.",
+			"Our recovery suite exists because we've seen the difference it makes firsthand. Members who use it consistently report fewer nagging aches, faster week-to-week strength gains, and — just as importantly — they stick with the program longer.",
+		],
+		author: "Daniel Osei",
+		date: "2026-06-24",
+		readTime: "4 min read",
+		image: { src: "/images/equipment/recovery-suite.jpg", alt: "Member using the recovery suite" },
+	},
+	{
+		id: "nutrition-basics",
+		slug: "nutrition-basics",
+		title: "Nutrition Basics: Fueling Performance Without Overcomplicating It",
+		category: "Nutrition",
+		excerpt: "Priya Nair breaks down the fundamentals that actually move the needle.",
+		body: [
+			"Ask ten different fitness accounts for nutrition advice and you'll get ten wildly different answers — most of them designed to sell a supplement or a meal plan. The fundamentals, though, are quiet and unglamorous: enough protein, enough total calories for your goal, and consistency over perfection.",
+			"For most members training three to five times a week, that means roughly 1.6–2.2g of protein per kilogram of bodyweight, a calorie target based on whether the goal is building muscle or losing fat, and a diet built mostly from foods you'll actually keep eating in six months.",
+			"The plans that fail aren't the ones that are slightly imperfect — they're the ones nobody can sustain. We'd rather build you a 90%-optimal plan you'll follow for a year than a 100%-optimal one you'll abandon in three weeks.",
+		],
+		author: "Priya Nair",
+		date: "2026-06-15",
+		readTime: "5 min read",
+		image: { src: "/images/equipment/free-weight-zone.jpg", alt: "A prepared, balanced training meal" },
+	},
+	{
+		id: "footwork-first",
+		slug: "footwork-first",
+		title: "Footwork First: The Boxing Fundamental Everyone Skips",
+		category: "Boxing",
+		excerpt: "Power means nothing without position — here's what we drill before anything else.",
+		body: [
+			"New members walk into their first boxing class wanting to hit hard. Understandable — it's the fun part. But power in boxing doesn't come from the shoulder or the fist. It comes from the ground up, through the legs and hips, transmitted through a stable base.",
+			"That's why every one of our boxing sessions opens with footwork, not bag work. Pivots, step-throughs, and weight transfer drills that feel almost too simple to matter — until you notice your punches landing with real force a few weeks in, without swinging any harder.",
+			"Skip the footwork and you'll eventually hit a ceiling no amount of bag time can break through. Master it early, and everything else — combinations, defense, ring IQ — gets dramatically easier to build on top of.",
+		],
+		author: "Alina Cruz",
+		date: "2026-06-08",
+		readTime: "4 min read",
+		image: { src: "/images/gallery/gallery-02.jpg", alt: "Boxing class working footwork drills" },
+	},
+];

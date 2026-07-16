@@ -27,7 +27,7 @@ export function TrainerCard({ trainer }: TrainerCardProps) {
 			<p className="text-xs font-bold uppercase tracking-wider text-primary">{trainer.role}</p>
 			<p className="mb-3 text-xs text-text-subtle">{trainer.experience}</p>
 			<p className="mb-5 text-sm text-text-muted">{trainer.bio}</p>
-			<Button variant="secondary" size="sm" className="w-full">
+			<Button href={`/trainers#${trainer.id}`} variant="secondary" size="sm" className="w-full">
 				View Profile
 			</Button>
 		</Card>

@@ -22,3 +22,7 @@ export { FAQ_ITEMS } from "./faq";
 export { GALLERY_IMAGES } from "./gallery";
 export { NAV_LINKS, CONTACT_LINK } from "./navigation";
 export { siteConfig } from "./site";
+export { EQUIPMENT } from "./equipment";
+export { BLOG_POSTS } from "./blog";
+export { TIMELINE } from "./timeline";
+export { VALUES } from "./values";

@@ -20,3 +20,12 @@ export type { CtaBannerProps } from "./CtaBanner";
 
 export { RevealImage } from "./RevealImage";
 export type { RevealImageProps } from "./RevealImage";
+
+export { Timeline } from "./Timeline";
+export type { TimelineProps } from "./Timeline";
+
+export { ComparisonTable } from "./ComparisonTable";
+export type { ComparisonTableProps, ComparisonRow } from "./ComparisonTable";
+
+export { ContactForm } from "./ContactForm";
+export type { ContactFormProps, InquiryType } from "./ContactForm";

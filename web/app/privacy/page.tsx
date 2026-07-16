@@ -1,23 +1,21 @@
 import type { Metadata } from "next";
 import { Navbar, Footer, BackToTop, Container } from "@/components/layout";
+import { PageHeader } from "@/components/ui";
 import { siteConfig } from "@/constants/site";
+import { createMetadata } from "@/lib/metadata";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = createMetadata({
 	title: "Privacy Policy",
 	description: `Privacy policy for ${siteConfig.name}.`,
-};
+	path: "/privacy",
+});
 
 export default function PrivacyPage() {
 	return (
 		<>
 			<Navbar />
 			<main>
-				<section className="bg-secondary pb-16 pt-36 text-center">
-					<Container>
-						<h1 className="font-display text-3xl font-bold text-text sm:text-4xl">Privacy Policy</h1>
-						<p className="mt-2 text-sm text-text-subtle">Last updated: July 2026</p>
-					</Container>
-				</section>
+				<PageHeader title="Privacy Policy" subtitle="Last updated: July 2026" compact />
 
 				<section className="py-20">
 					<Container>

@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import { Navbar, Footer, BackToTop } from "@/components/layout";
 import {
 	HeroSection,
@@ -14,6 +15,14 @@ import {
 	FaqSection,
 	ContactCtaSection,
 } from "@/components/sections";
+import { createMetadata } from "@/lib/metadata";
+import { siteConfig } from "@/constants/site";
+
+export const metadata: Metadata = createMetadata({
+	title: siteConfig.tagline,
+	description: siteConfig.description,
+	path: "/",
+});
 
 export default function Home() {
 	return (

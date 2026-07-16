@@ -98,7 +98,7 @@ export function ContactForm({ defaultInquiryType = "general" }: ContactFormProps
 						type="text"
 						aria-invalid={Boolean(errors.name)}
 						aria-describedby={errors.name ? "contact-name-error" : undefined}
-						className="rounded-md border border-border bg-background px-4 py-3 text-sm text-text focus:border-primary focus:outline-none"
+						className="rounded-md border border-border bg-background px-4 py-3 text-sm text-text focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/40"
 					/>
 					{errors.name && (
 						<p id="contact-name-error" className="text-xs text-error">
@@ -117,7 +117,7 @@ export function ContactForm({ defaultInquiryType = "general" }: ContactFormProps
 						type="email"
 						aria-invalid={Boolean(errors.email)}
 						aria-describedby={errors.email ? "contact-email-error" : undefined}
-						className="rounded-md border border-border bg-background px-4 py-3 text-sm text-text focus:border-primary focus:outline-none"
+						className="rounded-md border border-border bg-background px-4 py-3 text-sm text-text focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/40"
 					/>
 					{errors.email && (
 						<p id="contact-email-error" className="text-xs text-error">
@@ -135,7 +135,7 @@ export function ContactForm({ defaultInquiryType = "general" }: ContactFormProps
 					id="contact-phone"
 					name="phone"
 					type="tel"
-					className="rounded-md border border-border bg-background px-4 py-3 text-sm text-text focus:border-primary focus:outline-none"
+					className="rounded-md border border-border bg-background px-4 py-3 text-sm text-text focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/40"
 				/>
 			</div>
 
@@ -147,7 +147,7 @@ export function ContactForm({ defaultInquiryType = "general" }: ContactFormProps
 					id="contact-interest"
 					name="interest"
 					defaultValue={defaultInquiryType}
-					className="rounded-md border border-border bg-background px-4 py-3 text-sm text-text focus:border-primary focus:outline-none"
+					className="rounded-md border border-border bg-background px-4 py-3 text-sm text-text focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/40"
 				>
 					<option value="general">General Inquiry</option>
 					<option value="tour">Booking a Tour</option>
@@ -166,7 +166,7 @@ export function ContactForm({ defaultInquiryType = "general" }: ContactFormProps
 					rows={5}
 					aria-invalid={Boolean(errors.message)}
 					aria-describedby={errors.message ? "contact-message-error" : undefined}
-					className="rounded-md border border-border bg-background px-4 py-3 text-sm text-text focus:border-primary focus:outline-none"
+					className="rounded-md border border-border bg-background px-4 py-3 text-sm text-text focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/40"
 				/>
 				{errors.message && (
 					<p id="contact-message-error" className="text-xs text-error">

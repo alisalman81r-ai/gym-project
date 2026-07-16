@@ -1,24 +1,21 @@
 import type { Metadata } from "next";
 import { Navbar, Footer, BackToTop, Container } from "@/components/layout";
-import { RevealImage, CtaBanner } from "@/components/ui";
+import { RevealImage, CtaBanner, PageHeader } from "@/components/ui";
 import { GALLERY_IMAGES } from "@/constants/gallery";
+import { createMetadata } from "@/lib/metadata";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = createMetadata({
 	title: "Gallery",
 	description: "A look inside Iron Elite Fitness Club — the facility, classes in session, and member moments.",
-};
+	path: "/gallery",
+});
 
 export default function GalleryPage() {
 	return (
 		<>
 			<Navbar />
 			<main>
-				<section className="bg-secondary pb-20 pt-36 text-center">
-					<Container>
-						<p className="mb-3 text-xs font-bold uppercase tracking-[0.2em] text-primary">Gallery</p>
-						<h1 className="font-display text-4xl font-bold text-text sm:text-5xl">Inside The Club</h1>
-					</Container>
-				</section>
+				<PageHeader eyebrow="Gallery" title="Inside The Club" />
 
 				<section className="py-24">
 					<Container>

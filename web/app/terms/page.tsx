@@ -1,23 +1,21 @@
 import type { Metadata } from "next";
 import { Navbar, Footer, BackToTop, Container } from "@/components/layout";
+import { PageHeader } from "@/components/ui";
 import { siteConfig } from "@/constants/site";
+import { createMetadata } from "@/lib/metadata";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = createMetadata({
 	title: "Terms of Service",
 	description: `Terms of service for ${siteConfig.name}.`,
-};
+	path: "/terms",
+});
 
 export default function TermsPage() {
 	return (
 		<>
 			<Navbar />
 			<main>
-				<section className="bg-secondary pb-16 pt-36 text-center">
-					<Container>
-						<h1 className="font-display text-3xl font-bold text-text sm:text-4xl">Terms of Service</h1>
-						<p className="mt-2 text-sm text-text-subtle">Last updated: July 2026</p>
-					</Container>
-				</section>
+				<PageHeader title="Terms of Service" subtitle="Last updated: July 2026" compact />
 
 				<section className="py-20">
 					<Container>

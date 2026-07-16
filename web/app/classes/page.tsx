@@ -1,13 +1,15 @@
 import type { Metadata } from "next";
 import { Navbar, Footer, BackToTop, Container } from "@/components/layout";
-import { SectionTitle, CtaBanner } from "@/components/ui";
+import { SectionTitle, CtaBanner, PageHeader } from "@/components/ui";
 import { ClassCard } from "@/components/cards";
 import { CLASSES } from "@/constants/classes";
+import { createMetadata } from "@/lib/metadata";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = createMetadata({
 	title: "Classes & Programs",
 	description: "Explore Iron Elite's training disciplines and find your fit.",
-};
+	path: "/classes",
+});
 
 const SCHEDULE = [
 	{ time: "6:00 AM", mon: "Strength", tue: "Boxing", wed: "Strength", thu: "Boxing", fri: "Strength", sat: "Cross Training", sun: "Recovery" },
@@ -23,12 +25,7 @@ export default function ClassesPage() {
 		<>
 			<Navbar />
 			<main>
-				<section className="bg-secondary pb-20 pt-36 text-center">
-					<Container>
-						<p className="mb-3 text-xs font-bold uppercase tracking-[0.2em] text-primary">Training Disciplines</p>
-						<h1 className="font-display text-4xl font-bold text-text sm:text-5xl">Classes Built For Every Goal</h1>
-					</Container>
-				</section>
+				<PageHeader eyebrow="Training Disciplines" title="Classes Built For Every Goal" />
 
 				<section className="py-24">
 					<Container>

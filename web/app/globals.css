@@ -22,7 +22,7 @@
 
 	--color-text: #ffffff;
 	--color-text-muted: #a6a39c;
-	--color-text-subtle: #5e5b54;
+	--color-text-subtle: #928f87;
 
 	--color-border: #2a2a28;
 
@@ -46,4 +46,12 @@
 body {
 	background-color: var(--color-background);
 	color: var(--color-text);
+}
+
+/* Sitewide fallback focus indicator (WCAG 2.4.7) -- belt-and-braces
+   for any interactive element that doesn't define its own focus
+   ring explicitly. */
+:focus-visible {
+	outline: 2px solid var(--color-primary);
+	outline-offset: 2px;
 }

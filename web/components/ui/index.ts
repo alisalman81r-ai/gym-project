@@ -29,3 +29,6 @@ export type { ComparisonTableProps, ComparisonRow } from "./ComparisonTable";
 
 export { ContactForm } from "./ContactForm";
 export type { ContactFormProps, InquiryType } from "./ContactForm";
+
+export { PageHeader } from "./PageHeader";
+export type { PageHeaderProps } from "./PageHeader";

@@ -1,16 +1,18 @@
 import type { Metadata } from "next";
 import { Navbar, Footer, BackToTop, Container } from "@/components/layout";
-import { SectionTitle, CtaBanner, ComparisonTable, Accordion } from "@/components/ui";
+import { SectionTitle, CtaBanner, ComparisonTable, Accordion, PageHeader } from "@/components/ui";
 import { PricingCard, FeatureCard } from "@/components/cards";
 import { PRICING_PLANS } from "@/constants/pricing";
 import { FAQ_ITEMS } from "@/constants/faq";
 import { Leaf, Target, CalendarClock } from "lucide-react";
 import type { Feature } from "@/types";
+import { createMetadata } from "@/lib/metadata";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = createMetadata({
 	title: "Membership & Pricing",
 	description: "Compare Iron Elite Fitness Club's Signature, Elite, and Private Club membership tiers.",
-};
+	path: "/membership",
+});
 
 const WHY_MEMBERS_STAY: Feature[] = [
 	{
@@ -47,12 +49,7 @@ export default function MembershipPage() {
 		<>
 			<Navbar />
 			<main>
-				<section className="bg-secondary pb-20 pt-36 text-center">
-					<Container>
-						<p className="mb-3 text-xs font-bold uppercase tracking-[0.2em] text-primary">Membership</p>
-						<h1 className="font-display text-4xl font-bold text-text sm:text-5xl">Choose Your Level of Elite</h1>
-					</Container>
-				</section>
+				<PageHeader eyebrow="Membership" title="Choose Your Level of Elite" />
 
 				<section className="py-24">
 					<Container>

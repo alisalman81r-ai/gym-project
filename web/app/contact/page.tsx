@@ -1,24 +1,21 @@
 import type { Metadata } from "next";
 import { Navbar, Footer, BackToTop, Container } from "@/components/layout";
-import { ContactForm } from "@/components/ui";
+import { ContactForm, PageHeader } from "@/components/ui";
 import { siteConfig } from "@/constants/site";
+import { createMetadata } from "@/lib/metadata";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = createMetadata({
 	title: "Contact & Book a Tour",
 	description: "Get in touch with Iron Elite Fitness Club or book your complimentary tour and fitness assessment.",
-};
+	path: "/contact",
+});
 
 export default function ContactPage() {
 	return (
 		<>
 			<Navbar />
 			<main>
-				<section className="bg-secondary pb-20 pt-36 text-center">
-					<Container>
-						<p className="mb-3 text-xs font-bold uppercase tracking-[0.2em] text-primary">Contact</p>
-						<h1 className="font-display text-4xl font-bold text-text sm:text-5xl">Let&rsquo;s Start Your Story.</h1>
-					</Container>
-				</section>
+				<PageHeader eyebrow="Contact" title="Let&rsquo;s Start Your Story." />
 
 				<section className="py-24">
 					<Container>

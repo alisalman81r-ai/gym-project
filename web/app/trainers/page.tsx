@@ -1,27 +1,22 @@
 import type { Metadata } from "next";
 import { Navbar, Footer, BackToTop, Container } from "@/components/layout";
-import { CtaBanner } from "@/components/ui";
+import { CtaBanner, PageHeader } from "@/components/ui";
 import { TrainerCard } from "@/components/cards";
 import { TRAINERS } from "@/constants/trainers";
+import { createMetadata } from "@/lib/metadata";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = createMetadata({
 	title: "Our Trainers",
 	description: "Meet the certified coaches behind Iron Elite Fitness Club.",
-};
+	path: "/trainers",
+});
 
 export default function TrainersPage() {
 	return (
 		<>
 			<Navbar />
 			<main>
-				<section className="bg-secondary pb-20 pt-36 text-center">
-					<Container>
-						<p className="mb-3 text-xs font-bold uppercase tracking-[0.2em] text-primary">Our Coaches</p>
-						<h1 className="font-display text-4xl font-bold text-text sm:text-5xl">
-							Trained By The Best, For The Best
-						</h1>
-					</Container>
-				</section>
+				<PageHeader eyebrow="Our Coaches" title="Trained By The Best, For The Best" />
 
 				<section className="py-24">
 					<Container>

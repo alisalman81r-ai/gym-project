@@ -64,7 +64,7 @@ export function BmiCalculatorSection() {
 								type="number"
 								min={100}
 								max={250}
-								className="rounded-md border border-border bg-background px-4 py-3 text-sm text-text focus:border-primary focus:outline-none"
+								className="rounded-md border border-border bg-background px-4 py-3 text-sm text-text focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/40"
 							/>
 						</div>
 
@@ -78,7 +78,7 @@ export function BmiCalculatorSection() {
 								type="number"
 								min={30}
 								max={300}
-								className="rounded-md border border-border bg-background px-4 py-3 text-sm text-text focus:border-primary focus:outline-none"
+								className="rounded-md border border-border bg-background px-4 py-3 text-sm text-text focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/40"
 							/>
 						</div>
 					</div>

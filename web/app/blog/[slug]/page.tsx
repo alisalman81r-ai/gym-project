@@ -4,6 +4,8 @@ import { Navbar, Footer, BackToTop, Container } from "@/components/layout";
 import { RevealImage, Button } from "@/components/ui";
 import { BlogCard } from "@/components/cards";
 import { BLOG_POSTS } from "@/constants/blog";
+import { createMetadata } from "@/lib/metadata";
+import { siteConfig } from "@/constants/site";
 
 interface BlogPostPageProps {
 	params: Promise<{ slug: string }>;
@@ -17,7 +19,12 @@ export async function generateMetadata({ params }: BlogPostPageProps): Promise<M
 	const { slug } = await params;
 	const post = BLOG_POSTS.find((p) => p.slug === slug);
 	if (!post) return {};
-	return { title: post.title, description: post.excerpt };
+	return createMetadata({
+		title: post.title,
+		description: post.excerpt,
+		path: `/blog/${post.slug}`,
+		image: post.image.src,
+	});
 }
 
 export default async function BlogPostPage({ params }: BlogPostPageProps) {
@@ -28,8 +35,20 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
 
 	const related = BLOG_POSTS.filter((p) => p.slug !== slug).slice(0, 3);
 
+	const articleJsonLd = {
+		"@context": "https://schema.org",
+		"@type": "Article",
+		headline: post.title,
+		description: post.excerpt,
+		image: `${siteConfig.url}${post.image.src}`,
+		datePublished: post.date,
+		author: { "@type": "Person", name: post.author },
+		publisher: { "@type": "Organization", name: siteConfig.name },
+	};
+
 	return (
 		<>
+			<script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }} />
 			<Navbar />
 			<main>
 				<article className="pb-16 pt-36">

@@ -1,14 +1,16 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Navbar, Footer, BackToTop, Container } from "@/components/layout";
-import { RevealImage } from "@/components/ui";
+import { RevealImage, PageHeader } from "@/components/ui";
 import { BlogCard } from "@/components/cards";
 import { BLOG_POSTS } from "@/constants/blog";
+import { createMetadata } from "@/lib/metadata";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = createMetadata({
 	title: "The Journal",
 	description: "Insights on training, recovery, and discipline from the coaches at Iron Elite Fitness Club.",
-};
+	path: "/blog",
+});
 
 export default function BlogPage() {
 	const [featured, ...rest] = BLOG_POSTS;
@@ -17,14 +19,7 @@ export default function BlogPage() {
 		<>
 			<Navbar />
 			<main>
-				<section className="bg-secondary pb-20 pt-36 text-center">
-					<Container>
-						<p className="mb-3 text-xs font-bold uppercase tracking-[0.2em] text-primary">The Journal</p>
-						<h1 className="font-display text-4xl font-bold text-text sm:text-5xl">
-							Insights on Training, Recovery &amp; Discipline
-						</h1>
-					</Container>
-				</section>
+				<PageHeader eyebrow="The Journal" title="Insights on Training, Recovery &amp; Discipline" />
 
 				{featured && (
 					<section className="pb-12 pt-24">

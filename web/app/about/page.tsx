@@ -1,30 +1,24 @@
 import type { Metadata } from "next";
 import { Navbar, Footer, BackToTop, Container } from "@/components/layout";
-import { SectionTitle, Timeline, CtaBanner, RevealImage } from "@/components/ui";
+import { SectionTitle, Timeline, CtaBanner, RevealImage, PageHeader } from "@/components/ui";
 import { FeatureCard } from "@/components/cards";
 import { TIMELINE } from "@/constants/timeline";
 import { VALUES } from "@/constants/values";
 import { siteConfig } from "@/constants/site";
+import { createMetadata } from "@/lib/metadata";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = createMetadata({
 	title: "About Us",
 	description: "The story, values, and standards behind Iron Elite Fitness Club.",
-};
+	path: "/about",
+});
 
 export default function AboutPage() {
 	return (
 		<>
 			<Navbar />
 			<main>
-				{/* Page header */}
-				<section className="bg-secondary pb-20 pt-36 text-center">
-					<Container>
-						<p className="mb-3 text-xs font-bold uppercase tracking-[0.2em] text-primary">Our Story</p>
-						<h1 className="font-display text-4xl font-bold text-text sm:text-5xl">
-							Built On Discipline, Not Trends.
-						</h1>
-					</Container>
-				</section>
+				<PageHeader eyebrow="Our Story" title="Built On Discipline, Not Trends." />
 
 				{/* Origin timeline */}
 				<section className="py-24">

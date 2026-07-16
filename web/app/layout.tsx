@@ -3,6 +3,7 @@ import { Playfair_Display, Inter } from "next/font/google";
 import "./globals.css";
 import { siteConfig } from "@/constants/site";
 import { MotionProvider } from "@/components/providers/MotionProvider";
+import { StructuredData } from "@/components/StructuredData";
 
 const playfairDisplay = Playfair_Display({
 	subsets: ["latin"],
@@ -48,6 +49,7 @@ export default function RootLayout({
 	return (
 		<html lang="en" className={`${playfairDisplay.variable} ${inter.variable} scroll-smooth`}>
 			<body className="font-body antialiased">
+				<StructuredData />
 				<MotionProvider>{children}</MotionProvider>
 			</body>
 		</html>

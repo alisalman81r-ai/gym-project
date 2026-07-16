@@ -2,9 +2,9 @@
 
 *Train Beyond Limits.*
 
-A production-quality, fully responsive marketing website for a fictional luxury fitness club — built as an end-to-end portfolio project covering the full product lifecycle: UX planning, semantic HTML/CSS/JS foundations, and a complete migration to a modern Next.js stack with real content, accessibility fixes, SEO, and a full QA pass.
+A production-quality, fully responsive marketing website for a fictional luxury fitness club — built as an end-to-end practice/portfolio project covering the full product lifecycle: UX planning, semantic HTML/CSS/JS foundations, and a complete migration to a modern Next.js stack with real content, accessibility fixes, SEO, and a full QA pass.
 
-**Live site:** _add your Vercel URL here after deployment_
+This is a local practice project and is intentionally not deployed live. It runs fully with `npm run dev` — see [Getting Started](#getting-started) below.
 
 ## Overview
 
@@ -73,9 +73,9 @@ Open [http://localhost:3000](http://localhost:3000).
 | `npm run start` | Serve the production build locally |
 | `npm run lint` | ESLint |
 
-## Deployment
+## Deployment (optional reference)
 
-Deployed on [Vercel](https://vercel.com). Because the Next.js app lives in the `web/` subfolder rather than the repo root, set the Vercel project's **Root Directory** to `web` — the framework preset, build command, and output are auto-detected from there. No environment variables are required.
+This project isn't deployed — it's kept local for practice. If you ever want to deploy it, it's set up to work on [Vercel](https://vercel.com) with no extra configuration: because the Next.js app lives in the `web/` subfolder rather than the repo root, set the Vercel project's **Root Directory** to `web` — the framework preset, build command, and output are auto-detected from there. No environment variables are required.
 
 ## Future Improvements
 

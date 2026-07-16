@@ -37,6 +37,6 @@ npm run lint     # ESLint
 
 ## Status
 
-The Home page (`app/page.tsx`) is fully assembled from the component library. Interior pages (About, Classes, Trainers, Membership, Gallery, Blog, Contact) haven't been built yet — see the migration plan for the phase sequence.
+**Production-ready.** All 11 routes are built (Home, About, Membership, Trainers, Classes, Gallery, Blog index + 4 dynamic posts, Contact, Privacy, Terms), plus custom `not-found.tsx`/`error.tsx` screens. All imagery is real, licensed photography (see [public/images/README.md](public/images/README.md) for the full manifest and credits). SEO metadata, JSON-LD structured data, `sitemap.ts`/`robots.ts`, WCAG AA contrast, and focus-visible states are all in place. `npm run build` produces zero errors and zero TypeScript errors; every route prerenders as static content.
 
-All imagery is currently a placeholder (hand-drawn SVG gradients, not real photography) — see [public/images/README.md](public/images/README.md) for exactly what's needed to replace it.
+Known non-blocking gaps: the contact form validates and submits client-side but has no backend endpoint wired up yet (see the root [README's Future Improvements](../README.md#future-improvements)), and photography is stock rather than the actual business.

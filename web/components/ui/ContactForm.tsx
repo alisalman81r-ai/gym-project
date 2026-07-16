@@ -3,6 +3,7 @@
 import { useState, type FormEvent } from "react";
 import { Loader2, CheckCircle2 } from "lucide-react";
 import { Button } from "./Button";
+import { SUPPLEMENTS } from "@/constants/supplements";
 
 export type InquiryType = "general" | "tour" | "membership" | "supplement";
 
@@ -15,21 +16,25 @@ interface FormErrors {
 	name?: string;
 	email?: string;
 	message?: string;
+	supplementId?: string;
+	deliveryAddress?: string;
 }
 
 const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 /**
- * Real client-side validation + a simulated submit (no backend
- * exists yet, so this doesn't send an actual email/CRM record --
- * wiring a real endpoint just means replacing the body of
- * `handleSubmit`'s try block). Serves all three inquiry types
- * (general / book a tour / membership) via one form rather than
- * three near-duplicate ones.
+ * Real client-side validation, posted to a real SQLite-backed API
+ * route (see app/api/contact and app/api/supplement-orders). When
+ * "Supplement Order" is selected, extra fields (product/quantity/
+ * delivery address) appear and the submit posts to the orders
+ * endpoint instead -- one form still serves every inquiry type
+ * rather than near-duplicate forms per type.
  */
 export function ContactForm({ defaultInquiryType = "general" }: ContactFormProps) {
 	const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
 	const [errors, setErrors] = useState<FormErrors>({});
+	const [interest, setInterest] = useState<InquiryType>(defaultInquiryType);
+	const isSupplementOrder = interest === "supplement";
 
 	function validate(formData: FormData): FormErrors {
 		const nextErrors: FormErrors = {};
@@ -40,7 +45,15 @@ export function ContactForm({ defaultInquiryType = "general" }: ContactFormProps
 		if (!name) nextErrors.name = "Please enter your name.";
 		if (!email) nextErrors.email = "Please enter your email.";
 		else if (!EMAIL_PATTERN.test(email)) nextErrors.email = "Please enter a valid email address.";
-		if (!message) nextErrors.message = "Please add a short message.";
+
+		if (isSupplementOrder) {
+			const supplementId = String(formData.get("supplementId") ?? "").trim();
+			const deliveryAddress = String(formData.get("deliveryAddress") ?? "").trim();
+			if (!supplementId) nextErrors.supplementId = "Please choose a product.";
+			if (!deliveryAddress) nextErrors.deliveryAddress = "Please add a delivery address.";
+		} else if (!message) {
+			nextErrors.message = "Please add a short message.";
+		}
 
 		return nextErrors;
 	}
@@ -60,13 +73,37 @@ export function ContactForm({ defaultInquiryType = "general" }: ContactFormProps
 		setErrors({});
 		setStatus("submitting");
 
+		const name = String(formData.get("name") ?? "").trim();
+		const email = String(formData.get("email") ?? "").trim();
+		const phone = String(formData.get("phone") ?? "").trim();
+		const message = String(formData.get("message") ?? "").trim();
+
 		try {
-			// No backend wired up yet -- replace with a real API call
-			// (e.g. `await fetch("/api/contact", { method: "POST", body: formData })`)
-			// once one exists.
-			await new Promise((resolve) => setTimeout(resolve, 900));
+			const response = isSupplementOrder
+				? await fetch("/api/supplement-orders", {
+						method: "POST",
+						headers: { "Content-Type": "application/json" },
+						body: JSON.stringify({
+							supplementId: String(formData.get("supplementId") ?? "").trim(),
+							quantity: Number(formData.get("quantity")) || 1,
+							name,
+							email,
+							phone,
+							deliveryAddress: String(formData.get("deliveryAddress") ?? "").trim(),
+							notes: message,
+						}),
+					})
+				: await fetch("/api/contact", {
+						method: "POST",
+						headers: { "Content-Type": "application/json" },
+						body: JSON.stringify({ name, email, phone, interest, message }),
+					});
+
+			if (!response.ok) throw new Error("Request failed");
+
 			setStatus("success");
 			form.reset();
+			setInterest(defaultInquiryType);
 		} catch {
 			setStatus("error");
 		}
@@ -146,7 +183,8 @@ export function ContactForm({ defaultInquiryType = "general" }: ContactFormProps
 				<select
 					id="contact-interest"
 					name="interest"
-					defaultValue={defaultInquiryType}
+					value={interest}
+					onChange={(event) => setInterest(event.target.value as InquiryType)}
 					className="rounded-md border border-border bg-background px-4 py-3 text-sm text-text focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/40"
 				>
 					<option value="general">General Inquiry</option>
@@ -157,14 +195,78 @@ export function ContactForm({ defaultInquiryType = "general" }: ContactFormProps
 				</select>
 			</div>
 
+			{isSupplementOrder && (
+				<>
+					<div className="grid gap-5 sm:grid-cols-[2fr_1fr]">
+						<div className="flex flex-col gap-2">
+							<label htmlFor="contact-supplement" className="text-sm font-semibold text-text-muted">
+								Product
+							</label>
+							<select
+								id="contact-supplement"
+								name="supplementId"
+								defaultValue=""
+								aria-invalid={Boolean(errors.supplementId)}
+								className="rounded-md border border-border bg-background px-4 py-3 text-sm text-text focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/40"
+							>
+								<option value="" disabled>
+									Choose a product&hellip;
+								</option>
+								{SUPPLEMENTS.map((supplement) => (
+									<option key={supplement.id} value={supplement.id}>
+										{supplement.name} &mdash; ${supplement.price.toFixed(2)}
+									</option>
+								))}
+							</select>
+							{errors.supplementId && <p className="text-xs text-error">{errors.supplementId}</p>}
+						</div>
+
+						<div className="flex flex-col gap-2">
+							<label htmlFor="contact-quantity" className="text-sm font-semibold text-text-muted">
+								Quantity
+							</label>
+							<input
+								id="contact-quantity"
+								name="quantity"
+								type="number"
+								min={1}
+								max={20}
+								defaultValue={1}
+								className="rounded-md border border-border bg-background px-4 py-3 text-sm text-text focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/40"
+							/>
+						</div>
+					</div>
+
+					<div className="flex flex-col gap-2">
+						<label htmlFor="contact-delivery-address" className="text-sm font-semibold text-text-muted">
+							Delivery Address
+						</label>
+						<textarea
+							id="contact-delivery-address"
+							name="deliveryAddress"
+							rows={2}
+							aria-invalid={Boolean(errors.deliveryAddress)}
+							className="rounded-md border border-border bg-background px-4 py-3 text-sm text-text focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/40"
+						/>
+						{errors.deliveryAddress && <p className="text-xs text-error">{errors.deliveryAddress}</p>}
+					</div>
+				</>
+			)}
+
 			<div className="flex flex-col gap-2">
 				<label htmlFor="contact-message" className="text-sm font-semibold text-text-muted">
-					Message
+					{isSupplementOrder ? (
+						<>
+							Delivery Notes <span className="text-text-subtle">(optional)</span>
+						</>
+					) : (
+						"Message"
+					)}
 				</label>
 				<textarea
 					id="contact-message"
 					name="message"
-					rows={5}
+					rows={isSupplementOrder ? 2 : 5}
 					aria-invalid={Boolean(errors.message)}
 					aria-describedby={errors.message ? "contact-message-error" : undefined}
 					className="rounded-md border border-border bg-background px-4 py-3 text-sm text-text focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/40"
@@ -181,6 +283,8 @@ export function ContactForm({ defaultInquiryType = "general" }: ContactFormProps
 					<>
 						<Loader2 className="animate-spin" size={16} /> Sending...
 					</>
+				) : isSupplementOrder ? (
+					"Place Order"
 				) : (
 					"Send Message"
 				)}

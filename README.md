@@ -16,7 +16,7 @@ Iron Elite Fitness Club is a marketing site for a premium gym brand: a home page
 - **Supplements showcase** — a product catalog (protein, creatine, pre-workout, BCAA, multivitamins, electrolytes) with home-delivery messaging; "Inquire to Order" deep-links into a pre-selected option on the contact form (no cart/checkout — see Future Improvements)
 - **Real content throughout** — no lorem ipsum: trainer bios, class schedules, membership tiers, blog posts, and 21 real licensed photographs (Unsplash License, see [web/public/images/README.md](web/public/images/README.md) for full photographer credits)
 - **Interactive tools** — BMI calculator, testimonial slider, FAQ accordion, animated stats counters, mobile-responsive navigation drawer
-- **Client-validated contact form** — inline validation, error states, and a success confirmation screen (see [Future Improvements](#future-improvements) for backend wiring)
+- **Real, database-backed forms** — the Contact form and Supplement ordering flow validate client-side and persist to a local SQLite database via API routes; view submitted data at `/admin/submissions` (unauthenticated internal page, not linked in navigation, blocked from `robots.txt`)
 - **Premium motion design** — Framer Motion scroll reveals, hover states, and page transitions, all respecting `prefers-reduced-motion`
 - **SEO-complete** — per-page metadata (title/description/Open Graph/Twitter cards) via a shared metadata helper, JSON-LD structured data, dynamic `sitemap.xml`/`robots.txt`
 - **Accessibility-checked** — WCAG AA color contrast verified by calculation (not eyeballed), visible focus states on every interactive element, semantic landmarks throughout
@@ -32,6 +32,7 @@ Iron Elite Fitness Club is a marketing site for a premium gym brand: a home page
 | Animation | [Framer Motion](https://www.framer.com/motion/) |
 | Icons | [lucide-react](https://lucide.dev/) |
 | Images | `next/image` with a custom fade-in reveal wrapper |
+| Database | SQLite (via `better-sqlite3`), a local file at `web/data/app.db` |
 | Hosting target | [Vercel](https://vercel.com/) |
 
 ## Screenshots
@@ -80,8 +81,9 @@ This project isn't deployed — it's kept local for practice. If you ever want t
 
 ## Future Improvements
 
-- Add a real shopping cart and checkout flow to the Supplements page (currently a showcase with an inquiry-based ordering flow, not a cart)
-- Wire the contact form to a real backend endpoint (email service or CRM) — the form's validation and UX are complete; only the submit handler needs a live endpoint
+- Add authentication to `/admin/submissions` before ever deploying this publicly — it currently has none
+- Add a real shopping cart and checkout flow to the Supplements page (currently a showcase with a database-backed inquiry/order form, not a cart)
+- Send an email/CRM notification when a contact submission or supplement order comes in, in addition to storing it in SQLite
 - Replace stock photography with real branded photography of the actual space, trainers, and members
 - Add a real logo mark (currently a styled text wordmark) — see the `branding/` section of [web/public/images/README.md](web/public/images/README.md)
 - Add Open Graph share images per page (`og/` folder is reserved but not yet wired)

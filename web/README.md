@@ -8,6 +8,7 @@ The Next.js/TypeScript/Tailwind/Framer Motion rebuild of the Iron Elite Fitness 
 - **Tailwind CSS v4** — CSS-first theme via `@theme` in [app/globals.css](app/globals.css) (no `tailwind.config.ts`; every custom property there generates matching utility classes)
 - **Framer Motion** — page/section reveals, hover states, the mobile drawer, the testimonial slider, the accordion
 - **lucide-react** — icon system (brand/logo icons are hand-drawn separately; see `components/ui/SocialIcons.tsx`)
+- **better-sqlite3** — local SQLite database backing the Contact form and Supplement orders (see [lib/db.ts](lib/db.ts))
 - **ESLint** (`eslint-config-next`, core-web-vitals + typescript)
 
 ## Folder Structure
@@ -15,13 +16,16 @@ The Next.js/TypeScript/Tailwind/Framer Motion rebuild of the Iron Elite Fitness 
 | Folder | Purpose |
 |---|---|
 | `app/` | Routes only — one `page.tsx` per URL, plus the root `layout.tsx`, `globals.css`, and file-convention overrides (`loading.tsx`, `not-found.tsx`). |
+| `app/api/` | Route handlers — `contact/` and `supplement-orders/`, both writing to SQLite via `lib/db.ts`. |
+| `app/admin/submissions/` | Unauthenticated internal page for viewing submitted contact messages and orders. Not linked in navigation; blocked in `robots.ts`. |
 | `components/layout/` | Chrome around every page — Navbar (with a fully wired mobile drawer), Footer, Container. |
 | `components/ui/` | Generic, content-agnostic primitives — Button, Card, Badge, SectionTitle, Accordion, CtaBanner, SocialIcons. |
 | `components/sections/` | Page-section-sized compositions — Hero, AboutPreview, Features, Stats, Pricing, Classes, Trainers, Gallery, Testimonials, BmiCalculator, Faq, ContactCta. |
 | `components/cards/` | The card family — PricingCard, TrainerCard, FeatureCard, ClassCard, TestimonialCard. |
 | `public/images/` | Static image assets — see [public/images/README.md](public/images/README.md) for the full manifest of what's required and where to place real photography. |
 | `public/icons/` | Reserved for icon assets outside the `lucide-react` package (currently unused). |
-| `lib/` | Framework-agnostic helpers — no React, no JSX (`utils.ts` holds `cn()`). |
+| `lib/` | Framework-agnostic helpers — no React, no JSX (`utils.ts` holds `cn()`; `db.ts` holds the SQLite connection + schema). |
+| `data/` | Holds the local SQLite file (`app.db`, gitignored — recreated automatically on first run). |
 | `hooks/` | Reusable stateful logic — `useCountUp` (Framer Motion-driven animated counters). |
 | `types/` | Shared TypeScript types/interfaces. |
 | `constants/` | Static content data (site metadata, trainer roster, plans, classes, testimonials, FAQ) — kept separate from components so content edits never touch component code. `gymData.ts` re-exports everything from one place for convenience; the individual files (`trainers.ts`, `pricing.ts`, etc.) remain the actual source of truth. |
@@ -37,6 +41,8 @@ npm run lint     # ESLint
 
 ## Status
 
-**Production-ready.** All 11 routes are built (Home, About, Membership, Trainers, Classes, Gallery, Blog index + 4 dynamic posts, Contact, Privacy, Terms), plus custom `not-found.tsx`/`error.tsx` screens. All imagery is real, licensed photography (see [public/images/README.md](public/images/README.md) for the full manifest and credits). SEO metadata, JSON-LD structured data, `sitemap.ts`/`robots.ts`, WCAG AA contrast, and focus-visible states are all in place. `npm run build` produces zero errors and zero TypeScript errors; every route prerenders as static content.
+**Production-ready.** All 12 routes are built (Home, About, Membership, Trainers, Classes, Supplements, Gallery, Blog index + 4 dynamic posts, Contact, Privacy, Terms), plus custom `not-found.tsx`/`error.tsx` screens. All imagery is real, licensed photography (see [public/images/README.md](public/images/README.md) for the full manifest and credits). SEO metadata, JSON-LD structured data, `sitemap.ts`/`robots.ts`, WCAG AA contrast, and focus-visible states are all in place. `npm run build` produces zero errors and zero TypeScript errors.
 
-Known non-blocking gaps: the contact form validates and submits client-side but has no backend endpoint wired up yet (see the root [README's Future Improvements](../README.md#future-improvements)), and photography is stock rather than the actual business.
+The Contact form and Supplement ordering flow are backed by a real local SQLite database (see [lib/db.ts](lib/db.ts) and `app/api/`) — submissions persist and are viewable at `/admin/submissions`.
+
+Known non-blocking gaps: the `/admin/submissions` page has no authentication (see the root [README's Future Improvements](../README.md#future-improvements)), the Supplements page is a showcase with an order form rather than a cart/checkout, and photography is stock rather than the actual business.

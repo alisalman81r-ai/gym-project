@@ -63,6 +63,19 @@ Small avatar next to each quote — these are generic Unsplash portraits standin
 | `james-keller.jpg` | James Keller | Photo by [Farkas Mario](https://unsplash.com/@photosbyfrk) on Unsplash |
 | `maria-gomez.jpg` | Maria Gomez | Photo by [Meagan Stone](https://unsplash.com/@meagan_stone) on Unsplash |
 
+## supplements/
+
+Used by `SupplementCard.tsx` on the Supplements page (`/supplements`).
+
+| File | Product | Credit |
+|---|---|---|
+| `whey-protein-isolate.jpg` | Whey Protein Isolate | Photo by [Alex Saks](https://unsplash.com/@alexsaks) on Unsplash |
+| `creatine-monohydrate.jpg` | Creatine Monohydrate | Photo by [FitNish Media](https://unsplash.com/@fitnish) on Unsplash |
+| `pre-workout-igniter.jpg` | Pre-Workout Igniter | Photo by [Alex Saks](https://unsplash.com/@alexsaks) on Unsplash |
+| `bcaa-recovery-blend.jpg` | BCAA Recovery Blend | Photo by [Alex Saks](https://unsplash.com/@alexsaks) on Unsplash |
+| `daily-multivitamin.jpg` | Daily Multivitamin | Photo by [Mockup Free](https://unsplash.com/@mockupfreenet) on Unsplash |
+| `electrolyte-hydration-mix.jpg` | Electrolyte Hydration Mix | Photo by [NutraSeller Manufacturing](https://unsplash.com/@nutraseller) on Unsplash |
+
 ## branding/ *(reserved, not yet wired to a component)*
 
 The Navbar/Footer currently render the wordmark as styled text, not an image — there's no logo file to replace yet. If a real logo mark is designed, add `logo-gold.svg` (for dark backgrounds) here and update `Navbar.tsx`/`Footer.tsx` to render it via `<Image>` instead of text — a small, contained change.

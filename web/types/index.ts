@@ -10,3 +10,4 @@ export type { GalleryImage } from "./galleryImage";
 export type { EquipmentItem } from "./equipmentItem";
 export type { BlogPost } from "./blogPost";
 export type { TimelineEvent } from "./timelineEvent";
+export type { Supplement } from "./supplement";

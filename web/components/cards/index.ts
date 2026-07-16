@@ -15,3 +15,6 @@ export type { ClassCardProps } from "./ClassCard";
 
 export { BlogCard } from "./BlogCard";
 export type { BlogCardProps } from "./BlogCard";
+
+export { SupplementCard } from "./SupplementCard";
+export type { SupplementCardProps } from "./SupplementCard";

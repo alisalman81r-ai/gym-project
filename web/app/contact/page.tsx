@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { Navbar, Footer, BackToTop, Container } from "@/components/layout";
-import { ContactForm, PageHeader } from "@/components/ui";
+import { ContactForm, PageHeader, type InquiryType } from "@/components/ui";
 import { siteConfig } from "@/constants/site";
 import { createMetadata } from "@/lib/metadata";
 
@@ -10,7 +10,16 @@ export const metadata: Metadata = createMetadata({
 	path: "/contact",
 });
 
-export default function ContactPage() {
+const VALID_INQUIRY_TYPES: InquiryType[] = ["general", "tour", "membership", "supplement"];
+
+interface ContactPageProps {
+	searchParams: Promise<{ interest?: string }>;
+}
+
+export default async function ContactPage({ searchParams }: ContactPageProps) {
+	const { interest } = await searchParams;
+	const defaultInquiryType = VALID_INQUIRY_TYPES.includes(interest as InquiryType) ? (interest as InquiryType) : undefined;
+
 	return (
 		<>
 			<Navbar />
@@ -20,7 +29,7 @@ export default function ContactPage() {
 				<section className="py-24">
 					<Container>
 						<div className="grid gap-12 lg:grid-cols-2">
-							<ContactForm />
+							<ContactForm defaultInquiryType={defaultInquiryType} />
 
 							<div>
 								<h2 className="mb-4 font-display text-2xl font-semibold text-text">Visit The Club</h2>

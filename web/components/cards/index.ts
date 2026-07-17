@@ -18,3 +18,6 @@ export type { BlogCardProps } from "./BlogCard";
 
 export { SupplementCard } from "./SupplementCard";
 export type { SupplementCardProps } from "./SupplementCard";
+
+export { ProductCard } from "./ProductCard";
+export type { ProductCardProps } from "./ProductCard";

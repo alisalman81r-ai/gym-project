@@ -55,3 +55,11 @@ body {
 	outline: 2px solid var(--color-primary);
 	outline-offset: 2px;
 }
+
+/* Admin order invoice printing (see PrintInvoiceButton) -- hides
+   chrome that shouldn't appear on a printed invoice. */
+@media print {
+	.no-print {
+		display: none !important;
+	}
+}

@@ -17,7 +17,7 @@ The Next.js/TypeScript/Tailwind/Framer Motion rebuild of the Iron Elite Fitness 
 |---|---|
 | `app/` | Routes only — one `page.tsx` per URL, plus the root `layout.tsx`, `globals.css`, and file-convention overrides (`loading.tsx`, `not-found.tsx`). |
 | `app/api/` | Route handlers — `contact/` and `supplement-orders/`, both writing to SQLite via `lib/db.ts`. |
-| `app/admin/submissions/` | Unauthenticated internal page for viewing submitted contact messages and orders. Not linked in navigation; blocked in `robots.ts`. |
+| `app/admin/` | Password-protected internal dashboard (`/admin`) for viewing/managing submitted contact messages and orders, plus `/admin/login`. Not linked in navigation; blocked in `robots.ts`. See [lib/auth.ts](lib/auth.ts). |
 | `components/layout/` | Chrome around every page — Navbar (with a fully wired mobile drawer), Footer, Container. |
 | `components/ui/` | Generic, content-agnostic primitives — Button, Card, Badge, SectionTitle, Accordion, CtaBanner, SocialIcons. |
 | `components/sections/` | Page-section-sized compositions — Hero, AboutPreview, Features, Stats, Pricing, Classes, Trainers, Gallery, Testimonials, BmiCalculator, Faq, ContactCta. |
@@ -34,15 +34,20 @@ The Next.js/TypeScript/Tailwind/Framer Motion rebuild of the Iron Elite Fitness 
 
 ```bash
 npm install
+cp .env.example .env.local   # then edit ADMIN_USERNAME/ADMIN_PASSWORD/ADMIN_SESSION_SECRET
 npm run dev      # start the dev server at http://localhost:3000
 npm run build    # production build
 npm run lint     # ESLint
 ```
 
+## Admin dashboard
+
+`/admin` (login at `/admin/login`) lists every contact form submission and supplement order stored in SQLite, with buttons to toggle each row between `new`/`handled` and to delete it. Auth is a single hardcoded credential pair from `.env.local` (see `.env.example`) plus a signed, HttpOnly session cookie — see [lib/auth.ts](lib/auth.ts), [proxy.ts](proxy.ts) (route gate), and [app/admin/actions.ts](app/admin/actions.ts) (the Server Actions doing the mutations). Not linked in navigation; blocked in `robots.ts`.
+
 ## Status
 
 **Production-ready.** All 12 routes are built (Home, About, Membership, Trainers, Classes, Supplements, Gallery, Blog index + 4 dynamic posts, Contact, Privacy, Terms), plus custom `not-found.tsx`/`error.tsx` screens. All imagery is real, licensed photography (see [public/images/README.md](public/images/README.md) for the full manifest and credits). SEO metadata, JSON-LD structured data, `sitemap.ts`/`robots.ts`, WCAG AA contrast, and focus-visible states are all in place. `npm run build` produces zero errors and zero TypeScript errors.
 
-The Contact form and Supplement ordering flow are backed by a real local SQLite database (see [lib/db.ts](lib/db.ts) and `app/api/`) — submissions persist and are viewable at `/admin/submissions`.
+The Contact form and Supplement ordering flow are backed by a real local SQLite database (see [lib/db.ts](lib/db.ts) and `app/api/`) — submissions persist and are viewable/manageable at `/admin` behind login.
 
-Known non-blocking gaps: the `/admin/submissions` page has no authentication (see the root [README's Future Improvements](../README.md#future-improvements)), the Supplements page is a showcase with an order form rather than a cart/checkout, and photography is stock rather than the actual business.
+Known non-blocking gaps: the Supplements page is a showcase with an order form rather than a cart/checkout, and photography is stock rather than the actual business.

@@ -1,16 +1,17 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { AnimatePresence, motion } from "framer-motion";
-import { Menu, X } from "lucide-react";
+import { Menu, X, ShoppingCart, User, Heart } from "lucide-react";
 import { Container } from "./Container";
 import { Button } from "@/components/ui";
 import { NAV_LINKS, CONTACT_LINK } from "@/constants/navigation";
 import { siteConfig } from "@/constants/site";
 import { useScrolledPast } from "@/hooks/useScrollPosition";
 import { cn } from "@/lib/utils";
+import { CART_UPDATED_EVENT } from "@/lib/cartEvents";
 
 /**
  * Sticky primary navigation. The mobile drawer is fully wired
@@ -21,10 +22,32 @@ import { cn } from "@/lib/utils";
  */
 export function Navbar() {
 	const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+	const [cartCount, setCartCount] = useState(0);
 	const pathname = usePathname();
 	const isScrolled = useScrolledPast(80);
 
 	const closeMobileMenu = () => setIsMobileMenuOpen(false);
+
+	// Client-fetched rather than server-rendered so the marketing pages
+	// around it can stay statically generated (see lib/cartEvents.ts).
+	useEffect(() => {
+		let cancelled = false;
+		async function fetchCartCount() {
+			try {
+				const response = await fetch("/api/cart/count");
+				const data = await response.json();
+				if (!cancelled) setCartCount(data.count ?? 0);
+			} catch {
+				// Badge just won't update this time -- not worth surfacing an error for.
+			}
+		}
+		fetchCartCount();
+		window.addEventListener(CART_UPDATED_EVENT, fetchCartCount);
+		return () => {
+			cancelled = true;
+			window.removeEventListener(CART_UPDATED_EVENT, fetchCartCount);
+		};
+	}, []);
 
 	return (
 		<header
@@ -62,9 +85,23 @@ export function Navbar() {
 						})}
 					</ul>
 
-					<div className="hidden items-center gap-6 md:flex">
+					<div className="hidden items-center gap-5 md:flex">
 						<Link href={CONTACT_LINK.href} className="text-xs font-semibold text-text-muted hover:text-text">
 							{CONTACT_LINK.label}
+						</Link>
+						<Link href="/account/wishlist" aria-label="Wishlist" className="text-text-muted transition-colors hover:text-text">
+							<Heart size={20} />
+						</Link>
+						<Link href="/account" aria-label="My Account" className="text-text-muted transition-colors hover:text-text">
+							<User size={20} />
+						</Link>
+						<Link href="/cart" aria-label="Cart" className="relative text-text-muted transition-colors hover:text-text">
+							<ShoppingCart size={20} />
+							{cartCount > 0 && (
+								<span className="absolute -right-2 -top-2 flex h-4 w-4 items-center justify-center rounded-full bg-primary text-[0.6rem] font-bold text-background">
+									{cartCount > 9 ? "9+" : cartCount}
+								</span>
+							)}
 						</Link>
 						<Button href="/contact" size="sm">
 							Book a Tour
@@ -106,6 +143,17 @@ export function Navbar() {
 									</li>
 								))}
 							</ul>
+							<div className="flex items-center gap-6 pb-6">
+								<Link href="/account/wishlist" onClick={closeMobileMenu} className="flex items-center gap-2 text-sm text-text-muted">
+									<Heart size={18} /> Wishlist
+								</Link>
+								<Link href="/account" onClick={closeMobileMenu} className="flex items-center gap-2 text-sm text-text-muted">
+									<User size={18} /> Account
+								</Link>
+								<Link href="/cart" onClick={closeMobileMenu} className="flex items-center gap-2 text-sm text-text-muted">
+									<ShoppingCart size={18} /> Cart{cartCount > 0 ? ` (${cartCount})` : ""}
+								</Link>
+							</div>
 							<div className="pb-6">
 								<Button href="/contact" className="w-full" onClick={closeMobileMenu}>
 									Book a Tour

@@ -221,11 +221,31 @@ db.exec(`
 		created_at TEXT NOT NULL DEFAULT (datetime('now'))
 	);
 
+	CREATE TABLE IF NOT EXISTS memberships (
+		id INTEGER PRIMARY KEY AUTOINCREMENT,
+		user_id INTEGER REFERENCES users(id) ON DELETE SET NULL,
+		plan_id TEXT NOT NULL,
+		plan_name TEXT NOT NULL,
+		price REAL NOT NULL,
+		customer_name TEXT NOT NULL,
+		customer_email TEXT NOT NULL,
+		customer_phone TEXT,
+		stripe_customer_id TEXT,
+		stripe_subscription_id TEXT,
+		stripe_checkout_session_id TEXT,
+		status TEXT NOT NULL DEFAULT 'pending' CHECK (status IN ('pending', 'active', 'past_due', 'canceled', 'incomplete')),
+		current_period_end TEXT,
+		created_at TEXT NOT NULL DEFAULT (datetime('now')),
+		updated_at TEXT NOT NULL DEFAULT (datetime('now'))
+	);
+
 	CREATE INDEX IF NOT EXISTS idx_products_type ON products(product_type);
 	CREATE INDEX IF NOT EXISTS idx_products_category ON products(category_id);
 	CREATE INDEX IF NOT EXISTS idx_cart_items_cart_key ON cart_items(cart_key);
 	CREATE INDEX IF NOT EXISTS idx_orders_user ON orders(user_id);
 	CREATE INDEX IF NOT EXISTS idx_reviews_product ON reviews(product_id);
+	CREATE INDEX IF NOT EXISTS idx_memberships_user ON memberships(user_id);
+	CREATE INDEX IF NOT EXISTS idx_memberships_subscription ON memberships(stripe_subscription_id);
 `);
 
 seedProductsIfEmpty(db);

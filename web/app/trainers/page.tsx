@@ -22,9 +22,7 @@ export default function TrainersPage() {
 					<Container>
 						<div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
 							{TRAINERS.map((trainer) => (
-								<div key={trainer.id} id={trainer.id} className="scroll-mt-28">
-									<TrainerCard trainer={trainer} />
-								</div>
+								<TrainerCard key={trainer.id} trainer={trainer} />
 							))}
 						</div>
 					</Container>

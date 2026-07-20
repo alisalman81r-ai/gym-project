@@ -30,7 +30,7 @@ export function PricingCard({ plan }: PricingCardProps) {
 				))}
 			</ul>
 
-			<Button href="/contact" variant={plan.isFeatured ? "primary" : "secondary"} className="w-full">
+			<Button href={`/membership/join/${plan.id}`} variant={plan.isFeatured ? "primary" : "secondary"} className="w-full">
 				Choose {plan.name}
 			</Button>
 		</Card>

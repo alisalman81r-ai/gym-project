@@ -103,8 +103,8 @@ export function Navbar() {
 								</span>
 							)}
 						</Link>
-						<Button href="/contact" size="sm">
-							Book a Tour
+						<Button href="/admin/login" size="sm">
+							Admin Login
 						</Button>
 					</div>
 
@@ -155,8 +155,8 @@ export function Navbar() {
 								</Link>
 							</div>
 							<div className="pb-6">
-								<Button href="/contact" className="w-full" onClick={closeMobileMenu}>
-									Book a Tour
+								<Button href="/admin/login" className="w-full" onClick={closeMobileMenu}>
+									Admin Login
 								</Button>
 							</div>
 						</Container>

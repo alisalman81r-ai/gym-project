@@ -6,10 +6,9 @@ export interface TrainerCardProps {
 }
 
 /**
- * One coach — used by TrainersSection. `trainer.image` currently
- * points at a hand-drawn SVG placeholder (public/images/trainers/);
- * swap that file for a real portrait and nothing here needs to
- * change.
+ * One coach — used by TrainersSection (home) and /trainers. `trainer.image`
+ * currently points at a hand-drawn SVG placeholder (public/images/trainers/);
+ * swap that file for a real portrait and nothing here needs to change.
  */
 export function TrainerCard({ trainer }: TrainerCardProps) {
 	return (
@@ -27,7 +26,7 @@ export function TrainerCard({ trainer }: TrainerCardProps) {
 			<p className="text-xs font-bold uppercase tracking-wider text-primary">{trainer.role}</p>
 			<p className="mb-3 text-xs text-text-subtle">{trainer.experience}</p>
 			<p className="mb-5 text-sm text-text-muted">{trainer.bio}</p>
-			<Button href={`/trainers#${trainer.id}`} variant="secondary" size="sm" className="w-full">
+			<Button href={`/trainers/${trainer.id}`} variant="secondary" size="sm" className="w-full">
 				View Profile
 			</Button>
 		</Card>

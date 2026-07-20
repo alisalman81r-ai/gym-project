@@ -1,7 +1,9 @@
 "use client";
 
 import { useActionState } from "react";
-import { Button } from "@/components/ui/Button";
+import Link from "next/link";
+import { ArrowLeft } from "lucide-react";
+import { Button, GradientBarsBackground } from "@/components/ui";
 import { loginAction, type LoginState } from "./actions";
 
 const initialState: LoginState = {};
@@ -10,8 +12,13 @@ export default function AdminLoginPage() {
 	const [state, action, pending] = useActionState(loginAction, initialState);
 
 	return (
-		<main className="flex min-h-screen items-center justify-center bg-background px-4">
-			<form action={action} className="w-full max-w-sm space-y-5 rounded-2xl border border-border bg-secondary p-8">
+		<main className="relative flex min-h-screen flex-col items-center justify-center gap-6 overflow-hidden bg-background px-4">
+			<GradientBarsBackground />
+
+			<form
+				action={action}
+				className="relative z-10 w-full max-w-sm space-y-5 rounded-2xl border border-border bg-secondary p-8 shadow-elevated"
+			>
 				<h1 className="font-display text-2xl font-bold text-text">Admin Login</h1>
 
 				<div className="flex flex-col gap-2">
@@ -48,6 +55,13 @@ export default function AdminLoginPage() {
 					{pending ? "Signing in..." : "Sign In"}
 				</Button>
 			</form>
+
+			<Link
+				href="/"
+				className="relative z-10 flex items-center gap-2 text-sm font-semibold text-text-muted transition-colors hover:text-text"
+			>
+				<ArrowLeft size={16} /> Back to Website
+			</Link>
 		</main>
 	);
 }

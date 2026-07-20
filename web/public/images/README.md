@@ -76,6 +76,21 @@ Used by `SupplementCard.tsx` on the Supplements page (`/supplements`).
 | `daily-multivitamin.jpg` | Daily Multivitamin | Photo by [Mockup Free](https://unsplash.com/@mockupfreenet) on Unsplash |
 | `electrolyte-hydration-mix.jpg` | Electrolyte Hydration Mix | Photo by [NutraSeller Manufacturing](https://unsplash.com/@nutraseller) on Unsplash |
 
+## products/
+
+Used by the `/shop` catalog (`lib/seed.ts` seeds these paths into `product_images`). Supplement products reuse the photos already listed under `supplements/` above; this section covers the gym clothing line.
+
+| File | Product | Credit |
+|---|---|---|
+| `performance-training-tee.jpg` | Performance Training Tee | Photo by [Ryan Hoffman](https://unsplash.com/@ryanhoffman007) on Unsplash |
+| `compression-shorts.jpg` | Iron Elite Compression Shorts | Photo by [Anastase Maragos](https://unsplash.com/@visualsbyroyalz) on Unsplash |
+| `elite-zip-hoodie.jpg` | Elite Zip Hoodie | Photo by [Minimalism](https://unsplash.com/@minimalism_brand) on Unsplash |
+| `training-leggings.jpg` | High-Waist Training Leggings | Photo via Unsplash License (free for commercial use, no attribution required) |
+| `iron-elite-tank.jpg` | Iron Elite Tank Top | Photo by [Wander Fleur](https://unsplash.com/@wanderfleur) on Unsplash |
+| `coach-quarter-zip.jpg` | Coach's Quarter-Zip Pullover | Photo via Unsplash License (free for commercial use, no attribution required) |
+
+`placeholder-clothing.svg` is a hand-drawn fallback icon, unused by seed data but available if an admin adds a new product via `/admin/products` before uploading real photos.
+
 ## branding/ *(reserved, not yet wired to a component)*
 
 The Navbar/Footer currently render the wordmark as styled text, not an image — there's no logo file to replace yet. If a real logo mark is designed, add `logo-gold.svg` (for dark backgrounds) here and update `Navbar.tsx`/`Footer.tsx` to render it via `<Image>` instead of text — a small, contained change.

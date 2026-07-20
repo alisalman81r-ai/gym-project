@@ -18,3 +18,4 @@ export { ORDER_STATUSES } from "./order";
 export type { Review } from "./review";
 export type { CouponType, Coupon } from "./coupon";
 export type { CustomerAddress, CustomerUser } from "./customer";
+export type { MembershipStatus, Membership } from "./membership";

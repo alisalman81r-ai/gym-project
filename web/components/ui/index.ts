@@ -32,3 +32,6 @@ export type { ContactFormProps, InquiryType } from "./ContactForm";
 
 export { PageHeader } from "./PageHeader";
 export type { PageHeaderProps } from "./PageHeader";
+
+export { GradientBarsBackground } from "./GradientBarsBackground";
+export type { GradientBarsBackgroundProps } from "./GradientBarsBackground";

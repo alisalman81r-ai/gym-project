@@ -117,8 +117,7 @@ const SEED_PRODUCTS: SeedProduct[] = [
 		colors: [],
 	},
 
-	// -- Gym clothing (no real product photography yet -- placeholder
-	// until an admin uploads real shots via /admin/products) --
+	// -- Gym clothing (real Unsplash photography, see public/images/README.md) --
 	{
 		slug: "performance-training-tee",
 		name: "Performance Training Tee",
@@ -131,7 +130,7 @@ const SEED_PRODUCTS: SeedProduct[] = [
 		stockQuantity: 80,
 		weightOrFlavor: null,
 		featured: true,
-		images: ["/images/products/placeholder-clothing.svg"],
+		images: ["/images/products/performance-training-tee.jpg"],
 		sizes: ["S", "M", "L", "XL", "XXL"],
 		colors: ["Black", "Charcoal", "Gold"],
 	},
@@ -147,7 +146,7 @@ const SEED_PRODUCTS: SeedProduct[] = [
 		stockQuantity: 60,
 		weightOrFlavor: null,
 		featured: false,
-		images: ["/images/products/placeholder-clothing.svg"],
+		images: ["/images/products/compression-shorts.jpg"],
 		sizes: ["S", "M", "L", "XL"],
 		colors: ["Black", "Navy"],
 	},
@@ -163,7 +162,7 @@ const SEED_PRODUCTS: SeedProduct[] = [
 		stockQuantity: 40,
 		weightOrFlavor: null,
 		featured: true,
-		images: ["/images/products/placeholder-clothing.svg"],
+		images: ["/images/products/elite-zip-hoodie.jpg"],
 		sizes: ["S", "M", "L", "XL", "XXL"],
 		colors: ["Black", "Heather Grey"],
 	},
@@ -179,7 +178,7 @@ const SEED_PRODUCTS: SeedProduct[] = [
 		stockQuantity: 50,
 		weightOrFlavor: null,
 		featured: false,
-		images: ["/images/products/placeholder-clothing.svg"],
+		images: ["/images/products/training-leggings.jpg"],
 		sizes: ["XS", "S", "M", "L", "XL"],
 		colors: ["Black", "Olive"],
 	},
@@ -195,7 +194,7 @@ const SEED_PRODUCTS: SeedProduct[] = [
 		stockQuantity: 4,
 		weightOrFlavor: null,
 		featured: false,
-		images: ["/images/products/placeholder-clothing.svg"],
+		images: ["/images/products/iron-elite-tank.jpg"],
 		sizes: ["S", "M", "L", "XL"],
 		colors: ["White", "Black"],
 	},
@@ -211,7 +210,7 @@ const SEED_PRODUCTS: SeedProduct[] = [
 		stockQuantity: 30,
 		weightOrFlavor: null,
 		featured: false,
-		images: ["/images/products/placeholder-clothing.svg"],
+		images: ["/images/products/coach-quarter-zip.jpg"],
 		sizes: ["S", "M", "L", "XL", "XXL"],
 		colors: ["Charcoal", "Black"],
 	},

@@ -101,7 +101,7 @@ export default async function AdminOrderDetailPage({ params }: OrderDetailPagePr
 						<select
 							name="status"
 							defaultValue={order.status}
-							className="w-full rounded-md border border-border bg-background px-4 py-3 text-sm text-text focus:border-primary focus:outline-none"
+							className="w-full rounded-md border border-border/80 bg-secondary-light px-4 py-3 text-sm text-text focus:border-primary focus:outline-none"
 						>
 							{STATUS_OPTIONS.map((option) => (
 								<option key={option} value={option}>
@@ -124,20 +124,20 @@ export default async function AdminOrderDetailPage({ params }: OrderDetailPagePr
 							defaultValue={order.courierName ?? ""}
 							placeholder="Courier name"
 							required
-							className="w-full rounded-md border border-border bg-background px-4 py-3 text-sm text-text focus:border-primary focus:outline-none"
+							className="w-full rounded-md border border-border/80 bg-secondary-light px-4 py-3 text-sm text-text focus:border-primary focus:outline-none"
 						/>
 						<input
 							name="trackingNumber"
 							defaultValue={order.trackingNumber ?? ""}
 							placeholder="Tracking number"
 							required
-							className="w-full rounded-md border border-border bg-background px-4 py-3 text-sm text-text focus:border-primary focus:outline-none"
+							className="w-full rounded-md border border-border/80 bg-secondary-light px-4 py-3 text-sm text-text focus:border-primary focus:outline-none"
 						/>
 						<input
 							name="estimatedDeliveryDate"
 							type="date"
 							defaultValue={order.estimatedDeliveryDate ?? ""}
-							className="w-full rounded-md border border-border bg-background px-4 py-3 text-sm text-text focus:border-primary focus:outline-none"
+							className="w-full rounded-md border border-border/80 bg-secondary-light px-4 py-3 text-sm text-text focus:border-primary focus:outline-none"
 						/>
 						<button
 							type="submit"

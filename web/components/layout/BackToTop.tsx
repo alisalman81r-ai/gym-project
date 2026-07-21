@@ -25,9 +25,10 @@ export function BackToTop() {
 					whileHover={{ scale: 1.08 }}
 					whileTap={{ scale: 0.94 }}
 					transition={{ duration: 0.25 }}
-					className="fixed bottom-6 right-6 z-[90] flex h-12 w-12 items-center justify-center rounded-full bg-gradient-to-br from-primary-light to-primary text-background shadow-elevated"
+					className="fixed bottom-4 right-4 z-[90] flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-br from-primary-light to-primary text-background opacity-80 shadow-elevated hover:opacity-100 sm:bottom-6 sm:right-6 sm:h-12 sm:w-12"
 				>
-					<ArrowUp size={20} />
+					<ArrowUp size={18} className="sm:hidden" />
+					<ArrowUp size={20} className="hidden sm:block" />
 				</motion.button>
 			)}
 		</AnimatePresence>

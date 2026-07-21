@@ -41,7 +41,7 @@ export function ShopFilters({ categories }: ShopFiltersProps) {
 					value={search}
 					onChange={(event) => setSearch(event.target.value)}
 					placeholder="Search products..."
-					className="w-full rounded-md border border-border bg-background px-4 py-2 text-sm text-text focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/40"
+					className="w-full rounded-md border border-border/80 bg-secondary-light px-4 py-2 text-sm text-text focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/40"
 				/>
 				<button
 					type="submit"
@@ -55,7 +55,7 @@ export function ShopFilters({ categories }: ShopFiltersProps) {
 				<select
 					value={activeType}
 					onChange={(event) => updateParams({ type: event.target.value || null, category: null })}
-					className="rounded-md border border-border bg-background px-3 py-2 text-sm text-text focus:border-primary focus:outline-none"
+					className="rounded-md border border-border/80 bg-secondary-light px-3 py-2 text-sm text-text focus:border-primary focus:outline-none"
 				>
 					<option value="">All Products</option>
 					<option value="clothing">Gym Clothing</option>
@@ -65,7 +65,7 @@ export function ShopFilters({ categories }: ShopFiltersProps) {
 				<select
 					value={activeCategory}
 					onChange={(event) => updateParams({ category: event.target.value || null })}
-					className="rounded-md border border-border bg-background px-3 py-2 text-sm text-text focus:border-primary focus:outline-none"
+					className="rounded-md border border-border/80 bg-secondary-light px-3 py-2 text-sm text-text focus:border-primary focus:outline-none"
 				>
 					<option value="">All Subcategories</option>
 					{categories.map((category) => (
@@ -78,7 +78,7 @@ export function ShopFilters({ categories }: ShopFiltersProps) {
 				<select
 					value={activeSort}
 					onChange={(event) => updateParams({ sort: event.target.value })}
-					className="rounded-md border border-border bg-background px-3 py-2 text-sm text-text focus:border-primary focus:outline-none"
+					className="rounded-md border border-border/80 bg-secondary-light px-3 py-2 text-sm text-text focus:border-primary focus:outline-none"
 				>
 					<option value="newest">Newest</option>
 					<option value="price_asc">Price: Low to High</option>

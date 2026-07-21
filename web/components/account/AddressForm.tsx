@@ -6,7 +6,7 @@ import { addAddressAction, type AddressFormState } from "@/lib/actions/account";
 
 const initialState: AddressFormState = {};
 const inputClasses =
-	"w-full rounded-md border border-border bg-background px-4 py-3 text-sm text-text focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/40";
+	"w-full rounded-md border border-border/80 bg-secondary-light px-4 py-3 text-sm text-text focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/40";
 
 export function AddressForm() {
 	const [state, action, pending] = useActionState(addAddressAction, initialState);

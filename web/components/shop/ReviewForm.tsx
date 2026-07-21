@@ -29,7 +29,7 @@ export function ReviewForm({ productId }: { productId: number }) {
 					id="rating"
 					name="rating"
 					defaultValue="5"
-					className="rounded-md border border-border bg-background px-3 py-2 text-sm text-text focus:border-primary focus:outline-none"
+					className="rounded-md border border-border/80 bg-secondary-light px-3 py-2 text-sm text-text focus:border-primary focus:outline-none"
 				>
 					{[5, 4, 3, 2, 1].map((value) => (
 						<option key={value} value={value}>
@@ -48,7 +48,7 @@ export function ReviewForm({ productId }: { productId: number }) {
 					name="comment"
 					rows={4}
 					required
-					className="w-full rounded-md border border-border bg-background px-4 py-3 text-sm text-text focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/40"
+					className="w-full rounded-md border border-border/80 bg-secondary-light px-4 py-3 text-sm text-text focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/40"
 				/>
 			</div>
 

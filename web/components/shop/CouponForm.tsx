@@ -35,7 +35,7 @@ export function CouponForm({ appliedCode }: { appliedCode: string | null }) {
 				<input
 					name="code"
 					placeholder="Coupon code"
-					className="flex-1 rounded-md border border-border bg-background px-4 py-2 text-sm text-text focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/40"
+					className="flex-1 rounded-md border border-border/80 bg-secondary-light px-4 py-2 text-sm text-text focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/40"
 				/>
 				<Button type="submit" variant="secondary" size="sm" disabled={pending}>
 					{pending ? "Applying..." : "Apply"}

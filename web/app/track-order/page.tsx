@@ -36,7 +36,7 @@ export default async function TrackOrderPage({ searchParams }: TrackOrderPagePro
 								defaultValue={params.orderNumber ?? ""}
 								required
 								placeholder="ORD-20260716-A1B2C"
-								className="rounded-md border border-border bg-background px-4 py-3 text-sm text-text focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/40"
+								className="rounded-md border border-border/80 bg-secondary-light px-4 py-3 text-sm text-text focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/40"
 							/>
 						</div>
 						<div className="flex flex-col gap-2">
@@ -49,7 +49,7 @@ export default async function TrackOrderPage({ searchParams }: TrackOrderPagePro
 								defaultValue={params.phone ?? ""}
 								required
 								placeholder="The phone number used at checkout"
-								className="rounded-md border border-border bg-background px-4 py-3 text-sm text-text focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/40"
+								className="rounded-md border border-border/80 bg-secondary-light px-4 py-3 text-sm text-text focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/40"
 							/>
 						</div>
 						<button

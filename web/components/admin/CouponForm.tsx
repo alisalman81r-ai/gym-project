@@ -7,7 +7,7 @@ import type { Coupon } from "@/types";
 
 const initialState: CouponFormState = {};
 const inputClasses =
-	"w-full rounded-md border border-border bg-background px-4 py-3 text-sm text-text focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/40";
+	"w-full rounded-md border border-border/80 bg-secondary-light px-4 py-3 text-sm text-text focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/40";
 
 export interface CouponFormProps {
 	action: (prevState: CouponFormState | undefined, formData: FormData) => Promise<CouponFormState>;

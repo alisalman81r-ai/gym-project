@@ -29,7 +29,7 @@ export default function AccountRegisterPage() {
 								type="text"
 								autoComplete="name"
 								required
-								className="rounded-md border border-border bg-background px-4 py-3 text-sm text-text focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/40"
+								className="rounded-md border border-border/80 bg-secondary-light px-4 py-3 text-sm text-text focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/40"
 							/>
 						</div>
 
@@ -43,7 +43,7 @@ export default function AccountRegisterPage() {
 								type="email"
 								autoComplete="email"
 								required
-								className="rounded-md border border-border bg-background px-4 py-3 text-sm text-text focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/40"
+								className="rounded-md border border-border/80 bg-secondary-light px-4 py-3 text-sm text-text focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/40"
 							/>
 						</div>
 
@@ -56,7 +56,7 @@ export default function AccountRegisterPage() {
 								name="phone"
 								type="tel"
 								autoComplete="tel"
-								className="rounded-md border border-border bg-background px-4 py-3 text-sm text-text focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/40"
+								className="rounded-md border border-border/80 bg-secondary-light px-4 py-3 text-sm text-text focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/40"
 							/>
 						</div>
 
@@ -71,7 +71,7 @@ export default function AccountRegisterPage() {
 								autoComplete="new-password"
 								minLength={8}
 								required
-								className="rounded-md border border-border bg-background px-4 py-3 text-sm text-text focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/40"
+								className="rounded-md border border-border/80 bg-secondary-light px-4 py-3 text-sm text-text focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/40"
 							/>
 							<p className="text-xs text-text-subtle">At least 8 characters.</p>
 						</div>

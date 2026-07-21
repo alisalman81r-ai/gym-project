@@ -133,9 +133,10 @@ export function ContactForm({ defaultInquiryType = "general" }: ContactFormProps
 						id="contact-name"
 						name="name"
 						type="text"
+						placeholder="Jane Doe"
 						aria-invalid={Boolean(errors.name)}
 						aria-describedby={errors.name ? "contact-name-error" : undefined}
-						className="rounded-md border border-border bg-background px-4 py-3 text-sm text-text focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/40"
+						className="rounded-md border border-border/80 bg-secondary-light px-4 py-3 text-sm text-text focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/40"
 					/>
 					{errors.name && (
 						<p id="contact-name-error" className="text-xs text-error">
@@ -152,9 +153,10 @@ export function ContactForm({ defaultInquiryType = "general" }: ContactFormProps
 						id="contact-email"
 						name="email"
 						type="email"
+						placeholder="you@example.com"
 						aria-invalid={Boolean(errors.email)}
 						aria-describedby={errors.email ? "contact-email-error" : undefined}
-						className="rounded-md border border-border bg-background px-4 py-3 text-sm text-text focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/40"
+						className="rounded-md border border-border/80 bg-secondary-light px-4 py-3 text-sm text-text focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/40"
 					/>
 					{errors.email && (
 						<p id="contact-email-error" className="text-xs text-error">
@@ -172,7 +174,8 @@ export function ContactForm({ defaultInquiryType = "general" }: ContactFormProps
 					id="contact-phone"
 					name="phone"
 					type="tel"
-					className="rounded-md border border-border bg-background px-4 py-3 text-sm text-text focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/40"
+					placeholder="(555) 210-4488"
+					className="rounded-md border border-border/80 bg-secondary-light px-4 py-3 text-sm text-text focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/40"
 				/>
 			</div>
 
@@ -185,7 +188,7 @@ export function ContactForm({ defaultInquiryType = "general" }: ContactFormProps
 					name="interest"
 					value={interest}
 					onChange={(event) => setInterest(event.target.value as InquiryType)}
-					className="rounded-md border border-border bg-background px-4 py-3 text-sm text-text focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/40"
+					className="rounded-md border border-border/80 bg-secondary-light px-4 py-3 text-sm text-text focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/40"
 				>
 					<option value="general">General Inquiry</option>
 					<option value="tour">Booking a Tour</option>
@@ -207,7 +210,7 @@ export function ContactForm({ defaultInquiryType = "general" }: ContactFormProps
 								name="supplementId"
 								defaultValue=""
 								aria-invalid={Boolean(errors.supplementId)}
-								className="rounded-md border border-border bg-background px-4 py-3 text-sm text-text focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/40"
+								className="rounded-md border border-border/80 bg-secondary-light px-4 py-3 text-sm text-text focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/40"
 							>
 								<option value="" disabled>
 									Choose a product&hellip;
@@ -232,7 +235,7 @@ export function ContactForm({ defaultInquiryType = "general" }: ContactFormProps
 								min={1}
 								max={20}
 								defaultValue={1}
-								className="rounded-md border border-border bg-background px-4 py-3 text-sm text-text focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/40"
+								className="rounded-md border border-border/80 bg-secondary-light px-4 py-3 text-sm text-text focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/40"
 							/>
 						</div>
 					</div>
@@ -245,8 +248,9 @@ export function ContactForm({ defaultInquiryType = "general" }: ContactFormProps
 							id="contact-delivery-address"
 							name="deliveryAddress"
 							rows={2}
+							placeholder="128 Riverside Ave, Apt 4B, Springfield"
 							aria-invalid={Boolean(errors.deliveryAddress)}
-							className="rounded-md border border-border bg-background px-4 py-3 text-sm text-text focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/40"
+							className="rounded-md border border-border/80 bg-secondary-light px-4 py-3 text-sm text-text focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/40"
 						/>
 						{errors.deliveryAddress && <p className="text-xs text-error">{errors.deliveryAddress}</p>}
 					</div>
@@ -267,9 +271,10 @@ export function ContactForm({ defaultInquiryType = "general" }: ContactFormProps
 					id="contact-message"
 					name="message"
 					rows={isSupplementOrder ? 2 : 5}
+					placeholder={isSupplementOrder ? "Apt number, gate code, preferred delivery time..." : "Tell us a bit about your goals..."}
 					aria-invalid={Boolean(errors.message)}
 					aria-describedby={errors.message ? "contact-message-error" : undefined}
-					className="rounded-md border border-border bg-background px-4 py-3 text-sm text-text focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/40"
+					className="rounded-md border border-border/80 bg-secondary-light px-4 py-3 text-sm text-text focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/40"
 				/>
 				{errors.message && (
 					<p id="contact-message-error" className="text-xs text-error">

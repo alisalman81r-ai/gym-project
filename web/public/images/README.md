@@ -8,7 +8,7 @@ Every image on the site is a **real photograph sourced from Unsplash**, download
 
 | File | Used in | Credit |
 |---|---|---|
-| `hero-main.jpg` | `HeroSection.tsx` | Photo by [George Pagan III](https://unsplash.com/@gpthree) on Unsplash |
+| `hero-main.jpg` | `HeroSection.tsx` | Photo by [Ambitious Studio \| Rick Barrett](https://unsplash.com/@weareambitious) on Unsplash |
 | `about-strength-floor.jpg` | `AboutPreviewSection.tsx` | Photo by [Vitaly Gariev](https://unsplash.com/@vitalygariev) on Unsplash |
 
 ## trainers/
@@ -70,10 +70,10 @@ Used by `SupplementCard.tsx` on the Supplements page (`/supplements`).
 | File | Product | Credit |
 |---|---|---|
 | `whey-protein-isolate.jpg` | Whey Protein Isolate | Photo by [Alex Saks](https://unsplash.com/@alexsaks) on Unsplash |
-| `creatine-monohydrate.jpg` | Creatine Monohydrate | Photo by [FitNish Media](https://unsplash.com/@fitnish) on Unsplash |
+| `creatine-monohydrate.jpg` | Creatine Monohydrate | Photo by [Alex Saks](https://unsplash.com/@alexsaks) on Unsplash |
 | `pre-workout-igniter.jpg` | Pre-Workout Igniter | Photo by [Alex Saks](https://unsplash.com/@alexsaks) on Unsplash |
 | `bcaa-recovery-blend.jpg` | BCAA Recovery Blend | Photo by [Alex Saks](https://unsplash.com/@alexsaks) on Unsplash |
-| `daily-multivitamin.jpg` | Daily Multivitamin | Photo by [Mockup Free](https://unsplash.com/@mockupfreenet) on Unsplash |
+| `daily-multivitamin.jpg` | Daily Multivitamin | Photo by [Supliful - Supplements On Demand](https://unsplash.com/@supliful) on Unsplash |
 | `electrolyte-hydration-mix.jpg` | Electrolyte Hydration Mix | Photo by [NutraSeller Manufacturing](https://unsplash.com/@nutraseller) on Unsplash |
 
 ## products/

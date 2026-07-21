@@ -7,7 +7,7 @@ import type { CustomerUser } from "@/types";
 
 const initialState: CustomerFormState = {};
 const inputClasses =
-	"w-full rounded-md border border-border bg-background px-4 py-3 text-sm text-text focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/40";
+	"w-full rounded-md border border-border/80 bg-secondary-light px-4 py-3 text-sm text-text focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/40";
 
 export function CustomerEditForm({ customer }: { customer: CustomerUser }) {
 	const boundAction = updateCustomerAction.bind(null, customer.id);

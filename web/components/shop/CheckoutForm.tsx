@@ -21,7 +21,7 @@ export interface CheckoutFormProps {
 }
 
 const inputClasses =
-	"w-full rounded-md border border-border bg-background px-4 py-3 text-sm text-text focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/40";
+	"w-full rounded-md border border-border/80 bg-secondary-light px-4 py-3 text-sm text-text focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/40";
 
 export function CheckoutForm({ isStripeEnabled, defaults }: CheckoutFormProps) {
 	const [state, action, pending] = useActionState(placeOrderAction, initialState);
@@ -33,7 +33,16 @@ export function CheckoutForm({ isStripeEnabled, defaults }: CheckoutFormProps) {
 					<label htmlFor="customerName" className="text-sm font-semibold text-text-muted">
 						Full Name
 					</label>
-					<input id="customerName" name="customerName" type="text" defaultValue={defaults.name} autoComplete="name" required className={inputClasses} />
+					<input
+						id="customerName"
+						name="customerName"
+						type="text"
+						placeholder="Jane Doe"
+						defaultValue={defaults.name}
+						autoComplete="name"
+						required
+						className={inputClasses}
+					/>
 				</div>
 				<div className="flex flex-col gap-2">
 					<label htmlFor="customerEmail" className="text-sm font-semibold text-text-muted">
@@ -43,6 +52,7 @@ export function CheckoutForm({ isStripeEnabled, defaults }: CheckoutFormProps) {
 						id="customerEmail"
 						name="customerEmail"
 						type="email"
+						placeholder="you@example.com"
 						defaultValue={defaults.email}
 						autoComplete="email"
 						required
@@ -60,6 +70,7 @@ export function CheckoutForm({ isStripeEnabled, defaults }: CheckoutFormProps) {
 						id="customerPhone"
 						name="customerPhone"
 						type="tel"
+						placeholder="(555) 210-4488"
 						defaultValue={defaults.phone}
 						autoComplete="tel"
 						required
@@ -70,7 +81,16 @@ export function CheckoutForm({ isStripeEnabled, defaults }: CheckoutFormProps) {
 					<label htmlFor="city" className="text-sm font-semibold text-text-muted">
 						City
 					</label>
-					<input id="city" name="city" type="text" defaultValue={defaults.city} autoComplete="address-level2" required className={inputClasses} />
+					<input
+						id="city"
+						name="city"
+						type="text"
+						placeholder="Springfield"
+						defaultValue={defaults.city}
+						autoComplete="address-level2"
+						required
+						className={inputClasses}
+					/>
 				</div>
 			</div>
 
@@ -82,6 +102,7 @@ export function CheckoutForm({ isStripeEnabled, defaults }: CheckoutFormProps) {
 					id="addressLine"
 					name="addressLine"
 					rows={2}
+					placeholder="128 Riverside Ave, Apt 4B"
 					defaultValue={defaults.addressLine}
 					autoComplete="street-address"
 					required
@@ -97,6 +118,7 @@ export function CheckoutForm({ isStripeEnabled, defaults }: CheckoutFormProps) {
 					id="postalCode"
 					name="postalCode"
 					type="text"
+					placeholder="12345"
 					defaultValue={defaults.postalCode}
 					autoComplete="postal-code"
 					required

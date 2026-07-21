@@ -88,6 +88,9 @@ export function Footer() {
 						<Link href="/terms" className="hover:text-text">
 							Terms of Service
 						</Link>
+						<Link href="/admin/login" className="hover:text-text">
+							Admin
+						</Link>
 					</div>
 				</div>
 			</Container>

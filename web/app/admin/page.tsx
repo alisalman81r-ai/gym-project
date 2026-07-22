@@ -1,20 +1,38 @@
 import Link from "next/link";
+import { Users, ShoppingBag, DollarSign, Package, Clock, AlertTriangle } from "lucide-react";
 import { Container } from "@/components/layout";
 import { SalesChart } from "@/components/admin/SalesChart";
 import { getDashboardStats, listOrders } from "@/lib/store/orders";
 import { getLowStockProducts } from "@/lib/store/products";
 import { ORDER_STATUS_LABELS } from "@/lib/orderStatus";
+import { cn } from "@/lib/utils";
 
 export const metadata = { title: "Admin Dashboard" };
 
 // Reads live stats on every request -- must not be statically cached.
 export const dynamic = "force-dynamic";
 
-function StatCard({ label, value }: { label: string; value: string }) {
+interface StatCardProps {
+	label: string;
+	value: string;
+	icon: React.ComponentType<{ size?: number }>;
+	/** Flags actionable counts (pending orders, low stock) so they stand out from neutral totals. */
+	alert?: boolean;
+}
+
+function StatCard({ label, value, icon: Icon, alert }: StatCardProps) {
 	return (
-		<div className="rounded-2xl border border-border bg-secondary p-6">
+		<div className={cn("rounded-2xl border p-6", alert ? "border-error/40 bg-error/5" : "border-border bg-secondary")}>
+			<div
+				className={cn(
+					"mb-3 flex h-10 w-10 items-center justify-center rounded-full",
+					alert ? "bg-error/15 text-error" : "bg-primary/10 text-primary"
+				)}
+			>
+				<Icon size={20} />
+			</div>
 			<p className="text-xs uppercase tracking-wider text-text-subtle">{label}</p>
-			<p className="mt-2 font-display text-2xl font-bold text-text">{value}</p>
+			<p className={cn("mt-2 font-display text-2xl font-bold", alert ? "text-error" : "text-text")}>{value}</p>
 		</div>
 	);
 }
@@ -30,12 +48,22 @@ export default function AdminDashboardPage() {
 				<h1 className="mb-8 font-display text-3xl font-bold text-text">Dashboard</h1>
 
 				<div className="mb-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6">
-					<StatCard label="Total Users" value={String(stats.totalUsers)} />
-					<StatCard label="Total Orders" value={String(stats.totalOrders)} />
-					<StatCard label="Total Sales" value={`$${stats.totalSales.toFixed(2)}`} />
-					<StatCard label="Total Products" value={String(stats.totalProducts)} />
-					<StatCard label="Pending Orders" value={String(stats.pendingOrders)} />
-					<StatCard label="Low Stock Products" value={String(lowStock.length)} />
+					<StatCard label="Total Users" value={String(stats.totalUsers)} icon={Users} />
+					<StatCard label="Total Orders" value={String(stats.totalOrders)} icon={ShoppingBag} />
+					<StatCard label="Total Sales" value={`$${stats.totalSales.toFixed(2)}`} icon={DollarSign} />
+					<StatCard label="Total Products" value={String(stats.totalProducts)} icon={Package} />
+					<StatCard
+						label="Pending Orders"
+						value={String(stats.pendingOrders)}
+						icon={Clock}
+						alert={stats.pendingOrders > 0}
+					/>
+					<StatCard
+						label="Low Stock Products"
+						value={String(lowStock.length)}
+						icon={AlertTriangle}
+						alert={lowStock.length > 0}
+					/>
 				</div>
 
 				<div className="mb-10 grid gap-6 lg:grid-cols-[2fr_1fr]">
@@ -78,13 +106,21 @@ export default function AdminDashboardPage() {
 								<Link
 									key={order.id}
 									href={`/admin/orders/${order.id}`}
-									className="flex items-center justify-between rounded-xl border border-border px-4 py-3 text-sm transition-colors hover:border-primary/60"
+									className="flex items-center justify-between gap-4 rounded-xl border border-border px-4 py-3 text-sm transition-colors hover:border-primary/60"
 								>
 									<span className="text-text">
 										{order.orderNumber} — {order.customerName}
 									</span>
-									<span className="text-text-muted">
-										{ORDER_STATUS_LABELS[order.status]} · ${order.total.toFixed(2)}
+									<span className="flex items-center gap-3">
+										<span
+											className={cn(
+												"rounded-full px-3 py-1 text-xs font-semibold",
+												order.status === "cancelled" ? "bg-error/15 text-error" : "bg-primary/10 text-primary"
+											)}
+										>
+											{ORDER_STATUS_LABELS[order.status]}
+										</span>
+										<span className="text-text-muted">${order.total.toFixed(2)}</span>
 									</span>
 								</Link>
 							))}

@@ -6,9 +6,8 @@ import { usePathname } from "next/navigation";
 import { AnimatePresence, motion } from "framer-motion";
 import { Menu, X, ShoppingCart, User, Heart } from "lucide-react";
 import { Container } from "./Container";
-import { Button } from "@/components/ui";
+import { Button, Logo } from "@/components/ui";
 import { NAV_LINKS, CONTACT_LINK } from "@/constants/navigation";
-import { siteConfig } from "@/constants/site";
 import { useScrolledPast } from "@/hooks/useScrollPosition";
 import { cn } from "@/lib/utils";
 import { CART_UPDATED_EVENT } from "@/lib/cartEvents";
@@ -61,10 +60,7 @@ export function Navbar() {
 					aria-label="Primary"
 					className={cn("flex items-center justify-between transition-[padding] duration-300", isScrolled ? "py-3" : "py-5")}
 				>
-					<Link href="/" className="font-display text-lg font-semibold tracking-wide text-text">
-						{siteConfig.name.split(" ")[0].toUpperCase()}{" "}
-						<span className="text-primary">{siteConfig.name.split(" ")[1]?.toUpperCase()}</span>
-					</Link>
+					<Logo href="/" />
 
 					<ul className="hidden items-center gap-8 md:flex">
 						{NAV_LINKS.map((link) => {
@@ -103,8 +99,8 @@ export function Navbar() {
 								</span>
 							)}
 						</Link>
-						<Button href="/contact" size="sm">
-							Book a Tour
+						<Button href="/admin/login" size="sm">
+							Admin Login
 						</Button>
 					</div>
 
@@ -155,8 +151,8 @@ export function Navbar() {
 								</Link>
 							</div>
 							<div className="pb-6">
-								<Button href="/contact" className="w-full" onClick={closeMobileMenu}>
-									Book a Tour
+								<Button href="/admin/login" className="w-full" onClick={closeMobileMenu}>
+									Admin Login
 								</Button>
 							</div>
 						</Container>

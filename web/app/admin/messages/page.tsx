@@ -1,6 +1,15 @@
 import { Container } from "@/components/layout";
+import { MessageReplyForm } from "@/components/admin/MessageReplyForm";
 import { db } from "@/lib/db";
-import { setContactStatusAction, deleteContactAction, setOrderStatusAction, deleteOrderAction } from "./actions";
+import { siteConfig } from "@/constants/site";
+import {
+	setContactStatusAction,
+	deleteContactAction,
+	setOrderStatusAction,
+	deleteOrderAction,
+	replyToContactAction,
+	replyToOrderAction,
+} from "./actions";
 
 // Reads the database live on every request -- without this, Next.js
 // would prerender it once at build time and it would never show
@@ -16,6 +25,8 @@ interface ContactRow {
 	message: string;
 	status: string;
 	created_at: string;
+	admin_reply: string | null;
+	replied_at: string | null;
 }
 
 interface OrderRow {
@@ -29,6 +40,8 @@ interface OrderRow {
 	notes: string | null;
 	status: string;
 	created_at: string;
+	admin_reply: string | null;
+	replied_at: string | null;
 }
 
 function StatusBadge({ status }: { status: string }) {
@@ -81,6 +94,7 @@ export default async function AdminMessagesPage() {
 								const nextStatus = row.status === "handled" ? "new" : "handled";
 								const toggleAction = setContactStatusAction.bind(null, row.id, nextStatus);
 								const removeAction = deleteContactAction.bind(null, row.id);
+								const replyAction = replyToContactAction.bind(null, row.id);
 								return (
 									<tr key={row.id} className="border-b border-border align-top">
 										<td className="p-3 text-text-subtle">{row.created_at}</td>
@@ -107,6 +121,14 @@ export default async function AdminMessagesPage() {
 														Delete
 													</button>
 												</form>
+												<MessageReplyForm
+													onReply={replyAction}
+													recipientEmail={row.email}
+													mailSubject={`Re: Your inquiry to ${siteConfig.name}`}
+													mailBody={`Hi ${row.name},\n\nThanks for reaching out about "${row.interest}" —\n\n\n\n— ${siteConfig.name}\n\n---\nYour original message:\n${row.message}`}
+													existingReply={row.admin_reply}
+													repliedAt={row.replied_at}
+												/>
 											</div>
 										</td>
 									</tr>
@@ -144,6 +166,7 @@ export default async function AdminMessagesPage() {
 								const nextStatus = row.status === "handled" ? "new" : "handled";
 								const toggleAction = setOrderStatusAction.bind(null, row.id, nextStatus);
 								const removeAction = deleteOrderAction.bind(null, row.id);
+								const replyAction = replyToOrderAction.bind(null, row.id);
 								return (
 									<tr key={row.id} className="border-b border-border align-top">
 										<td className="p-3 text-text-subtle">{row.created_at}</td>
@@ -171,6 +194,14 @@ export default async function AdminMessagesPage() {
 														Delete
 													</button>
 												</form>
+												<MessageReplyForm
+													onReply={replyAction}
+													recipientEmail={row.email}
+													mailSubject={`Re: Your ${row.supplement_name} order inquiry`}
+													mailBody={`Hi ${row.name},\n\nThanks for your interest in ${row.supplement_name} (qty ${row.quantity}) —\n\n\n\n— ${siteConfig.name}\n\n---\nYour notes:\n${row.notes ?? "—"}`}
+													existingReply={row.admin_reply}
+													repliedAt={row.replied_at}
+												/>
 											</div>
 										</td>
 									</tr>

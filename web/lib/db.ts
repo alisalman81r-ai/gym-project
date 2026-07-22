@@ -46,12 +46,20 @@ db.exec(`
 	);
 `);
 
-// Adds `status` to databases created before this column existed --
-// CREATE TABLE IF NOT EXISTS above only applies to fresh databases.
+// Adds `status`/`admin_reply`/`replied_at` to databases created before
+// these columns existed -- CREATE TABLE IF NOT EXISTS above only applies
+// to fresh databases.
 for (const table of ["contact_submissions", "supplement_orders"]) {
 	const columns = db.prepare(`PRAGMA table_info(${table})`).all() as Array<{ name: string }>;
-	if (!columns.some((column) => column.name === "status")) {
+	const columnNames = columns.map((column) => column.name);
+	if (!columnNames.includes("status")) {
 		db.exec(`ALTER TABLE ${table} ADD COLUMN status TEXT NOT NULL DEFAULT 'new'`);
+	}
+	if (!columnNames.includes("admin_reply")) {
+		db.exec(`ALTER TABLE ${table} ADD COLUMN admin_reply TEXT`);
+	}
+	if (!columnNames.includes("replied_at")) {
+		db.exec(`ALTER TABLE ${table} ADD COLUMN replied_at TEXT`);
 	}
 }
 

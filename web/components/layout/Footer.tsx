@@ -1,12 +1,12 @@
 import Link from "next/link";
 import { Container } from "./Container";
-import { InstagramIcon, FacebookIcon } from "@/components/ui";
+import { InstagramIcon, FacebookIcon, Logo } from "@/components/ui";
 import { NAV_LINKS, CONTACT_LINK } from "@/constants/navigation";
 import { siteConfig } from "@/constants/site";
 
 const SOCIAL_LINKS = [
-	{ label: "Instagram", href: "#", Icon: InstagramIcon },
-	{ label: "Facebook", href: "#", Icon: FacebookIcon },
+	{ label: "Instagram", href: "/instagram", Icon: InstagramIcon },
+	{ label: "Facebook", href: "/facebook", Icon: FacebookIcon },
 ];
 
 /** Static footer — brand, quick links, contact info, social. No interactivity needed. */
@@ -17,8 +17,8 @@ export function Footer() {
 				<div className="grid gap-12 py-16 sm:grid-cols-2 lg:grid-cols-4">
 					{/* Brand */}
 					<div>
-						<p className="font-display text-lg font-semibold text-text">{siteConfig.name}</p>
-						<p className="mt-2 font-display italic text-text-muted">{siteConfig.tagline}</p>
+						<Logo size="md" />
+						<p className="mt-3 font-display italic text-text-muted">{siteConfig.tagline}</p>
 						<ul className="mt-5 flex gap-3">
 							{SOCIAL_LINKS.map(({ label, href, Icon }) => (
 								<li key={label}>

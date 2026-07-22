@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 export default function AdminLayout({ children }: { children: React.ReactNode }) {
 	return (
 		<div className="min-h-screen bg-background">
-			<AdminTopbar />
+			<AdminTopbar adminUsername={process.env.ADMIN_USERNAME} />
 			{children}
 		</div>
 	);

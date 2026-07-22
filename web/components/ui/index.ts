@@ -4,6 +4,9 @@ export type { ButtonProps, ButtonVariant, ButtonSize } from "./Button";
 export { Badge } from "./Badge";
 export type { BadgeProps, BadgeTone } from "./Badge";
 
+export { Logo } from "./Logo";
+export type { LogoProps, LogoSize } from "./Logo";
+
 export { SectionTitle } from "./SectionTitle";
 export type { SectionTitleProps } from "./SectionTitle";
 

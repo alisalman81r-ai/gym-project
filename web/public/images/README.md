@@ -9,7 +9,7 @@ Every image on the site is a **real photograph sourced from Unsplash**, download
 | File | Used in | Credit |
 |---|---|---|
 | `hero-main.jpg` | `HeroSection.tsx` | Photo by [Ambitious Studio \| Rick Barrett](https://unsplash.com/@weareambitious) on Unsplash |
-| `about-strength-floor.jpg` | `AboutPreviewSection.tsx` | Photo by [Vitaly Gariev](https://unsplash.com/@vitalygariev) on Unsplash |
+| `about-strength-floor.jpg` | `AboutPreviewSection.tsx` | Photo by [Anastase Maragos](https://unsplash.com/@visualsbyroyalz) on Unsplash |
 
 ## trainers/
 
@@ -36,7 +36,7 @@ Used by `EquipmentSection.tsx` on the Home page.
 | File | Feature | Credit |
 |---|---|---|
 | `free-weight-zone.jpg` | Elite Free-Weight Zone | Photo by [Jelmer Assink](https://unsplash.com/@jelmerassink) on Unsplash |
-| `recovery-suite.jpg` | Recovery & Cryotherapy Suite | Photo by [Simon HUMLER](https://unsplash.com/@simonhumlr) on Unsplash |
+| `recovery-suite.jpg` | Recovery & Cryotherapy Suite | Photo by [Ambitious Studio \| Rick Barrett](https://unsplash.com/@weareambitious) on Unsplash (bench + rack) |
 | `cardio-deck.jpg` | Precision Cardio Deck | Photo by [Alex Tyson](https://unsplash.com/@alextyson195) on Unsplash |
 | `functional-turf-zone.jpg` | Functional Turf Zone | Photo by [Long Chung](https://unsplash.com/@chungj07) on Unsplash |
 
@@ -49,8 +49,8 @@ Six images feeding the masonry grid — mix of tall (4:5) and square (1:1) shots
 | `gallery-01.jpg` | 4:5 | Photo by Ali Choubin on Unsplash (reused from `classes/strength-training.jpg`) | — |
 | `gallery-02.jpg` | 1:1 | Photo by [Anastase Maragos](https://unsplash.com/@visualsbyroyalz) on Unsplash | — |
 | `gallery-03.jpg` | 4:5 | Photo by Jan Gunnar Nygård on Unsplash (reused from `classes/cross-training.jpg`) | Yes |
-| `gallery-04.jpg` | 1:1 | Photo by Simon HUMLER on Unsplash (reused from `equipment/recovery-suite.jpg`) | — |
-| `gallery-05.jpg` | 4:5 | Photo by Vitaly Gariev on Unsplash (reused from `hero/about-strength-floor.jpg`) | Yes |
+| `gallery-04.jpg` | 1:1 | Photo by [Ambitious Studio \| Rick Barrett](https://unsplash.com/@weareambitious) on Unsplash (bench + rack, kept in sync with `equipment/recovery-suite.jpg`) | — |
+| `gallery-05.jpg` | 4:5 | Photo by Vitaly Gariev on Unsplash (originally copied from `hero/about-strength-floor.jpg` -- that file has since been replaced, this one hasn't) | Yes |
 | `gallery-06.jpg` | 1:1 | Photo by [Diego Corona](https://unsplash.com/@cldiego) on Unsplash | Yes |
 
 ## testimonials/

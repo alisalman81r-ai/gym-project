@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { Navbar, Footer, BackToTop, Container } from "@/components/layout";
-import { RevealImage, CtaBanner, PageHeader } from "@/components/ui";
+import { RevealImage, RevealGroup, RevealItem, CtaBanner, PageHeader } from "@/components/ui";
 import { GALLERY_IMAGES } from "@/constants/gallery";
 import { createMetadata } from "@/lib/metadata";
 
@@ -19,29 +19,30 @@ export default function GalleryPage() {
 
 				<section className="py-24">
 					<Container>
-						<div className="grid grid-cols-2 gap-3 sm:grid-cols-3">
+						<RevealGroup className="grid grid-cols-2 gap-3 sm:grid-cols-3">
 							{GALLERY_IMAGES.map((image, index) => (
-								<div
-									key={image.id}
-									className={`group relative overflow-hidden rounded-lg ${
-										index % 2 === 0 ? "aspect-[4/5]" : "aspect-square"
-									}`}
-								>
-									<RevealImage
-										src={image.src}
-										alt={image.alt}
-										fill
-										sizes="(min-width: 640px) 33vw, 50vw"
-										className="object-cover group-hover:scale-105"
-									/>
-									{image.caption && (
-										<div className="absolute inset-x-0 bottom-0 translate-y-full bg-gradient-to-t from-background/95 to-transparent p-4 pt-10 transition-transform duration-300 group-hover:translate-y-0">
-											<p className="text-sm text-text">{image.caption}</p>
-										</div>
-									)}
-								</div>
+								<RevealItem key={image.id}>
+									<div
+										className={`group relative overflow-hidden rounded-lg ${
+											index % 2 === 0 ? "aspect-[4/5]" : "aspect-square"
+										}`}
+									>
+										<RevealImage
+											src={image.src}
+											alt={image.alt}
+											fill
+											sizes="(min-width: 640px) 33vw, 50vw"
+											className="object-cover group-hover:scale-105"
+										/>
+										{image.caption && (
+											<div className="absolute inset-x-0 bottom-0 translate-y-full bg-gradient-to-t from-background/95 to-transparent p-4 pt-10 transition-transform duration-300 group-hover:translate-y-0">
+												<p className="text-sm text-text">{image.caption}</p>
+											</div>
+										)}
+									</div>
+								</RevealItem>
 							))}
-						</div>
+						</RevealGroup>
 					</Container>
 				</section>
 

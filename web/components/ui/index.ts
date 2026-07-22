@@ -38,3 +38,6 @@ export type { PageHeaderProps } from "./PageHeader";
 
 export { GradientBarsBackground } from "./GradientBarsBackground";
 export type { GradientBarsBackgroundProps } from "./GradientBarsBackground";
+
+export { Reveal, RevealGroup, RevealItem } from "./Reveal";
+export type { RevealProps, RevealGroupProps } from "./Reveal";

@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { Navbar, Footer, BackToTop, Container } from "@/components/layout";
-import { ContactForm, PageHeader, type InquiryType } from "@/components/ui";
+import { ContactForm, PageHeader, Reveal, type InquiryType } from "@/components/ui";
 import { siteConfig } from "@/constants/site";
 import { createMetadata } from "@/lib/metadata";
 
@@ -29,9 +29,11 @@ export default async function ContactPage({ searchParams }: ContactPageProps) {
 				<section className="py-24">
 					<Container>
 						<div className="grid gap-12 lg:grid-cols-2">
-							<ContactForm defaultInquiryType={defaultInquiryType} />
+							<Reveal>
+								<ContactForm defaultInquiryType={defaultInquiryType} />
+							</Reveal>
 
-							<div>
+							<Reveal>
 								<h2 className="mb-4 font-display text-2xl font-semibold text-text">Visit The Club</h2>
 								<address className="mb-6 space-y-1 text-sm not-italic text-text-muted">
 									<p>128 Riverside Ave, Springfield</p>
@@ -72,7 +74,7 @@ export default async function ContactPage({ searchParams }: ContactPageProps) {
 								>
 									Get Directions &rarr;
 								</a>
-							</div>
+							</Reveal>
 						</div>
 					</Container>
 				</section>

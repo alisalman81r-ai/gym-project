@@ -11,7 +11,11 @@ export function PricingCard({ plan }: PricingCardProps) {
 	return (
 		<Card featured={plan.isFeatured} className="relative flex flex-col text-center">
 			{plan.isFeatured && (
-				<Badge className="absolute -top-3.5 left-1/2 -translate-x-1/2">Most Popular</Badge>
+				// Card wraps children in its own `relative` stacking layer (for the hover
+				// spotlight glow), which becomes this badge's containing block instead of
+				// Card's own edge -- offset compensates for Card's p-8 so it still straddles
+				// the card's top border rather than landing inside the padding.
+				<Badge className="absolute -top-[2.875rem] left-1/2 -translate-x-1/2">Most Popular</Badge>
 			)}
 
 			<h3 className="font-display text-xl font-semibold text-text">{plan.name}</h3>

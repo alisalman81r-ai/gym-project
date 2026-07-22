@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { Navbar, Footer, BackToTop, Container } from "@/components/layout";
-import { SectionTitle, Timeline, CtaBanner, RevealImage, PageHeader } from "@/components/ui";
+import { SectionTitle, Timeline, CtaBanner, RevealImage, PageHeader, Reveal, RevealGroup, RevealItem } from "@/components/ui";
 import { FeatureCard } from "@/components/cards";
 import { TIMELINE } from "@/constants/timeline";
 import { VALUES } from "@/constants/values";
@@ -24,7 +24,9 @@ export default function AboutPage() {
 				<section className="py-24">
 					<Container>
 						<SectionTitle eyebrow="Our Origin" title="Twelve Years of Raising the Standard" />
-						<Timeline events={TIMELINE} />
+						<Reveal>
+							<Timeline events={TIMELINE} />
+						</Reveal>
 					</Container>
 				</section>
 
@@ -32,18 +34,20 @@ export default function AboutPage() {
 				<section className="bg-secondary py-24">
 					<Container>
 						<SectionTitle eyebrow="What We Stand For" title="Our Values" />
-						<div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+						<RevealGroup className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
 							{VALUES.map((value) => (
-								<FeatureCard key={value.id} feature={value} />
+								<RevealItem key={value.id}>
+									<FeatureCard feature={value} />
+								</RevealItem>
 							))}
-						</div>
+						</RevealGroup>
 					</Container>
 				</section>
 
 				{/* Founder message */}
 				<section className="py-24">
 					<Container>
-						<div className="grid items-center gap-12 lg:grid-cols-2">
+						<Reveal className="grid items-center gap-12 lg:grid-cols-2">
 							<div className="relative mx-auto aspect-[4/5] w-full max-w-sm overflow-hidden rounded-2xl shadow-elevated">
 								<RevealImage
 									src="/images/trainers/marcus-reed.jpg"
@@ -66,7 +70,7 @@ export default function AboutPage() {
 									James Calloway <span className="font-normal text-text-muted">&mdash; Founder, {siteConfig.name}</span>
 								</p>
 							</div>
-						</div>
+						</Reveal>
 					</Container>
 				</section>
 

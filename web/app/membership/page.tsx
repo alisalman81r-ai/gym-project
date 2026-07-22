@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { Navbar, Footer, BackToTop, Container } from "@/components/layout";
-import { SectionTitle, CtaBanner, ComparisonTable, Accordion, PageHeader } from "@/components/ui";
+import { SectionTitle, CtaBanner, ComparisonTable, Accordion, PageHeader, Reveal, RevealGroup, RevealItem } from "@/components/ui";
 import { PricingCard, FeatureCard } from "@/components/cards";
 import { PRICING_PLANS } from "@/constants/pricing";
 import { FAQ_ITEMS } from "@/constants/faq";
@@ -53,38 +53,44 @@ export default function MembershipPage() {
 
 				<section className="py-24">
 					<Container>
-						<div className="grid gap-6 md:grid-cols-3">
+						<RevealGroup className="grid gap-6 md:grid-cols-3">
 							{PRICING_PLANS.map((plan) => (
-								<div key={plan.id} className={plan.isFeatured ? "md:scale-105" : undefined}>
+								<RevealItem key={plan.id} className={plan.isFeatured ? "md:scale-105" : undefined}>
 									<PricingCard plan={plan} />
-								</div>
+								</RevealItem>
 							))}
-						</div>
+						</RevealGroup>
 					</Container>
 				</section>
 
 				<section className="pb-24">
 					<Container>
 						<SectionTitle eyebrow="Side By Side" title="Compare Every Feature" />
-						<ComparisonTable rows={COMPARISON_ROWS} />
+						<Reveal>
+							<ComparisonTable rows={COMPARISON_ROWS} />
+						</Reveal>
 					</Container>
 				</section>
 
 				<section className="bg-secondary py-24">
 					<Container>
 						<SectionTitle eyebrow="Beyond The Price Tag" title="Why Members Stay" />
-						<div className="grid gap-6 sm:grid-cols-3">
+						<RevealGroup className="grid gap-6 sm:grid-cols-3">
 							{WHY_MEMBERS_STAY.map((item) => (
-								<FeatureCard key={item.id} feature={item} />
+								<RevealItem key={item.id}>
+									<FeatureCard feature={item} />
+								</RevealItem>
 							))}
-						</div>
+						</RevealGroup>
 					</Container>
 				</section>
 
 				<section id="faq" className="py-24">
 					<Container>
 						<SectionTitle eyebrow="Questions" title="Frequently Asked Questions" />
-						<Accordion items={FAQ_ITEMS} />
+						<Reveal>
+							<Accordion items={FAQ_ITEMS} />
+						</Reveal>
 					</Container>
 				</section>
 

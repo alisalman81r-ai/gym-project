@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { Navbar, Footer, BackToTop, Container } from "@/components/layout";
-import { CtaBanner, PageHeader } from "@/components/ui";
+import { CtaBanner, PageHeader, RevealGroup, RevealItem } from "@/components/ui";
 import { TrainerCard } from "@/components/cards";
 import { TRAINERS } from "@/constants/trainers";
 import { createMetadata } from "@/lib/metadata";
@@ -20,11 +20,13 @@ export default function TrainersPage() {
 
 				<section className="py-24">
 					<Container>
-						<div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+						<RevealGroup className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
 							{TRAINERS.map((trainer) => (
-								<TrainerCard key={trainer.id} trainer={trainer} />
+								<RevealItem key={trainer.id}>
+									<TrainerCard trainer={trainer} />
+								</RevealItem>
 							))}
-						</div>
+						</RevealGroup>
 					</Container>
 				</section>
 

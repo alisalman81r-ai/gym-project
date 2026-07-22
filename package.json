@@ -10,5 +10,8 @@
   },
   "devDependencies": {
     "live-server": "^1.2.2"
+  },
+  "dependencies": {
+    "framer-motion": "^12.42.2"
   }
 }

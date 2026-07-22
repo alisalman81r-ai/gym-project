@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Heart, MessageCircle } from "lucide-react";
 import { Navbar, Footer, Container } from "@/components/layout";
-import { Badge, Logo, RevealImage, Button } from "@/components/ui";
+import { Badge, Logo, RevealImage, Button, Reveal, RevealGroup, RevealItem } from "@/components/ui";
 import { siteConfig } from "@/constants/site";
 import { INSTAGRAM_POSTS } from "@/constants/social";
 
@@ -29,7 +29,7 @@ export default function InstagramPreviewPage() {
 			<Navbar />
 			<main className="py-16 pt-32">
 				<Container className="max-w-3xl">
-					<div className="flex flex-col items-center gap-6 text-center sm:flex-row sm:items-start sm:text-left">
+					<Reveal className="flex flex-col items-center gap-6 text-center sm:flex-row sm:items-start sm:text-left">
 						<Logo size="lg" />
 						<div className="flex-1">
 							<div className="flex flex-wrap items-center justify-center gap-3 sm:justify-start">
@@ -51,13 +51,13 @@ export default function InstagramPreviewPage() {
 								Book a Tour
 							</Button>
 						</div>
-					</div>
+					</Reveal>
 				</Container>
 
 				<Container className="mt-10 max-w-4xl">
-					<div className="grid grid-cols-3 gap-1 sm:gap-2">
+					<RevealGroup className="grid grid-cols-3 gap-1 sm:gap-2">
 						{INSTAGRAM_POSTS.map((post) => (
-							<div key={post.id} className="group relative aspect-square overflow-hidden bg-secondary">
+							<RevealItem key={post.id} className="group relative aspect-square overflow-hidden bg-secondary">
 								<RevealImage
 									src={post.image}
 									alt={post.alt}
@@ -73,9 +73,9 @@ export default function InstagramPreviewPage() {
 										<MessageCircle size={18} fill="currentColor" /> {post.comments}
 									</span>
 								</div>
-							</div>
+							</RevealItem>
 						))}
-					</div>
+					</RevealGroup>
 				</Container>
 			</main>
 			<Footer />

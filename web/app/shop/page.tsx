@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Navbar, Footer, Container } from "@/components/layout";
-import { PageHeader } from "@/components/ui";
+import { PageHeader, RevealGroup, RevealItem } from "@/components/ui";
 import { ProductCard } from "@/components/cards";
 import { ShopFilters } from "@/components/shop/ShopFilters";
 import { listProducts, getCategories, type ProductSort } from "@/lib/store/products";
@@ -66,11 +66,13 @@ export default async function ShopPage({ searchParams }: ShopPageProps) {
 					{products.length === 0 ? (
 						<p className="py-16 text-center text-text-muted">No products match your filters.</p>
 					) : (
-						<div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+						<RevealGroup className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
 							{products.map((product) => (
-								<ProductCard key={product.id} product={product} initialInWishlist={wishlistIds.has(product.id)} />
+								<RevealItem key={product.id}>
+									<ProductCard product={product} initialInWishlist={wishlistIds.has(product.id)} />
+								</RevealItem>
 							))}
-						</div>
+						</RevealGroup>
 					)}
 
 					{totalPages > 1 && (

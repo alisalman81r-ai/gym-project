@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { Navbar, Footer, BackToTop, Container } from "@/components/layout";
-import { SectionTitle, CtaBanner, PageHeader } from "@/components/ui";
+import { SectionTitle, CtaBanner, PageHeader, Reveal, RevealGroup, RevealItem } from "@/components/ui";
 import { ClassCard } from "@/components/cards";
 import { CLASSES } from "@/constants/classes";
 import { createMetadata } from "@/lib/metadata";
@@ -29,18 +29,20 @@ export default function ClassesPage() {
 
 				<section className="py-24">
 					<Container>
-						<div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+						<RevealGroup className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
 							{CLASSES.map((gymClass) => (
-								<ClassCard key={gymClass.id} gymClass={gymClass} />
+								<RevealItem key={gymClass.id}>
+									<ClassCard gymClass={gymClass} />
+								</RevealItem>
 							))}
-						</div>
+						</RevealGroup>
 					</Container>
 				</section>
 
 				<section className="bg-secondary py-24">
 					<Container>
 						<SectionTitle eyebrow="Plan Your Week" title="Weekly Class Schedule" />
-						<div className="overflow-x-auto rounded-2xl border border-border">
+						<Reveal className="overflow-x-auto rounded-2xl border border-border">
 							<table className="w-full min-w-[720px] border-collapse text-sm">
 								<thead>
 									<tr className="bg-background text-left">
@@ -69,7 +71,7 @@ export default function ClassesPage() {
 									))}
 								</tbody>
 							</table>
-						</div>
+						</Reveal>
 					</Container>
 				</section>
 

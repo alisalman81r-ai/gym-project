@@ -3,7 +3,7 @@ import { notFound } from "next/navigation";
 import { Navbar, Footer, BackToTop, Container } from "@/components/layout";
 import { RevealImage, Button } from "@/components/ui";
 import { BlogCard } from "@/components/cards";
-import { BLOG_POSTS } from "@/constants/blog";
+import { getBlogPostBySlug, getRelatedBlogPosts } from "@/lib/store/blog";
 import { createMetadata } from "@/lib/metadata";
 import { siteConfig } from "@/constants/site";
 
@@ -11,13 +11,12 @@ interface BlogPostPageProps {
 	params: Promise<{ slug: string }>;
 }
 
-export function generateStaticParams() {
-	return BLOG_POSTS.map((post) => ({ slug: post.slug }));
-}
+// Reads live posts so admin edits appear without a rebuild.
+export const dynamic = "force-dynamic";
 
 export async function generateMetadata({ params }: BlogPostPageProps): Promise<Metadata> {
 	const { slug } = await params;
-	const post = BLOG_POSTS.find((p) => p.slug === slug);
+	const post = getBlogPostBySlug(slug);
 	if (!post) return {};
 	return createMetadata({
 		title: post.title,
@@ -29,11 +28,11 @@ export async function generateMetadata({ params }: BlogPostPageProps): Promise<M
 
 export default async function BlogPostPage({ params }: BlogPostPageProps) {
 	const { slug } = await params;
-	const post = BLOG_POSTS.find((p) => p.slug === slug);
+	const post = getBlogPostBySlug(slug);
 
 	if (!post) notFound();
 
-	const related = BLOG_POSTS.filter((p) => p.slug !== slug).slice(0, 3);
+	const related = getRelatedBlogPosts(slug, 3);
 
 	const articleJsonLd = {
 		"@context": "https://schema.org",

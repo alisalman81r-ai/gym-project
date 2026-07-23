@@ -19,3 +19,5 @@ export type { Review } from "./review";
 export type { CouponType, Coupon } from "./coupon";
 export type { CustomerAddress, CustomerUser } from "./customer";
 export type { MembershipStatus, Membership } from "./membership";
+export type { ChatSender, ChatConversationStatus, ChatMessage, ChatConversation, ChatConversationSummary } from "./chat";
+export type { Notification } from "./notification";

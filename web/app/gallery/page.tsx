@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Navbar, Footer, BackToTop, Container } from "@/components/layout";
 import { RevealImage, RevealGroup, RevealItem, CtaBanner, PageHeader } from "@/components/ui";
-import { GALLERY_IMAGES } from "@/constants/gallery";
+import { listGalleryImages } from "@/lib/store/gallery";
 import { createMetadata } from "@/lib/metadata";
 
 export const metadata: Metadata = createMetadata({
@@ -10,7 +10,12 @@ export const metadata: Metadata = createMetadata({
 	path: "/gallery",
 });
 
+// Reflects gallery edits made in the admin panel without a rebuild.
+export const dynamic = "force-dynamic";
+
 export default function GalleryPage() {
+	const images = listGalleryImages();
+
 	return (
 		<>
 			<Navbar />
@@ -19,8 +24,11 @@ export default function GalleryPage() {
 
 				<section className="py-24">
 					<Container>
+						{images.length === 0 ? (
+							<p className="text-center text-text-muted">Gallery photos are coming soon.</p>
+						) : (
 						<RevealGroup className="grid grid-cols-2 gap-3 sm:grid-cols-3">
-							{GALLERY_IMAGES.map((image, index) => (
+							{images.map((image, index) => (
 								<RevealItem key={image.id}>
 									<div
 										className={`group relative overflow-hidden rounded-lg ${
@@ -28,7 +36,7 @@ export default function GalleryPage() {
 										}`}
 									>
 										<RevealImage
-											src={image.src}
+											src={image.url}
 											alt={image.alt}
 											fill
 											sizes="(min-width: 640px) 33vw, 50vw"
@@ -43,6 +51,7 @@ export default function GalleryPage() {
 								</RevealItem>
 							))}
 						</RevealGroup>
+						)}
 					</Container>
 				</section>
 

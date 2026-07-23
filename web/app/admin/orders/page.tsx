@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { Container } from "@/components/layout";
-import { listOrders } from "@/lib/store/orders";
+import { listOrders, getSalesSummary } from "@/lib/store/orders";
 import { ORDER_STATUS_LABELS } from "@/lib/orderStatus";
 import type { OrderStatus } from "@/types";
 
@@ -19,11 +19,29 @@ export default async function AdminOrdersPage({ searchParams }: OrdersPageProps)
 	const params = await searchParams;
 	const status = STATUS_OPTIONS.includes(params.status as OrderStatus) ? (params.status as OrderStatus) : undefined;
 	const { orders, total } = listOrders({ search: params.q, status, pageSize: 100 });
+	const sales = getSalesSummary();
 
 	return (
 		<main className="py-16">
 			<Container>
 				<h1 className="mb-8 font-display text-3xl font-bold text-text">Orders ({total})</h1>
+
+				<div className="mb-8 grid gap-4 sm:grid-cols-2">
+					<div className="rounded-2xl border border-primary/30 bg-gradient-to-br from-primary/10 to-transparent p-6">
+						<p className="text-xs font-bold uppercase tracking-widest text-text-subtle">Total Sales</p>
+						<p className="mt-2 font-display text-3xl font-bold text-primary">${sales.acceptedTotal.toFixed(2)}</p>
+						<p className="mt-1 text-xs text-text-muted">
+							From {sales.acceptedCount} accepted order{sales.acceptedCount === 1 ? "" : "s"} (excludes pending &amp; cancelled)
+						</p>
+					</div>
+					<div className="rounded-2xl border border-border bg-secondary p-6">
+						<p className="text-xs font-bold uppercase tracking-widest text-text-subtle">Awaiting Acceptance</p>
+						<p className="mt-2 font-display text-3xl font-bold text-text">${sales.pendingTotal.toFixed(2)}</p>
+						<p className="mt-1 text-xs text-text-muted">
+							From {sales.pendingCount} pending order{sales.pendingCount === 1 ? "" : "s"}
+						</p>
+					</div>
+				</div>
 
 				<form method="get" className="mb-6 flex flex-wrap gap-3">
 					<input

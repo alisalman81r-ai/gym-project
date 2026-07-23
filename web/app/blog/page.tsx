@@ -3,7 +3,7 @@ import Link from "next/link";
 import { Navbar, Footer, BackToTop, Container } from "@/components/layout";
 import { RevealImage, Reveal, RevealGroup, RevealItem, PageHeader } from "@/components/ui";
 import { BlogCard } from "@/components/cards";
-import { BLOG_POSTS } from "@/constants/blog";
+import { listBlogPosts } from "@/lib/store/blog";
 import { createMetadata } from "@/lib/metadata";
 
 export const metadata: Metadata = createMetadata({
@@ -12,8 +12,11 @@ export const metadata: Metadata = createMetadata({
 	path: "/blog",
 });
 
+// Reflects journal edits made in the admin panel without a rebuild.
+export const dynamic = "force-dynamic";
+
 export default function BlogPage() {
-	const [featured, ...rest] = BLOG_POSTS;
+	const [featured, ...rest] = listBlogPosts();
 
 	return (
 		<>

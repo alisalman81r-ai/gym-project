@@ -1,7 +1,6 @@
 import { Container } from "@/components/layout";
 import { MessageReplyForm } from "@/components/admin/MessageReplyForm";
 import { db } from "@/lib/db";
-import { siteConfig } from "@/constants/site";
 import {
 	setContactStatusAction,
 	deleteContactAction,
@@ -123,9 +122,6 @@ export default async function AdminMessagesPage() {
 												</form>
 												<MessageReplyForm
 													onReply={replyAction}
-													recipientEmail={row.email}
-													mailSubject={`Re: Your inquiry to ${siteConfig.name}`}
-													mailBody={`Hi ${row.name},\n\nThanks for reaching out about "${row.interest}" —\n\n\n\n— ${siteConfig.name}\n\n---\nYour original message:\n${row.message}`}
 													existingReply={row.admin_reply}
 													repliedAt={row.replied_at}
 												/>
@@ -196,9 +192,6 @@ export default async function AdminMessagesPage() {
 												</form>
 												<MessageReplyForm
 													onReply={replyAction}
-													recipientEmail={row.email}
-													mailSubject={`Re: Your ${row.supplement_name} order inquiry`}
-													mailBody={`Hi ${row.name},\n\nThanks for your interest in ${row.supplement_name} (qty ${row.quantity}) —\n\n\n\n— ${siteConfig.name}\n\n---\nYour notes:\n${row.notes ?? "—"}`}
 													existingReply={row.admin_reply}
 													repliedAt={row.replied_at}
 												/>

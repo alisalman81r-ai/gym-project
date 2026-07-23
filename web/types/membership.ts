@@ -1,4 +1,4 @@
-export type MembershipStatus = "pending" | "active" | "past_due" | "canceled" | "incomplete";
+export type MembershipStatus = "pending" | "active" | "past_due" | "canceled" | "incomplete" | "rejected";
 
 export interface Membership {
 	id: number;

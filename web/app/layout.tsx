@@ -4,6 +4,7 @@ import "./globals.css";
 import { siteConfig } from "@/constants/site";
 import { MotionProvider } from "@/components/providers/MotionProvider";
 import { StructuredData } from "@/components/StructuredData";
+import { ChatWidget } from "@/components/chat/ChatWidget";
 
 const playfairDisplay = Playfair_Display({
 	subsets: ["latin"],
@@ -51,6 +52,7 @@ export default function RootLayout({
 			<body className="font-body antialiased">
 				<StructuredData />
 				<MotionProvider>{children}</MotionProvider>
+				<ChatWidget />
 			</body>
 		</html>
 	);

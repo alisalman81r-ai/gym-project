@@ -6,6 +6,7 @@ import { usePathname } from "next/navigation";
 import { AnimatePresence, motion } from "framer-motion";
 import { Menu, X, ShoppingCart, User, Heart } from "lucide-react";
 import { Container } from "./Container";
+import { NotificationBell } from "./NotificationBell";
 import { Button, Logo } from "@/components/ui";
 import { NAV_LINKS, CONTACT_LINK } from "@/constants/navigation";
 import { useScrolledPast } from "@/hooks/useScrollPosition";
@@ -91,6 +92,7 @@ export function Navbar() {
 						<Link href="/account" aria-label="My Account" className="text-text-muted transition-colors hover:text-text">
 							<User size={20} />
 						</Link>
+						<NotificationBell />
 						<Link href="/cart" aria-label="Cart" className="relative text-text-muted transition-colors hover:text-text">
 							<ShoppingCart size={20} />
 							{cartCount > 0 && (

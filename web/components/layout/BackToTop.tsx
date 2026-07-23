@@ -6,7 +6,10 @@ import { useScrolledPast } from "@/hooks/useScrollPosition";
 
 const SHOW_AFTER_PX = 600;
 
-/** Floating scroll-to-top button, fades in once scrolled past the hero. */
+/**
+ * Floating scroll-to-top button, fades in once scrolled past the hero.
+ * Sits bottom-left -- ChatWidget's floating bubble owns bottom-right.
+ */
 export function BackToTop() {
 	const isVisible = useScrolledPast(SHOW_AFTER_PX);
 
@@ -25,7 +28,7 @@ export function BackToTop() {
 					whileHover={{ scale: 1.08 }}
 					whileTap={{ scale: 0.94 }}
 					transition={{ duration: 0.25 }}
-					className="fixed bottom-4 right-4 z-[90] flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-br from-primary-light to-primary text-background opacity-80 shadow-elevated hover:opacity-100 sm:bottom-6 sm:right-6 sm:h-12 sm:w-12"
+					className="fixed bottom-4 left-4 z-[90] flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-br from-primary-light to-primary text-background opacity-80 shadow-elevated hover:opacity-100 sm:bottom-6 sm:left-6 sm:h-12 sm:w-12"
 				>
 					<ArrowUp size={18} className="sm:hidden" />
 					<ArrowUp size={20} className="hidden sm:block" />

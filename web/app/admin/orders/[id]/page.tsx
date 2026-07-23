@@ -1,17 +1,17 @@
+import Link from "next/link";
 import { notFound } from "next/navigation";
+import { ArrowLeft } from "lucide-react";
 import { Container } from "@/components/layout";
 import { PrintInvoiceButton } from "@/components/admin/PrintInvoiceButton";
-import { getOrderById } from "@/lib/store/orders";
+import { OrderStatusForm } from "@/components/admin/OrderStatusForm";
+import { getOrderById, markOrderSeenByAdmin } from "@/lib/store/orders";
 import { ORDER_STATUS_LABELS } from "@/lib/orderStatus";
 import { updateOrderStatusAction, assignTrackingAction } from "../actions";
-import type { OrderStatus } from "@/types";
 
 export const metadata = { title: "Order Detail" };
 
 // Reads live order state -- must not be statically cached.
 export const dynamic = "force-dynamic";
-
-const STATUS_OPTIONS: OrderStatus[] = ["pending", "confirmed", "packed", "shipped", "out_for_delivery", "delivered", "cancelled"];
 
 interface OrderDetailPageProps {
 	params: Promise<{ id: string }>;
@@ -22,14 +22,30 @@ export default async function AdminOrderDetailPage({ params }: OrderDetailPagePr
 	const order = getOrderById(Number(id));
 	if (!order) notFound();
 
+	// Opening the detail page counts as reviewing the order -- clears its "new" badge.
+	markOrderSeenByAdmin(order.id);
+
 	return (
 		<main className="py-16">
 			<Container className="max-w-4xl">
+				<Link
+					href="/admin/orders"
+					className="mb-6 inline-flex items-center gap-2 text-sm font-semibold text-text-muted transition-colors hover:text-text"
+				>
+					<ArrowLeft size={16} /> Back to Orders
+				</Link>
 				<div className="rounded-2xl border border-border bg-secondary p-8">
 					<div className="mb-6 flex flex-wrap items-start justify-between gap-4">
 						<div>
 							<h1 className="font-display text-2xl font-bold text-text">Order {order.orderNumber}</h1>
 							<p className="text-sm text-text-subtle">{order.createdAt}</p>
+							<span
+								className={`mt-2 inline-block rounded-full px-3 py-1 text-xs font-semibold ${
+									order.status === "cancelled" ? "bg-error/15 text-error" : "bg-primary/10 text-primary"
+								}`}
+							>
+								{ORDER_STATUS_LABELS[order.status]}
+							</span>
 						</div>
 						<div className="text-right text-sm text-text-muted">
 							<p className="font-semibold text-text">{order.customerName}</p>
@@ -96,26 +112,7 @@ export default async function AdminOrderDetailPage({ params }: OrderDetailPagePr
 				</div>
 
 				<div className="no-print mt-8 grid gap-6 sm:grid-cols-2">
-					<form action={updateOrderStatusAction.bind(null, order.id)} className="space-y-3 rounded-2xl border border-border bg-secondary p-6">
-						<h2 className="font-display text-lg font-semibold text-text">Update Status</h2>
-						<select
-							name="status"
-							defaultValue={order.status}
-							className="w-full rounded-md border border-border/80 bg-secondary-light px-4 py-3 text-sm text-text focus:border-primary focus:outline-none"
-						>
-							{STATUS_OPTIONS.map((option) => (
-								<option key={option} value={option}>
-									{ORDER_STATUS_LABELS[option]}
-								</option>
-							))}
-						</select>
-						<button
-							type="submit"
-							className="rounded-full bg-gradient-to-br from-primary-light to-primary px-6 py-2 text-sm font-semibold text-background shadow-gold"
-						>
-							Update
-						</button>
-					</form>
+					<OrderStatusForm action={updateOrderStatusAction.bind(null, order.id)} currentStatus={order.status} />
 
 					<form action={assignTrackingAction.bind(null, order.id)} className="space-y-3 rounded-2xl border border-border bg-secondary p-6">
 						<h2 className="font-display text-lg font-semibold text-text">Assign Tracking</h2>

@@ -1,5 +1,6 @@
 import { Container } from "@/components/layout";
 import { listMemberships } from "@/lib/store/memberships";
+import { approveMembershipAction, rejectMembershipAction } from "./actions";
 
 export const metadata = { title: "Memberships" };
 
@@ -12,9 +13,14 @@ const STATUS_TONE: Record<string, string> = {
 	past_due: "bg-error/15 text-error",
 	canceled: "bg-error/15 text-error",
 	incomplete: "border border-border text-text-muted",
+	rejected: "bg-error/15 text-error",
 };
 
-/** Read-only: membership lifecycle is Stripe-driven (see app/api/stripe/webhook), not manually edited here. */
+// Manually approvable/rejectable in addition to the normal Stripe-driven
+// path (see app/api/stripe/webhook) -- covers comp memberships and
+// applications an admin wants to decide on directly.
+const PENDING_STATUSES = new Set(["pending", "incomplete"]);
+
 export default function AdminMembershipsPage() {
 	const memberships = listMemberships();
 
@@ -24,7 +30,7 @@ export default function AdminMembershipsPage() {
 				<h1 className="mb-8 font-display text-3xl font-bold text-text">Memberships ({memberships.length})</h1>
 
 				<div className="overflow-x-auto rounded-2xl border border-border">
-					<table className="w-full min-w-[800px] border-collapse text-sm">
+					<table className="w-full min-w-[900px] border-collapse text-sm">
 						<thead>
 							<tr className="border-b border-border bg-secondary text-left text-text-muted">
 								<th className="p-3">Customer</th>
@@ -33,40 +39,70 @@ export default function AdminMembershipsPage() {
 								<th className="p-3">Status</th>
 								<th className="p-3">Renews / Ended</th>
 								<th className="p-3">Joined</th>
+								<th className="p-3">Actions</th>
 							</tr>
 						</thead>
 						<tbody>
 							{memberships.length === 0 && (
 								<tr>
-									<td colSpan={6} className="p-4 text-center text-text-muted">
+									<td colSpan={7} className="p-4 text-center text-text-muted">
 										No memberships yet.
 									</td>
 								</tr>
 							)}
-							{memberships.map((membership) => (
-								<tr key={membership.id} className="border-b border-border align-top">
-									<td className="p-3 text-text">
-										{membership.customerName}
-										<br />
-										<span className="text-xs text-text-subtle">{membership.customerEmail}</span>
-									</td>
-									<td className="p-3 text-text-muted">{membership.planName}</td>
-									<td className="p-3 text-text-muted">${membership.price.toFixed(2)}/mo</td>
-									<td className="p-3">
-										<span
-											className={`rounded-full px-3 py-1 text-xs font-semibold capitalize ${
-												STATUS_TONE[membership.status] ?? "border border-border text-text-muted"
-											}`}
-										>
-											{membership.status.replace("_", " ")}
-										</span>
-									</td>
-									<td className="p-3 text-text-subtle">
-										{membership.currentPeriodEnd ? new Date(membership.currentPeriodEnd).toLocaleDateString() : "—"}
-									</td>
-									<td className="p-3 text-text-subtle">{membership.createdAt}</td>
-								</tr>
-							))}
+							{memberships.map((membership) => {
+								const canDecide = PENDING_STATUSES.has(membership.status);
+								const approveAction = approveMembershipAction.bind(null, membership.id);
+								const rejectAction = rejectMembershipAction.bind(null, membership.id);
+								return (
+									<tr key={membership.id} className="border-b border-border align-top">
+										<td className="p-3 text-text">
+											{membership.customerName}
+											<br />
+											<span className="text-xs text-text-subtle">{membership.customerEmail}</span>
+										</td>
+										<td className="p-3 text-text-muted">{membership.planName}</td>
+										<td className="p-3 text-text-muted">${membership.price.toFixed(2)}/mo</td>
+										<td className="p-3">
+											<span
+												className={`rounded-full px-3 py-1 text-xs font-semibold capitalize ${
+													STATUS_TONE[membership.status] ?? "border border-border text-text-muted"
+												}`}
+											>
+												{membership.status.replace("_", " ")}
+											</span>
+										</td>
+										<td className="p-3 text-text-subtle">
+											{membership.currentPeriodEnd ? new Date(membership.currentPeriodEnd).toLocaleDateString() : "—"}
+										</td>
+										<td className="p-3 text-text-subtle">{membership.createdAt}</td>
+										<td className="p-3">
+											{canDecide ? (
+												<div className="flex flex-col gap-2">
+													<form action={approveAction}>
+														<button
+															type="submit"
+															className="rounded-full bg-gradient-to-br from-primary-light to-primary px-4 py-1.5 text-xs font-semibold text-background"
+														>
+															Approve
+														</button>
+													</form>
+													<form action={rejectAction}>
+														<button
+															type="submit"
+															className="rounded-full border border-error px-4 py-1.5 text-xs font-semibold text-error transition-colors hover:bg-error hover:text-white"
+														>
+															Reject
+														</button>
+													</form>
+												</div>
+											) : (
+												<span className="text-xs text-text-subtle">—</span>
+											)}
+										</td>
+									</tr>
+								);
+							})}
 						</tbody>
 					</table>
 				</div>

@@ -1,6 +1,6 @@
 import type { MetadataRoute } from "next";
 import { siteConfig } from "@/constants/site";
-import { BLOG_POSTS } from "@/constants/blog";
+import { listBlogPosts } from "@/lib/store/blog";
 
 const STATIC_ROUTES = [
 	{ path: "", priority: 1, changeFrequency: "weekly" as const },
@@ -24,7 +24,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 		priority: route.priority,
 	}));
 
-	const blogEntries = BLOG_POSTS.map((post) => ({
+	const blogEntries = listBlogPosts().map((post) => ({
 		url: `${siteConfig.url}/blog/${post.slug}`,
 		lastModified: new Date(post.date),
 		changeFrequency: "monthly" as const,

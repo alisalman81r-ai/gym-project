@@ -225,6 +225,36 @@ export function getOrdersForUser(userId: number): Order[] {
 	return rows.map((row) => rowToOrder(row, loadItems(row.id)));
 }
 
+export interface SalesSummary {
+	/** Money from orders the admin has accepted (confirmed or further) -- excludes pending and cancelled. */
+	acceptedTotal: number;
+	acceptedCount: number;
+	/** Placed but not yet accepted -- money still awaiting a decision. */
+	pendingTotal: number;
+	pendingCount: number;
+}
+
+/**
+ * Revenue split used by the Orders page banner. Accepting a pending order
+ * moves its value from `pendingTotal` into `acceptedTotal`; cancelling an
+ * order drops it from both. Cancelled orders never count as sales.
+ */
+export function getSalesSummary(): SalesSummary {
+	const accepted = db
+		.prepare("SELECT COUNT(*) as count, COALESCE(SUM(total), 0) as total FROM orders WHERE status NOT IN ('pending', 'cancelled')")
+		.get() as { count: number; total: number };
+	const pending = db
+		.prepare("SELECT COUNT(*) as count, COALESCE(SUM(total), 0) as total FROM orders WHERE status = 'pending'")
+		.get() as { count: number; total: number };
+
+	return {
+		acceptedTotal: accepted.total,
+		acceptedCount: accepted.count,
+		pendingTotal: pending.total,
+		pendingCount: pending.count,
+	};
+}
+
 export interface OrderFilters {
 	search?: string;
 	status?: OrderStatus;
@@ -258,6 +288,11 @@ export function listOrders(filters: OrderFilters = {}): { orders: Order[]; total
 		.all(...params, pageSize, offset) as OrderRow[];
 
 	return { orders: rows.map((row) => rowToOrder(row, loadItems(row.id))), total: count };
+}
+
+/** Marks an order as reviewed by the admin -- clears it from the "new orders" badge. */
+export function markOrderSeenByAdmin(orderId: number): void {
+	db.prepare("UPDATE orders SET admin_seen = 1 WHERE id = ?").run(orderId);
 }
 
 export function updateOrderStatus(orderId: number, status: OrderStatus): void {

@@ -1,4 +1,6 @@
 import type Database from "better-sqlite3";
+import { GALLERY_IMAGES } from "@/constants/gallery";
+import { BLOG_POSTS } from "@/constants/blog";
 
 interface SeedProduct {
 	slug: string;
@@ -276,5 +278,45 @@ export function seedProductsIfEmpty(db: Database.Database): void {
 		}
 	});
 
+	seedAll();
+}
+
+/** Idempotent -- only runs against a fresh database with no gallery images yet. */
+export function seedGalleryIfEmpty(db: Database.Database): void {
+	const { count } = db.prepare("SELECT COUNT(*) as count FROM gallery_images").get() as { count: number };
+	if (count > 0) return;
+
+	const insert = db.prepare("INSERT INTO gallery_images (url, alt, caption, sort_order) VALUES (?, ?, ?, ?)");
+	const seedAll = db.transaction(() => {
+		GALLERY_IMAGES.forEach((image, index) => insert.run(image.src, image.alt, image.caption ?? null, index));
+	});
+	seedAll();
+}
+
+/** Idempotent -- only runs against a fresh database with no blog posts yet. */
+export function seedBlogIfEmpty(db: Database.Database): void {
+	const { count } = db.prepare("SELECT COUNT(*) as count FROM blog_posts").get() as { count: number };
+	if (count > 0) return;
+
+	const insert = db.prepare(`
+		INSERT INTO blog_posts (slug, title, category, excerpt, body, author, date, read_time, image_src, image_alt)
+		VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+	`);
+	const seedAll = db.transaction(() => {
+		for (const post of BLOG_POSTS) {
+			insert.run(
+				post.slug,
+				post.title,
+				post.category,
+				post.excerpt,
+				post.body.join("\n\n"),
+				post.author,
+				post.date,
+				post.readTime,
+				post.image.src,
+				post.image.alt
+			);
+		}
+	});
 	seedAll();
 }

@@ -4,8 +4,7 @@ import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
 import { db } from "@/lib/db";
 import { hasAdminSession } from "@/lib/auth";
-import { sendEmail, type SendEmailResult } from "@/lib/email";
-import { siteConfig } from "@/constants/site";
+import { addMessage } from "@/lib/store/chat";
 
 // Defense in depth: Proxy already gates /admin, but Server Actions are
 // their own entry point and must verify the session independently.
@@ -37,54 +36,59 @@ export async function deleteOrderAction(id: number): Promise<void> {
 	revalidatePath("/admin/messages");
 }
 
-// Saves the admin's reply text as a record, emails it to the address the
-// visitor gave, and marks the message handled. Sending requires SMTP_*
-// env vars (see lib/email.ts) -- the reply is still saved as a record
-// even when sending fails, so nothing the admin typed is lost.
-export async function replyToContactAction(id: number, replyText: string): Promise<SendEmailResult> {
+export interface ChatReplyResult {
+	delivered: boolean;
+	error?: string;
+}
+
+// Saves the admin's reply text as a record and delivers it into the
+// visitor's live-chat conversation (created alongside their submission --
+// see app/api/contact/route.ts) rather than email. Older rows from before
+// that linking existed have no chat_conversation_id, so delivery can
+// legitimately fail for those -- surfaced via `delivered: false` instead
+// of silently pretending it worked.
+export async function replyToContactAction(id: number, replyText: string): Promise<ChatReplyResult> {
 	await assertAdmin();
 	const trimmed = replyText.trim();
-	if (!trimmed) return { sent: false, error: "Reply can't be empty." };
+	if (!trimmed) return { delivered: false, error: "Reply can't be empty." };
 
-	const row = db.prepare("SELECT name, email, interest FROM contact_submissions WHERE id = ?").get(id) as
-		| { name: string; email: string; interest: string }
+	const row = db.prepare("SELECT chat_conversation_id FROM contact_submissions WHERE id = ?").get(id) as
+		| { chat_conversation_id: number | null }
 		| undefined;
-	if (!row) return { sent: false, error: "Message not found." };
-
-	const result = await sendEmail({
-		to: row.email,
-		subject: `Re: Your inquiry to ${siteConfig.name}`,
-		text: `Hi ${row.name},\n\n${trimmed}\n\n— ${siteConfig.name}`,
-	});
+	if (!row) return { delivered: false, error: "Message not found." };
 
 	db.prepare("UPDATE contact_submissions SET admin_reply = ?, replied_at = datetime('now'), status = 'handled' WHERE id = ?").run(
 		trimmed,
 		id
 	);
 	revalidatePath("/admin/messages");
-	return result;
+
+	if (!row.chat_conversation_id) {
+		return { delivered: false, error: "This message predates live chat, so there's no chat to deliver the reply into." };
+	}
+	addMessage(row.chat_conversation_id, "admin", trimmed);
+	return { delivered: true };
 }
 
-export async function replyToOrderAction(id: number, replyText: string): Promise<SendEmailResult> {
+export async function replyToOrderAction(id: number, replyText: string): Promise<ChatReplyResult> {
 	await assertAdmin();
 	const trimmed = replyText.trim();
-	if (!trimmed) return { sent: false, error: "Reply can't be empty." };
+	if (!trimmed) return { delivered: false, error: "Reply can't be empty." };
 
-	const row = db.prepare("SELECT name, email, supplement_name FROM supplement_orders WHERE id = ?").get(id) as
-		| { name: string; email: string; supplement_name: string }
+	const row = db.prepare("SELECT chat_conversation_id FROM supplement_orders WHERE id = ?").get(id) as
+		| { chat_conversation_id: number | null }
 		| undefined;
-	if (!row) return { sent: false, error: "Inquiry not found." };
-
-	const result = await sendEmail({
-		to: row.email,
-		subject: `Re: Your ${row.supplement_name} order inquiry`,
-		text: `Hi ${row.name},\n\n${trimmed}\n\n— ${siteConfig.name}`,
-	});
+	if (!row) return { delivered: false, error: "Inquiry not found." };
 
 	db.prepare("UPDATE supplement_orders SET admin_reply = ?, replied_at = datetime('now'), status = 'handled' WHERE id = ?").run(
 		trimmed,
 		id
 	);
 	revalidatePath("/admin/messages");
-	return result;
+
+	if (!row.chat_conversation_id) {
+		return { delivered: false, error: "This order predates live chat, so there's no chat to deliver the reply into." };
+	}
+	addMessage(row.chat_conversation_id, "admin", trimmed);
+	return { delivered: true };
 }

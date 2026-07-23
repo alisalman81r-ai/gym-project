@@ -5,7 +5,14 @@ import { Loader2, CheckCircle2 } from "lucide-react";
 import { Button } from "./Button";
 import { SUPPLEMENTS } from "@/constants/supplements";
 
-export type InquiryType = "general" | "tour" | "membership" | "supplement";
+export type InquiryType =
+	| "general"
+	| "tour"
+	| "membership"
+	| "personal-training"
+	| "classes"
+	| "session"
+	| "supplement";
 
 export interface ContactFormProps {
 	/** Preselects the inquiry-type dropdown -- e.g. Contact page CTAs can deep-link into "tour". */
@@ -194,6 +201,8 @@ export function ContactForm({ defaultInquiryType = "general" }: ContactFormProps
 					<option value="tour">Booking a Tour</option>
 					<option value="membership">Membership Plans</option>
 					<option value="personal-training">Personal Training</option>
+					<option value="classes">About Classes</option>
+					<option value="session">Book a Session</option>
 					<option value="supplement">Supplement Order &amp; Home Delivery</option>
 				</select>
 			</div>

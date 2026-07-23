@@ -56,6 +56,65 @@ body {
 	outline-offset: 2px;
 }
 
+/* ============================================================
+   CURSOR BEHAVIOR
+   Browsers default to an I-beam (text-select) cursor over any
+   plain text, and Tailwind's Preflight separately resets <button>
+   to `cursor: default`. Neither matches what's actually clickable
+   on this site, so cursor behavior is defined explicitly and
+   centrally here instead of scattered per component:
+     - default arrow over static content (headings, paragraphs,
+       labels, non-clickable cards, etc.)
+     - pointer over anything clickable (links, buttons, selects,
+       checkboxes/radios, file pickers, custom role="button"
+       controls)
+     - text (I-beam) only inside actual editable fields
+   `caret-color` is handled the same way: a blinking text caret only
+   belongs in real typing fields. Anywhere else a visible caret is
+   stray -- e.g. the browser's "caret browsing" mode (F7) or a focused
+   non-editable element -- and shows up as a blinking bar sitting inside
+   a heading. So it's hidden globally and re-enabled only on the inputs
+   below.
+   Verified against every input `type` actually used in the
+   codebase (grep for `type="..."` across app/ and components/). */
+body {
+	cursor: default;
+	caret-color: transparent;
+}
+
+a,
+button:not(:disabled),
+[role="button"]:not([aria-disabled="true"]),
+label[for],
+select,
+input[type="checkbox"],
+input[type="radio"],
+input[type="submit"],
+input[type="button"],
+input[type="file"] {
+	cursor: pointer;
+}
+
+input:not([type]),
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="number"],
+input[type="tel"],
+input[type="date"],
+input[type="search"],
+input[type="url"],
+textarea,
+[contenteditable="true"] {
+	cursor: text;
+	/* Explicit currentColor rather than `auto`: caret-color inherits, so
+	   the body's `transparent` above would otherwise carry into these
+	   fields and hide the typing caret -- and the CSS optimizer strips a
+	   literal `auto` (it equals the initial value) which would reintroduce
+	   exactly that bug. */
+	caret-color: currentColor;
+}
+
 /* Admin order invoice printing (see PrintInvoiceButton) -- hides
    chrome that shouldn't appear on a printed invoice. */
 @media print {

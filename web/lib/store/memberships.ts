@@ -72,6 +72,15 @@ export function activateMembership(membershipId: number, input: ActivateMembersh
 	).run(input.stripeCustomerId, input.stripeSubscriptionId, input.currentPeriodEnd, membershipId);
 }
 
+/** Manual admin override -- e.g. a comp membership or a pending application approved without Stripe checkout. */
+export function approveMembershipManually(membershipId: number): void {
+	db.prepare("UPDATE memberships SET status = 'active', updated_at = datetime('now') WHERE id = ?").run(membershipId);
+}
+
+export function rejectMembership(membershipId: number): void {
+	db.prepare("UPDATE memberships SET status = 'rejected', updated_at = datetime('now') WHERE id = ?").run(membershipId);
+}
+
 export function updateMembershipStatusBySubscriptionId(
 	subscriptionId: string,
 	status: MembershipStatus,
